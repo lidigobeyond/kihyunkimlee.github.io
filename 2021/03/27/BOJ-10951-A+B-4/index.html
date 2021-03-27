@@ -23,20 +23,20 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="BOJ 알고리즘 온라인 강의를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.    123456">
+<meta name="description" content="두 정수 A와 B를 입력받은 다음, A+B를 출력하는 문제이다.단, 테스트 케이스의 개수를 미리 알 수 없기 때문에 EOF에 도달할 때까지 입력을 받아야 한다.    C++에서는 아래와 같은 방법으로 EOF에 도달할 때까지 입력을 받을 수 있다.    1while(cin &gt;&gt; a &gt;&gt; b) cin은 EOF에 도달하거나 에러가 발생하면">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ 간단하게 정수 자릿수 바꾸기">
-<meta property="og:url" content="https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/index.html">
+<meta property="og:title" content="[BOJ 10951] A+B - 4">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/03/27/BOJ-10951-A+B-4/index.html">
 <meta property="og:site_name" content="김기현 블로그">
-<meta property="og:description" content="BOJ 알고리즘 온라인 강의를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.    123456">
+<meta property="og:description" content="두 정수 A와 B를 입력받은 다음, A+B를 출력하는 문제이다.단, 테스트 케이스의 개수를 미리 알 수 없기 때문에 EOF에 도달할 때까지 입력을 받아야 한다.    C++에서는 아래와 같은 방법으로 EOF에 도달할 때까지 입력을 받을 수 있다.    1while(cin &gt;&gt; a &gt;&gt; b) cin은 EOF에 도달하거나 에러가 발생하면">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2021-03-03T12:58:01.000Z">
-<meta property="article:modified_time" content="2021-03-27T01:08:35.849Z">
+<meta property="article:published_time" content="2021-03-27T01:01:00.000Z">
+<meta property="article:modified_time" content="2021-03-27T01:14:59.273Z">
 <meta property="article:author" content="KiHyun Kim">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/03/27/BOJ-10951-A+B-4/">
 
 
 <script class="page-configurations">
@@ -48,7 +48,7 @@
     lang   : 'ko'
   };
 </script>
-<title>C++ 간단하게 정수 자릿수 바꾸기 | 김기현 블로그</title>
+<title>[BOJ 10951] A+B - 4 | 김기현 블로그</title>
   
 
 
@@ -208,7 +208,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/03/27/BOJ-10951-A+B-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -221,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++ 간단하게 정수 자릿수 바꾸기
+          [BOJ 10951] A+B - 4
         </h1>
 
         <div class="post-meta-container">
@@ -231,23 +231,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">작성일</span>
+      
 
-      <time title="Post created: 2021-03-03 21:58:01" itemprop="dateCreated datePublished" datetime="2021-03-03T21:58:01+09:00">2021-03-03</time>
+      <time title="Post created: 2021-03-27 10:01:00 / Updated at: 10:14:59" itemprop="dateCreated datePublished" datetime="2021-03-27T10:01:00+09:00">2021-03-27</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-03-27 10:08:35" itemprop="dateModified" datetime="2021-03-27T10:08:35+09:00">2021-03-27</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+          <a href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/" itemprop="url" rel="index"><span itemprop="name">알고리즘 문제 풀이</span></a>
         </span>
     </span>
 
@@ -261,8 +255,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>BOJ <code>알고리즘 온라인 강의</code>를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.<br>정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.<br>산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.   </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> index, <span class="keyword">int</span> digit)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">    s[index] = digit + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> stoi(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">0</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">2</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">3</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 출력 결과</span></span><br><span class="line"><span class="comment">// 1999</span></span><br><span class="line"><span class="comment">// 9199</span></span><br><span class="line"><span class="comment">// 9919</span></span><br><span class="line"><span class="comment">// 9991</span></span><br></pre></td></tr></table></figure>
+        <p>두 정수 A와 B를 입력받은 다음, A+B를 출력하는 문제이다.<br>단, 테스트 케이스의 개수를 미리 알 수 없기 때문에 EOF에 도달할 때까지 입력을 받아야 한다.   </p>
+<p>C++에서는 아래와 같은 방법으로 EOF에 도달할 때까지 입력을 받을 수 있다.   </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b)</span><br></pre></td></tr></table></figure>
+<p><code>cin</code>은 EOF에 도달하거나 에러가 발생하면 false를 반한다.<br>(정확히 말하면 <code>cin</code>객체가 반환되는데, 이 객체는 if 문이나 while 문 안에 있으면 형변환 연산자에 의해서 자동으로 불리언 값으로 바뀐다고 한다. 정상적으로 데이터를 읽어오면 true가 되고 EOF에 도달하거나 에러가 발생하면 false가 된다.)   </p>
+<p>정답 코드   </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a+b &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -276,11 +274,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/" rel="prev" title="C++ 간단하게 정수 자릿수 바꾸기">
+                  <i class="fa fa-chevron-left"></i> C++ 간단하게 정수 자릿수 바꾸기
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/03/27/BOJ-10951-A+B-4/" rel="next" title="[BOJ 10951] A+B - 4">
-                  [BOJ 10951] A+B - 4 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
