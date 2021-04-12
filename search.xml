@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++ 간단하게 정수 자릿수 바꾸기</title>
-    <url>/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/</url>
-    <content><![CDATA[<p>BOJ <code>알고리즘 온라인 강의</code>를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.<br>정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.<br>산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.   </p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> index, <span class="keyword">int</span> digit)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">    s[index] = digit + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> stoi(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">0</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1999</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9199</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">2</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9919</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">3</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9991</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-  </entry>
-  <entry>
     <title>[BOJ 10951] A+B - 4</title>
     <url>/2021/03/27/BOJ-10951-A+B-4/</url>
     <content><![CDATA[<p>두 정수 A와 B를 입력받은 다음, A+B를 출력하는 문제이다.<br>단, 테스트 케이스의 개수를 미리 알 수 없기 때문에 EOF에 도달할 때까지 입력을 받아야 한다.   </p>
@@ -61,6 +51,16 @@
 ]]></content>
       <categories>
         <category>알고리즘 문제 풀이</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>C++ 간단하게 정수 자릿수 바꾸기</title>
+    <url>/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/</url>
+    <content><![CDATA[<p>BOJ <code>알고리즘 온라인 강의</code>를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.<br>정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.<br>산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.   </p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> index, <span class="keyword">int</span> digit)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">    s[index] = digit + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> stoi(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">0</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1999</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9199</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">2</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9919</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">3</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9991</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++</category>
       </categories>
   </entry>
 </search>
