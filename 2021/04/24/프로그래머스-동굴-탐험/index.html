@@ -32,14 +32,14 @@
 <meta property="og:site_name" content="김기현 블로그">
 <meta property="og:description" content="문제를 읽고 나서 알아차려야 했던 것들 3가지문제 해결을 위해서 문제를 읽고 나서 알아차려야 했던 것들이 있다.    1. 동굴은 트리 모양으로 되어있다.문제에는 동굴이 트리 모양이라고 직접적으로 명시되어있지 않다.하지만 문제를 읽어보면 다음과 같은 조건을 찾을 수 있다.     방의 개수가 n개일 때 방과 방 사이를 연결하는 통로의 개수는 n-1개이다(문">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/counterexample.png">
-<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/cave.png">
-<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/cave2.jpg">
+<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/프로그래머스-동굴-탐험/counterexample.png">
+<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/프로그래머스-동굴-탐험/cave.png">
+<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/프로그래머스-동굴-탐험/cave2.jpg">
 <meta property="article:published_time" content="2021-04-24T05:45:30.000Z">
-<meta property="article:modified_time" content="2021-04-26T06:50:12.056Z">
+<meta property="article:modified_time" content="2021-04-26T07:02:11.083Z">
 <meta property="article:author" content="KiHyun Kim">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/counterexample.png">
+<meta name="twitter:image" content="https://kihyunkimlee.github.io/2021/04/24/프로그래머스-동굴-탐험/counterexample.png">
 
 
 <link rel="canonical" href="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/">
@@ -299,7 +299,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-04-26 15:50:12" itemprop="dateModified" datetime="2021-04-26T15:50:12+09:00">2021-04-26</time>
+        <time title="Updated at: 2021-04-26 16:02:11" itemprop="dateModified" datetime="2021-04-26T16:02:11+09:00">2021-04-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -349,7 +349,7 @@
 <li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있으며, 두 방 사이에 이동이 불가능한 경우는 없다.</li>
 </ul>
 <p>방의 개수가 n개이고 방과 방 사이를 연결하는 통로의 개수가 n-1개이므로 동굴이 트리 모양이라고 확신할 수 있을까…?<br>정답은 <u><strong>확신할 수 없다</strong></u>이다.<br>트리의 정의가 정점의 개수가 n개이고 간선의 개수가 n-1개인, 사이클이 존재하지 않는 그래프인 건 맞다.<br>하지만 정점의 개수가 n개이고 간선의 개수가 n-1개인 그래프가 항상 트리인 것은 아니다.<br>왜냐하면 아래와 같은 반례가 존재하기 때문이다.   </p>
-<img src="counterexample.png" width=300 height=250 alt="반례 예시" title="반례 예시" />   
+<img src="/2021/04/24/프로그래머스-동굴-탐험/counterexample.png" width=300 height=250 alt="반례 예시" title="반례 예시" />   
 
 <p><span class="exturl" data-url="aHR0cHM6Ly9sZGdlYW85OS50aXN0b3J5LmNvbS80MDE=">그림 출처 : LAB OF DAEGON<i class="fa fa-external-link-alt"></i></span></p>
 <p>위의 그림은 분명 정점의 개수가 n개이고 간선의 개수가 n-1개이지만 트리가 아니다.<br>정점의 개수가 n개이고 간선의 개수가 n-1개이면서 모든 정점이 연결되어 있다는 조건이 있을 때 해당 그래프를 트리라고 말할 수 있다.<br>임의의 서로 다른 두 방 사이에 이동이 불가능한 경우가 없다는 말은 모든 방이 연결되어 있다는 말과 같다.<br>그러므로 동굴은 트리 모양으로 되어있다.   </p>
@@ -359,10 +359,10 @@
 </ul>
 <p>근데 경로가 아니라 최단 경로라고 나와 있어서 뭔가 애매하다.<br>최단 경로가 아니라 경로가 딱 한 가지만 있다는 것을 정확히 확인하고 넘어가자.<br>앞에서 동굴이 트리 모양으로 되어있다는 것을 밝혔다.<br>트리는 사이클이 존재하지 않는 그래프이기 때문에 임의의 두 노드 사이를 연결하는 경로는 유일하다(여기서 경로란 반복되는 정점과 간선이 없는 길을 말한다).<br>그러므로 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.   </p>
 <h3 id="3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다"><a href="#3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다" class="headerlink" title="3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다."></a>3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.</h3><p>동굴의 입구에서부터 어떤 방까지의 경로 안에 포함된 방들을 먼저 방문하지 않고서는 해당 방을 방문할 수 없다.<br>왜 그런 걸까?<br>결론부터 말하자면, <u><strong>동굴에는 사이클이 발생할 수 없기 때문이다</strong></u>.<br>아래의 그림과 같은 동굴이 존재한다고 가정해보자.   </p>
-<img src="cave.png" width=350 height=350 alt="동굴 사진" title="동굴 사진" />
+<img src="/2021/04/24/프로그래머스-동굴-탐험/cave.png" width=350 height=350 alt="동굴 사진" title="동굴 사진" />
 
 <p>5번 방을 방문하기 위해서는 반드시 0번 방과 7번 방을 먼저 방문해야 한다.<br>왜냐하면 0번 방과 7번 방은 동굴에서부터 5번 방까지의 경로 안에 포함된 방들이기 때문이다.<br>하지만 이와 모순되게, 0번 방과 7번 방을 먼저 방문하지 않고도 5번 방을 방문할 수 있는 방법이 존재한다고 가정해보자.<br>예를 들어 아래의 그림처럼 8번 방에서부터 8번 방과 연결된 다른 방들을 통해서 5번 방으로 갈 수 있는 경로가 존재한다고 가정해보자.   </p>
-<img src="cave2.jpg" width=350 height=350 alt="사이클이 발생한 동굴 사진" title="사이클이 발생한 동굴 사진" />
+<img src="/2021/04/24/프로그래머스-동굴-탐험/cave2.jpg" width=350 height=350 alt="사이클이 발생한 동굴 사진" title="사이클이 발생한 동굴 사진" />
 
 <p>그러면 동굴에는 다음과 같이 0번 방에서 시작해서 0번 방으로 끝나는 사이클이 발생한다.   </p>
 <p><code>0번</code> → 1번 → 8번 → x번 → … → y번 → 5번 → 7번 → <code>0번</code></p>
