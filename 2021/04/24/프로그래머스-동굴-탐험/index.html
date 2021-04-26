@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="z4Nbd7c_7csfPUQYKGB9UqRV5nVKr6XJjQt3lEMMN5c">
+  <meta name="naver-site-verification" content="9dbfd6c996be209dffcca97f518fcbcce5251193" />
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="문제를 읽고 나서 알아차려야 했던 것들 3가지문제 해결을 위해서 문제를 읽고 나서 알아차려야 했던 것들이 있다.    1. 동굴은 트리 모양으로 되어있다.문제에는 동굴이 트리 모양이라고 직접적으로 명시되어있지 않다.하지만 문제를 읽어보면 다음과 같은 조건을 찾을 수 있다.     방의 개수가 n개일 때 방과 방 사이를 연결하는 통로의 개수는 n-1개이다(문">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[프로그래머스] 동굴 탐험">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/index.html">
+<meta property="og:site_name" content="김기현 블로그">
+<meta property="og:description" content="문제를 읽고 나서 알아차려야 했던 것들 3가지문제 해결을 위해서 문제를 읽고 나서 알아차려야 했던 것들이 있다.    1. 동굴은 트리 모양으로 되어있다.문제에는 동굴이 트리 모양이라고 직접적으로 명시되어있지 않다.하지만 문제를 읽어보면 다음과 같은 조건을 찾을 수 있다.     방의 개수가 n개일 때 방과 방 사이를 연결하는 통로의 개수는 n-1개이다(문">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/counterexample.png">
+<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/cave.png">
+<meta property="og:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/cave2.jpg">
+<meta property="article:published_time" content="2021-04-24T05:45:30.000Z">
+<meta property="article:modified_time" content="2021-04-26T06:50:12.056Z">
+<meta property="article:author" content="KiHyun Kim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/counterexample.png">
+
+
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ko'
+  };
+</script>
+<title>[프로그래머스] 동굴 탐험 | 김기현 블로그</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK7LTQWSPV"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MK7LTQWSPV');
+      }
+    </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="김기현 블로그" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">김기현 블로그</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AC%B8%EC%A0%9C%EB%A5%BC-%EC%9D%BD%EA%B3%A0-%EB%82%98%EC%84%9C-%EC%95%8C%EC%95%84%EC%B0%A8%EB%A0%A4%EC%95%BC-%ED%96%88%EB%8D%98-%EA%B2%83%EB%93%A4-3%EA%B0%80%EC%A7%80"><span class="nav-number">1.</span> <span class="nav-text">문제를 읽고 나서 알아차려야 했던 것들 3가지</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%EB%8F%99%EA%B5%B4%EC%9D%80-%ED%8A%B8%EB%A6%AC-%EB%AA%A8%EC%96%91%EC%9C%BC%EB%A1%9C-%EB%90%98%EC%96%B4%EC%9E%88%EB%8B%A4"><span class="nav-number">1.1.</span> <span class="nav-text">1. 동굴은 트리 모양으로 되어있다.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%EB%8F%99%EA%B5%B4-%EC%95%88%EC%97%90-%EC%9E%88%EB%8A%94-%EC%9E%84%EC%9D%98%EC%9D%98-%EC%84%9C%EB%A1%9C-%EB%8B%A4%EB%A5%B8-%EB%91%90-%EB%B0%A9%EC%9D%84-%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94-%EA%B2%BD%EB%A1%9C%EB%8A%94-%EB%94%B1-%ED%95%9C-%EA%B0%80%EC%A7%80%EB%A7%8C-%EC%9E%88%EB%8B%A4"><span class="nav-number">1.2.</span> <span class="nav-text">2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%EC%96%B4%EB%96%A4-%EB%B0%A9%EC%9D%84-%EB%B0%A9%EB%AC%B8%ED%95%98%EA%B8%B0-%EC%A0%84%EC%97%90-%EB%B0%98%EB%93%9C%EC%8B%9C-%EB%8F%99%EA%B5%B4%EC%9D%98-%EC%9E%85%EA%B5%AC%EC%97%90%EC%84%9C%EB%B6%80%ED%84%B0-%ED%95%B4%EB%8B%B9-%EB%B0%A9%EA%B9%8C%EC%A7%80%EC%9D%98-%EA%B2%BD%EB%A1%9C-%EC%95%88%EC%97%90-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%B0%A9%EB%93%A4%EC%9D%84-%EB%A8%BC%EC%A0%80-%EB%B0%A9%EB%AC%B8%ED%95%B4%EC%95%BC-%ED%95%9C%EB%8B%A4"><span class="nav-number">1.3.</span> <span class="nav-text">3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95"><span class="nav-number">2.</span> <span class="nav-text">문제 해결 방법</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%95%EB%8B%B5-%EC%BD%94%EB%93%9C"><span class="nav-number">3.</span> <span class="nav-text">정답 코드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%95%EB%8B%B5-%EC%BD%94%EB%93%9C-%ED%95%B4%EC%84%A4"><span class="nav-number">4.</span> <span class="nav-text">정답 코드 해설</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KiHyun Kim</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tpaHl1bmtpbWxlZQ==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kihyunkimlee"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tpaHl1bmtpbWxlZQ==" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KiHyun Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="김기현 블로그">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [프로그래머스] 동굴 탐험
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2021-04-24 14:45:30" itemprop="dateCreated datePublished" datetime="2021-04-24T14:45:30+09:00">2021-04-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-04-26 15:50:12" itemprop="dateModified" datetime="2021-04-26T15:50:12+09:00">2021-04-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/" itemprop="url" rel="index"><span itemprop="name">알고리즘 문제 풀이</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/24/프로그래머스-동굴-탐험/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="문제를-읽고-나서-알아차려야-했던-것들-3가지"><a href="#문제를-읽고-나서-알아차려야-했던-것들-3가지" class="headerlink" title="문제를 읽고 나서 알아차려야 했던 것들 3가지"></a>문제를 읽고 나서 알아차려야 했던 것들 3가지</h2><p>문제 해결을 위해서 문제를 읽고 나서 알아차려야 했던 것들이 있다.   </p>
+<h3 id="1-동굴은-트리-모양으로-되어있다"><a href="#1-동굴은-트리-모양으로-되어있다" class="headerlink" title="1. 동굴은 트리 모양으로 되어있다."></a>1. 동굴은 트리 모양으로 되어있다.</h3><p>문제에는 동굴이 트리 모양이라고 직접적으로 명시되어있지 않다.<br>하지만 문제를 읽어보면 다음과 같은 조건을 찾을 수 있다.   </p>
+<ul>
+<li>방의 개수가 n개일 때 방과 방 사이를 연결하는 통로의 개수는 n-1개이다(문제의 제한사항에 나와 있다).</li>
+<li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있으며, 두 방 사이에 이동이 불가능한 경우는 없다.</li>
+</ul>
+<p>방의 개수가 n개이고 방과 방 사이를 연결하는 통로의 개수가 n-1개이므로 동굴이 트리 모양이라고 확신할 수 있을까…?<br>정답은 <u><strong>확신할 수 없다</strong></u>이다.<br>트리의 정의가 정점의 개수가 n개이고 간선의 개수가 n-1개인, 사이클이 존재하지 않는 그래프인 건 맞다.<br>하지만 정점의 개수가 n개이고 간선의 개수가 n-1개인 그래프가 항상 트리인 것은 아니다.<br>왜냐하면 아래와 같은 반례가 존재하기 때문이다.   </p>
+<img src="counterexample.png" width=300 height=250 alt="반례 예시" title="반례 예시" />   
+
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZGdlYW85OS50aXN0b3J5LmNvbS80MDE=">그림 출처 : LAB OF DAEGON<i class="fa fa-external-link-alt"></i></span></p>
+<p>위의 그림은 분명 정점의 개수가 n개이고 간선의 개수가 n-1개이지만 트리가 아니다.<br>정점의 개수가 n개이고 간선의 개수가 n-1개이면서 모든 정점이 연결되어 있다는 조건이 있을 때 해당 그래프를 트리라고 말할 수 있다.<br>임의의 서로 다른 두 방 사이에 이동이 불가능한 경우가 없다는 말은 모든 방이 연결되어 있다는 말과 같다.<br>그러므로 동굴은 트리 모양으로 되어있다.   </p>
+<h3 id="2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다"><a href="#2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다" class="headerlink" title="2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다."></a>2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.</h3><p>문제 설명에 다음과 같은 조건이 있긴 하다.   </p>
+<ul>
+<li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있다.</li>
+</ul>
+<p>근데 경로가 아니라 최단 경로라고 나와 있어서 뭔가 애매하다.<br>최단 경로가 아니라 경로가 딱 한 가지만 있다는 것을 정확히 확인하고 넘어가자.<br>앞에서 동굴이 트리 모양으로 되어있다는 것을 밝혔다.<br>트리는 사이클이 존재하지 않는 그래프이기 때문에 임의의 두 노드 사이를 연결하는 경로는 유일하다(여기서 경로란 반복되는 정점과 간선이 없는 길을 말한다).<br>그러므로 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.   </p>
+<h3 id="3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다"><a href="#3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다" class="headerlink" title="3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다."></a>3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.</h3><p>동굴의 입구에서부터 어떤 방까지의 경로 안에 포함된 방들을 먼저 방문하지 않고서는 해당 방을 방문할 수 없다.<br>왜 그런 걸까?<br>결론부터 말하자면, <u><strong>동굴에는 사이클이 발생할 수 없기 때문이다</strong></u>.<br>아래의 그림과 같은 동굴이 존재한다고 가정해보자.   </p>
+<img src="cave.png" width=350 height=350 alt="동굴 사진" title="동굴 사진" />
+
+<p>5번 방을 방문하기 위해서는 반드시 0번 방과 7번 방을 먼저 방문해야 한다.<br>왜냐하면 0번 방과 7번 방은 동굴에서부터 5번 방까지의 경로 안에 포함된 방들이기 때문이다.<br>하지만 이와 모순되게, 0번 방과 7번 방을 먼저 방문하지 않고도 5번 방을 방문할 수 있는 방법이 존재한다고 가정해보자.<br>예를 들어 아래의 그림처럼 8번 방에서부터 8번 방과 연결된 다른 방들을 통해서 5번 방으로 갈 수 있는 경로가 존재한다고 가정해보자.   </p>
+<img src="cave2.jpg" width=350 height=350 alt="사이클이 발생한 동굴 사진" title="사이클이 발생한 동굴 사진" />
+
+<p>그러면 동굴에는 다음과 같이 0번 방에서 시작해서 0번 방으로 끝나는 사이클이 발생한다.   </p>
+<p><code>0번</code> → 1번 → 8번 → x번 → … → y번 → 5번 → 7번 → <code>0번</code></p>
+<p>동굴은 트리 모양으로 되어 있기 때문에 동굴에는 사이클이 발생할 수 없다.<br>그러므로 0번 방과 7번 방을 먼저 방문하지 않고도 5번 방을 방문할 수 있는 방법은 존재할 수 없다.<br>그러므로 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.    </p>
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><p>이 문제의 해결 방법은 카카오 기술 블로그에 자세히 나와 있다.   </p>
+<p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoLmtha2FvLmNvbS8yMDIwLzA3LzAxLzIwMjAtaW50ZXJuc2hpcC10ZXN0Lw==">2020 카카오 인턴쉽 for Tech developers 문제 해설<i class="fa fa-external-link-alt"></i></span></p>
+<p>문제 해설에는 안 나와 있지만, 그래프의 사이클 존재 여부를 확인하기 전에 먼저 처리해주면 좋은 예외 케이스가 있다.<br>그건 바로 0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 하는 경우이다.<br>동굴에 들어갈 수 있는 유일한 입구가 0번 방과 연결되어 있기 때문에 다른 모든 방을 방문하기 위해서는 반드시 0번 방을 먼저 방문해야 한다.<br>0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 된다면 당연히 문제의 규칙에 맞게 모든 방을 탐험할 수 없을 것이다.<br>그러므로 이 경우에는 그래프의 사이클이 존재하는지 확인할 필요 없이 false를 리턴해주면 된다.      </p>
+<h2 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> answer = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;before, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;discover, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; &amp;finish, <span class="keyword">int</span> here)</span></span>&#123;</span><br><span class="line">    discover[here] = counter++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> there: before[here])&#123;</span><br><span class="line">        <span class="keyword">if</span> (discover[there] == <span class="number">-1</span>)&#123;</span><br><span class="line">            dfs(before, discover, finish, there);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (discover[there] &gt; discover[here])&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (discover[there] &lt; discover[here])&#123;</span><br><span class="line">            <span class="keyword">if</span> (!finish[there])&#123;</span><br><span class="line">                answer = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    finish[here] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; path, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; order)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; cave(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = path[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> b = path[i][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        cave[a].push_back(b);</span><br><span class="line">        cave[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; before(n);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">visited</span><span class="params">(n, <span class="literal">false</span>)</span></span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    visited[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    q.push(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> here = q.front(); q.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> there: cave[here])&#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[there]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            before[there].push_back(here);</span><br><span class="line"></span><br><span class="line">            visited[there] = <span class="literal">true</span>;</span><br><span class="line">            q.push(there);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; order.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = order[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> b = order[i][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        before[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (before[<span class="number">0</span>].size() != <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">discover</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">finish</span><span class="params">(n, <span class="literal">false</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!answer) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (finish[i]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        dfs(before, discover, finish, i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="정답-코드-해설"><a href="#정답-코드-해설" class="headerlink" title="정답 코드 해설"></a>정답 코드 해설</h2><p>34~42 - path 배열에 들어 있는 통로의 위치 정보를 통해서 동굴 그래프를 초기화해준다. 그래프의 간선 개수가 정점 개수의 제곱보다 훨씬 작기 때문에 동굴 그래프는 연결 리스트 표현 방식으로 표현한다.<br>44~62 - BFS로 그래프 탐색을 진행하며 어떤 방을 방문하기 전에 반드시 먼저 방문해야 하는 방을 표시한 before 그래프를 초기화해준다.<br>64~69 - order 배열에 들어 있는 반드시 지켜야 하는 방문 순서들을 before 그래프에 추가한다.<br>71 - 0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 하는 경우를 예외 처리해준다.<br>73~81 - DFS로 before 그래프에 사이클이 존재하는지 확인한다.<br>84 - before 그래프에 사이클이 존재하는지 그 유무를 정답으로 반환한다.   </p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/04/06/BOJ-16987-%EA%B3%84%EB%9E%80%EC%9C%BC%EB%A1%9C-%EA%B3%84%EB%9E%80%EC%B9%98%EA%B8%B0/" rel="prev" title="[BOJ 16987] 계란으로 계란치기">
+                  <i class="fa fa-chevron-left"></i> [BOJ 16987] 계란으로 계란치기
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KiHyun Kim</span>
+</div>
+<div class="busuanzi-count">
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://kimkihyunblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/";
+    this.page.identifier = "2021/04/24/프로그래머스-동굴-탐험/";
+    this.page.title = "[프로그래머스] 동굴 탐험";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://kimkihyunblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
