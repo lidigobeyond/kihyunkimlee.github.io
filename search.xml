@@ -13,6 +13,10 @@
       <categories>
         <category>알고리즘 문제 풀이</category>
       </categories>
+      <tags>
+        <tag>알고리즘 문제</tag>
+        <tag>BOJ</tag>
+      </tags>
   </entry>
   <entry>
     <title>[BOJ 11719] 그대로 출력하기2</title>
@@ -26,6 +30,10 @@
       <categories>
         <category>알고리즘 문제 풀이</category>
       </categories>
+      <tags>
+        <tag>알고리즘 문제</tag>
+        <tag>BOJ</tag>
+      </tags>
   </entry>
   <entry>
     <title>[BOJ 16987] 계란으로 계란치기</title>
@@ -52,6 +60,11 @@
       <categories>
         <category>알고리즘 문제 풀이</category>
       </categories>
+      <tags>
+        <tag>알고리즘 문제</tag>
+        <tag>BOJ</tag>
+        <tag>완전 탐색</tag>
+      </tags>
   </entry>
   <entry>
     <title>C++ 간단하게 정수 자릿수 바꾸기</title>
@@ -100,5 +113,39 @@
       <categories>
         <category>알고리즘 문제 풀이</category>
       </categories>
+      <tags>
+        <tag>프로그래머스</tag>
+        <tag>알고리즘 문제</tag>
+        <tag>BFS</tag>
+        <tag>DFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[프로그래머스] NULL 처리하기</title>
+    <url>/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/</url>
+    <content><![CDATA[<h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.<br>이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.<br>(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)   </p>
+<p>특정 칼럼의 값이 NULL일 때 다른 값으로 치환해서 출력하는 방법은 여러 가지가 있다.   </p>
+<h2 id="1-IFNULL-함수를-이용한-방법"><a href="#1-IFNULL-함수를-이용한-방법" class="headerlink" title="1. IFNULL 함수를 이용한 방법"></a>1. IFNULL 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">IFNULL(expression, alt_value)   </span><br></pre></td></tr></table></figure>
+<p>IFNULL 함수는 첫 번째 매개 변수의 값이 NULL이면 두 번째 매개 변수의 값을 반환한다.<br>첫 번째 매개 변수의 값이 NULL이 아니면 첫 번째 매개 변수의 값을 반환한다.   </p>
+<h3 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, IFNULL(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<h2 id="2-COALESCE-함수를-이용한-방법"><a href="#2-COALESCE-함수를-이용한-방법" class="headerlink" title="2. COALESCE 함수를 이용한 방법"></a>2. COALESCE 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">COALESCE</span>(val_1, val_2, ..., val_n)</span><br></pre></td></tr></table></figure>
+<p>COALESCE 함수는 임의의 개수의 매개 변수에서 NULL이 아닌 최초의 매개 변수의 값을 반환한다.   </p>
+<p>예를 들어 아래와 같은 SQL문을 실행시키면,</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="keyword">NULL</span>, &quot;HELLO&quot;, <span class="keyword">NULL</span>, &quot;WORLD&quot;);</span><br></pre></td></tr></table></figure>
+<p>NULL이 아닌 최초의 매개 변수의 값 “HELLO”가 출력된다.   </p>
+<p>반면에 모든 매개 변수의 값이 NULL이면 NULL을 반환한다.   </p>
+<h3 id="정답-코드-1"><a href="#정답-코드-1" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, <span class="built_in">COALESCE</span>(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<h2 id="3-CASE를-이용한-방법"><a href="#3-CASE를-이용한-방법" class="headerlink" title="3. CASE를 이용한 방법"></a>3. CASE를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span></span><br><span class="line">  <span class="keyword">WHEN</span> condition1 <span class="keyword">THEN</span> result1</span><br><span class="line">  <span class="keyword">WHEN</span> condition2 <span class="keyword">THEN</span> result2</span><br><span class="line">  <span class="keyword">ELSE</span> <span class="keyword">result</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+<p>CASE 문은 프로그래밍 언어의 다중 if-else 문과 비슷하다.<br>위에서부터 차례대로 조건식이 참인지 거짓인지 판별한다.<br>조건식이 거짓인 경우 그 다음 조건식이 참인지 거짓인지 판별한다.<br>조건식이 참인 경우 더이상 조건식을 판별하지 않고 THEN에 명시된 값을 반환하고 종료한다.<br>참인 조건식이 하나도 없으면 ELSE에 명시된 값을 반환하고 종료한다.   </p>
+<p>한 가지 주의해야 할 점은, ELSE를 명시하지 않았을 경우 참인 조건식이 하나도 없으면 NULL을 반환한다는 것이다.<br>그러므로 CASE문을 사용할 때는 반드시 ELSE를 명시해주는 것이 좋다.   </p>
+<h3 id="정답-코드-2"><a href="#정답-코드-2" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE,</span><br><span class="line">  <span class="keyword">CASE</span></span><br><span class="line">    <span class="keyword">WHEN</span> NAME <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">THEN</span> NAME</span><br><span class="line">    <span class="keyword">ELSE</span> &quot;No name&quot;</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">AS</span> NAME</span><br><span class="line">  , SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>SQL 문제 풀이</category>
+      </categories>
+      <tags>
+        <tag>프로그래머스</tag>
+        <tag>SQL 문제</tag>
+        <tag>MYSQL</tag>
+      </tags>
   </entry>
 </search>

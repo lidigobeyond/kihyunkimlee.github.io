@@ -25,20 +25,23 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="BOJ 알고리즘 온라인 강의를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.    123456">
+<meta name="description" content="문제 설명동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)    특정 칼럼의 값">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ 간단하게 정수 자릿수 바꾸기">
-<meta property="og:url" content="https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/index.html">
+<meta property="og:title" content="[프로그래머스] NULL 처리하기">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/index.html">
 <meta property="og:site_name" content="김기현 블로그">
-<meta property="og:description" content="BOJ 알고리즘 온라인 강의를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.    123456">
+<meta property="og:description" content="문제 설명동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)    특정 칼럼의 값">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2021-03-03T12:58:01.000Z">
-<meta property="article:modified_time" content="2021-04-01T22:18:11.789Z">
+<meta property="article:published_time" content="2021-05-03T00:41:44.000Z">
+<meta property="article:modified_time" content="2021-05-04T02:52:04.569Z">
 <meta property="article:author" content="KiHyun Kim">
+<meta property="article:tag" content="프로그래머스">
+<meta property="article:tag" content="SQL 문제">
+<meta property="article:tag" content="MYSQL">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/">
 
 
 <script class="page-configurations">
@@ -50,7 +53,7 @@
     lang   : 'ko'
   };
 </script>
-<title>C++ 간단하게 정수 자릿수 바꾸기 | 김기현 블로그</title>
+<title>[프로그래머스] NULL 처리하기 | 김기현 블로그</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK7LTQWSPV"></script>
     <script>
@@ -184,7 +187,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           목차
@@ -197,6 +200,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AC%B8%EC%A0%9C-%EC%84%A4%EB%AA%85"><span class="nav-number">1.</span> <span class="nav-text">문제 설명</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-IFNULL-%ED%95%A8%EC%88%98%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B0%A9%EB%B2%95"><span class="nav-number">2.</span> <span class="nav-text">1. IFNULL 함수를 이용한 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A0%95%EB%8B%B5-%EC%BD%94%EB%93%9C"><span class="nav-number">2.1.</span> <span class="nav-text">정답 코드</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-COALESCE-%ED%95%A8%EC%88%98%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B0%A9%EB%B2%95"><span class="nav-number">3.</span> <span class="nav-text">2. COALESCE 함수를 이용한 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A0%95%EB%8B%B5-%EC%BD%94%EB%93%9C-1"><span class="nav-number">3.1.</span> <span class="nav-text">정답 코드</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CASE%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B0%A9%EB%B2%95"><span class="nav-number">4.</span> <span class="nav-text">3. CASE를 이용한 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A0%95%EB%8B%B5-%EC%BD%94%EB%93%9C-2"><span class="nav-number">4.1.</span> <span class="nav-text">정답 코드</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -269,7 +273,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -282,7 +286,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++ 간단하게 정수 자릿수 바꾸기
+          [프로그래머스] NULL 처리하기
         </h1>
 
         <div class="post-meta-container">
@@ -293,14 +297,14 @@
       </span>
       <span class="post-meta-item-text">작성일</span>
 
-      <time title="Post created: 2021-03-03 21:58:01" itemprop="dateCreated datePublished" datetime="2021-03-03T21:58:01+09:00">2021-03-03</time>
+      <time title="Post created: 2021-05-03 09:41:44" itemprop="dateCreated datePublished" datetime="2021-05-03T09:41:44+09:00">2021-05-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-04-02 07:18:11" itemprop="dateModified" datetime="2021-04-02T07:18:11+09:00">2021-04-02</time>
+        <time title="Updated at: 2021-05-04 11:52:04" itemprop="dateModified" datetime="2021-05-04T11:52:04+09:00">2021-05-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -308,7 +312,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+          <a href="/categories/SQL-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/" itemprop="url" rel="index"><span itemprop="name">SQL 문제 풀이</span></a>
         </span>
     </span>
 
@@ -328,8 +332,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/03/c++-easy-way-to-change-the-digits-of-integers/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/03/프로그래머스-NULL-처리하기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -343,9 +347,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>BOJ <code>알고리즘 온라인 강의</code>를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.<br>정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.<br>산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.   </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> index, <span class="keyword">int</span> digit)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">    s[index] = digit + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> stoi(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">0</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1999</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9199</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">2</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9919</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">3</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9991</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.<br>이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.<br>(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)   </p>
+<p>특정 칼럼의 값이 NULL일 때 다른 값으로 치환해서 출력하는 방법은 여러 가지가 있다.   </p>
+<h2 id="1-IFNULL-함수를-이용한-방법"><a href="#1-IFNULL-함수를-이용한-방법" class="headerlink" title="1. IFNULL 함수를 이용한 방법"></a>1. IFNULL 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">IFNULL(expression, alt_value)   </span><br></pre></td></tr></table></figure>
+<p>IFNULL 함수는 첫 번째 매개 변수의 값이 NULL이면 두 번째 매개 변수의 값을 반환한다.<br>첫 번째 매개 변수의 값이 NULL이 아니면 첫 번째 매개 변수의 값을 반환한다.   </p>
+<h3 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, IFNULL(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<h2 id="2-COALESCE-함수를-이용한-방법"><a href="#2-COALESCE-함수를-이용한-방법" class="headerlink" title="2. COALESCE 함수를 이용한 방법"></a>2. COALESCE 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">COALESCE</span>(val_1, val_2, ..., val_n)</span><br></pre></td></tr></table></figure>
+<p>COALESCE 함수는 임의의 개수의 매개 변수에서 NULL이 아닌 최초의 매개 변수의 값을 반환한다.   </p>
+<p>예를 들어 아래와 같은 SQL문을 실행시키면,</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="keyword">NULL</span>, &quot;HELLO&quot;, <span class="keyword">NULL</span>, &quot;WORLD&quot;);</span><br></pre></td></tr></table></figure>
+<p>NULL이 아닌 최초의 매개 변수의 값 “HELLO”가 출력된다.   </p>
+<p>반면에 모든 매개 변수의 값이 NULL이면 NULL을 반환한다.   </p>
+<h3 id="정답-코드-1"><a href="#정답-코드-1" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, <span class="built_in">COALESCE</span>(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<h2 id="3-CASE를-이용한-방법"><a href="#3-CASE를-이용한-방법" class="headerlink" title="3. CASE를 이용한 방법"></a>3. CASE를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span></span><br><span class="line">  <span class="keyword">WHEN</span> condition1 <span class="keyword">THEN</span> result1</span><br><span class="line">  <span class="keyword">WHEN</span> condition2 <span class="keyword">THEN</span> result2</span><br><span class="line">  <span class="keyword">ELSE</span> <span class="keyword">result</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+<p>CASE 문은 프로그래밍 언어의 다중 if-else 문과 비슷하다.<br>위에서부터 차례대로 조건식이 참인지 거짓인지 판별한다.<br>조건식이 거짓인 경우 그 다음 조건식이 참인지 거짓인지 판별한다.<br>조건식이 참인 경우 더이상 조건식을 판별하지 않고 THEN에 명시된 값을 반환하고 종료한다.<br>참인 조건식이 하나도 없으면 ELSE에 명시된 값을 반환하고 종료한다.   </p>
+<p>한 가지 주의해야 할 점은, ELSE를 명시하지 않았을 경우 참인 조건식이 하나도 없으면 NULL을 반환한다는 것이다.<br>그러므로 CASE문을 사용할 때는 반드시 ELSE를 명시해주는 것이 좋다.   </p>
+<h3 id="정답-코드-2"><a href="#정답-코드-2" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE,</span><br><span class="line">  <span class="keyword">CASE</span></span><br><span class="line">    <span class="keyword">WHEN</span> NAME <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">THEN</span> NAME</span><br><span class="line">    <span class="keyword">ELSE</span> &quot;No name&quot;</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">AS</span> NAME</span><br><span class="line">  , SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -353,16 +370,21 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag"># 프로그래머스</a>
+              <a href="/tags/SQL-%EB%AC%B8%EC%A0%9C/" rel="tag"># SQL 문제</a>
+              <a href="/tags/MYSQL/" rel="tag"># MYSQL</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/" rel="prev" title="[프로그래머스] 동굴 탐험">
+                  <i class="fa fa-chevron-left"></i> [프로그래머스] 동굴 탐험
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/03/27/BOJ-10951-A+B-4/" rel="next" title="[BOJ 10951] A+B - 4">
-                  [BOJ 10951] A+B - 4 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -455,9 +477,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/";
-    this.page.identifier = "2021/03/03/c++-easy-way-to-change-the-digits-of-integers/";
-    this.page.title = "C++ 간단하게 정수 자릿수 바꾸기";
+    this.page.url = "https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/";
+    this.page.identifier = "2021/05/03/프로그래머스-NULL-처리하기/";
+    this.page.title = "[프로그래머스] NULL 처리하기";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
     if (window.DISQUS) {
