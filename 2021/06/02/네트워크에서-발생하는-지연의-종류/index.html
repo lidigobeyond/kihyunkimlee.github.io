@@ -25,22 +25,22 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="두 정수 A와 B를 입력받은 다음, A+B를 출력하는 문제이다.단, 테스트 케이스의 개수를 미리 알 수 없기 때문에 EOF에 도달할 때까지 입력을 받아야 한다.    C++에서는 아래와 같은 방법으로 EOF에 도달할 때까지 입력을 받을 수 있다.    1while(cin &gt;&gt; a &gt;&gt; b) cin은 EOF에 도달하거나 에러가 발생하면">
+<meta name="description" content="네트워크에서 발생하는 지연 네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다. WHY??? 패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다. 그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BOJ 10951] A+B - 4">
-<meta property="og:url" content="https://kihyunkimlee.github.io/2021/03/27/BOJ-10951-A+B-4/index.html">
+<meta property="og:title" content="네트워크에서 발생하는 지연">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/index.html">
 <meta property="og:site_name" content="김기현 블로그">
-<meta property="og:description" content="두 정수 A와 B를 입력받은 다음, A+B를 출력하는 문제이다.단, 테스트 케이스의 개수를 미리 알 수 없기 때문에 EOF에 도달할 때까지 입력을 받아야 한다.    C++에서는 아래와 같은 방법으로 EOF에 도달할 때까지 입력을 받을 수 있다.    1while(cin &gt;&gt; a &gt;&gt; b) cin은 EOF에 도달하거나 에러가 발생하면">
+<meta property="og:description" content="네트워크에서 발생하는 지연 네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다. WHY??? 패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다. 그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2021-03-27T01:01:00.000Z">
-<meta property="article:modified_time" content="2021-05-03T04:01:01.718Z">
+<meta property="article:published_time" content="2021-06-02T14:44:44.000Z">
+<meta property="article:modified_time" content="2021-06-03T10:14:25.372Z">
 <meta property="article:author" content="KiHyun Kim">
-<meta property="article:tag" content="알고리즘 문제">
-<meta property="article:tag" content="BOJ">
+<meta property="article:tag" content="네트워크 지연">
+<meta property="article:tag" content="네트워크">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/2021/03/27/BOJ-10951-A+B-4/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/">
 
 
 <script class="page-configurations">
@@ -52,7 +52,7 @@
     lang   : 'ko'
   };
 </script>
-<title>[BOJ 10951] A+B - 4 | 김기현 블로그</title>
+<title>네트워크에서 발생하는 지연 | 김기현 블로그</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK7LTQWSPV"></script>
     <script>
@@ -186,7 +186,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           목차
@@ -199,6 +199,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0"><span class="nav-number">1.</span> <span class="nav-text">네트워크에서 발생하는 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B2%98%EB%A6%AC-%EC%A7%80%EC%97%B0"><span class="nav-number">2.</span> <span class="nav-text">처리 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%81%90%EC%9E%89-%EC%A7%80%EC%97%B0"><span class="nav-number">3.</span> <span class="nav-text">큐잉 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%84%EC%86%A1-%EC%A7%80%EC%97%B0"><span class="nav-number">4.</span> <span class="nav-text">전송 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%84%ED%8C%8C-%EC%A7%80%EC%97%B0"><span class="nav-number">5.</span> <span class="nav-text">전파 지연</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -271,7 +272,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/03/27/BOJ-10951-A+B-4/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -284,7 +285,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [BOJ 10951] A+B - 4
+          네트워크에서 발생하는 지연
         </h1>
 
         <div class="post-meta-container">
@@ -295,14 +296,14 @@
       </span>
       <span class="post-meta-item-text">작성일</span>
 
-      <time title="Post created: 2021-03-27 10:01:00" itemprop="dateCreated datePublished" datetime="2021-03-27T10:01:00+09:00">2021-03-27</time>
+      <time title="Post created: 2021-06-02 23:44:44" itemprop="dateCreated datePublished" datetime="2021-06-02T23:44:44+09:00">2021-06-02</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-05-03 13:01:01" itemprop="dateModified" datetime="2021-05-03T13:01:01+09:00">2021-05-03</time>
+        <time title="Updated at: 2021-06-03 19:14:25" itemprop="dateModified" datetime="2021-06-03T19:14:25+09:00">2021-06-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,7 +311,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/" itemprop="url" rel="index"><span itemprop="name">알고리즘 문제 풀이</span></a>
+          <a href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99/" itemprop="url" rel="index"><span itemprop="name">컴퓨터과학</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" itemprop="url" rel="index"><span itemprop="name">네트워크</span></a>
         </span>
     </span>
 
@@ -330,8 +335,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/03/27/BOJ-10951-A+B-4/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/27/BOJ-10951-A+B-4/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/02/네트워크에서-발생하는-지연의-종류/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -345,12 +350,64 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>두 정수 A와 B를 입력받은 다음, A+B를 출력하는 문제이다.<br>단, 테스트 케이스의 개수를 미리 알 수 없기 때문에 EOF에 도달할 때까지 입력을 받아야 한다.   </p>
-<p>C++에서는 아래와 같은 방법으로 EOF에 도달할 때까지 입력을 받을 수 있다.   </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b)</span><br></pre></td></tr></table></figure>
-<p><code>cin</code>은 EOF에 도달하거나 에러가 발생하면 false를 반한다.<br>(정확히 말하면 <code>cin</code>객체가 반환되는데, 이 객체는 if 문이나 while 문 안에 있으면 형변환 연산자에 의해서 자동으로 불리언 값으로 바뀐다고 한다. 정상적으로 데이터를 읽어오면 true가 되고 EOF에 도달하거나 에러가 발생하면 false가 된다.)   </p>
-<p>정답 코드   </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a+b &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="네트워크에서-발생하는-지연"><a href="#네트워크에서-발생하는-지연" class="headerlink" title="네트워크에서 발생하는 지연"></a>네트워크에서 발생하는 지연</h2><ul>
+<li>네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다.</li>
+<li>WHY???<ul>
+<li>패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다.</li>
+<li>그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)에서 다른 노드(호스트 또는 라우터)로 전달되는 과정의 연속이라고 할 수 있다.</li>
+<li>패킷이 전달되는 경로상의 각 노드에서 발생하는 지연 시간의 합은 패킷이 출발지에서 목적지로 전달되는 데 걸리는 시간과 거의 같을 것이다.</li>
+<li>그러므로 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있으면, 네트워크에서 발생하는 지연 시간을 분석할 수 있을 것이다.</li>
+</ul>
+</li>
+<li>한 노드에서 다른 노드로 패킷을 전송할 때 발생하는 지연에는 대표적으로 <strong>처리 지연</strong>과 <strong>큐잉 지연</strong>, <strong>전송 지연</strong>, 그리고 <strong>전파 지연</strong>이 있다.</li>
+</ul>
+<br>
+
+<h2 id="처리-지연"><a href="#처리-지연" class="headerlink" title="처리 지연"></a>처리 지연</h2><ul>
+<li>패킷 헤더를 조사해서 그 패킷을 어디로 보낼지를 결정하는 데 걸리는 시간.</li>
+<li>라우터나 스위치에서 발생한다.</li>
+<li>고속 라우터에서의 처리 지연은 일반적으로 수 마이크로초라고 한다.</li>
+</ul>
+<br>
+
+<h2 id="큐잉-지연"><a href="#큐잉-지연" class="headerlink" title="큐잉 지연"></a>큐잉 지연</h2><ul>
+<li>패킷이 라우터에 도착하고 어떤 링크로 출력되기 전까지 출력 버퍼에서 대기하고 있는 시간.</li>
+<li>출력 버퍼???<ul>
+<li>라우터의 링크마다 존재하는 패킷 임시 저장소.</li>
+<li>도착한 패킷이 어떤 한 링크로 전송되어야 하는데 그 링크가 다른 패킷을 전송하고 있다면, 도착한 패킷은 해당 링크의 출력 버퍼에서 대기하게 된다.</li>
+<li>출력 버퍼가 가득 차게 되면 패킷 손실이 발생할 수 있다.</li>
+<li>패킷 손실???<ul>
+<li>출력 버퍼가 전송을 위해 대기 중인 다른 패킷들로 가득 차게 되면, 라우터는 그 이후에 도착한 패킷이나 기존에 출력 버퍼에 있는 패킷들을 폐기한다.</li>
+<li>이때 폐기된 패킷은 목적지 호스트에 도착하지 못하고 네트워크 중간에서 소멸되기 때문에 패킷 손실이 일어났다고 한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>큐잉 지연은 네트워크 트래픽의 강도와 특성에 따라 달라진다.</li>
+</ul>
+<br>
+
+<h2 id="전송-지연"><a href="#전송-지연" class="headerlink" title="전송 지연"></a>전송 지연</h2><ul>
+<li>패킷의 모든 비트를 출력 링크로 내보내는 데 걸리는 시간.</li>
+<li>패킷의 크기가 L 비트이고 출력 링크의 전송률이 R bps 일 때, 전송 지연 시간은 L/R 초가 된다.</li>
+<li>WHY???<ul>
+<li>인터넷은 회선(circuit) 교환 방식 네트워크가 아니라 패킷 교환 방식 네트워크이다.</li>
+<li>패킷 교환 방식 네트워크에서 패킷은 출력 링크의 최대 전송 속도와 같은 속도로 링크에 전송되어 진다.</li>
+<li>출력 링크의 전송률이 R bps라면 해당 링크는 초당 R 비트의 데이터를 전송할 수 있다는 뜻이다.</li>
+<li>그러므로 L 비트 크기의 패킷을 전송률이 R bps인 링크로 전송하는 데 걸리는 시간은 L/R 초이다.</li>
+</ul>
+</li>
+<li>(라우터의 전송률과 출력 링크의 전송률이 달라도 정상 동작할까…?)</li>
+</ul>
+<br>
+
+<h2 id="전파-지연"><a href="#전파-지연" class="headerlink" title="전파 지연"></a>전파 지연</h2><ul>
+<li>한 노드에서 전송한 비트가 링크를 통해서 다른 노드로 전달되는 데 걸리는 시간.</li>
+<li>전파 지연 시간은 링크의 전송 속도와 물리적 길이에 따라서 결정된다.</li>
+<li>전파 속도는 링크의 물리 매체에 따라 다르지만 대략 빛의 속도와 같거나 약간 작다.</li>
+<li>링크의 전파 속도가 S m/s이고 링크의 길이가 D 미터일 때, 전파 지연 시간은 D/S 초가 된다.</li>
+<li>광역 네트워크에서 전파 지연은 일반적으로 수 초에 이른다고 한다.</li>
+</ul>
 
     </div>
 
@@ -360,22 +417,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C/" rel="tag"># 알고리즘 문제</a>
-              <a href="/tags/BOJ/" rel="tag"># BOJ</a>
+              <a href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A7%80%EC%97%B0/" rel="tag"># 네트워크 지연</a>
+              <a href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" rel="tag"># 네트워크</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/" rel="prev" title="C++ 간단하게 정수 자릿수 바꾸기">
-                  <i class="fa fa-chevron-left"></i> C++ 간단하게 정수 자릿수 바꾸기
+                <a href="/2021/05/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2021-%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%9D%B8%ED%84%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/" rel="prev" title="프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기">
+                  <i class="fa fa-chevron-left"></i> 프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/03/27/BOJ-11719-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B02/" rel="next" title="[BOJ 11719] 그대로 출력하기2">
-                  [BOJ 11719] 그대로 출력하기2 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -468,9 +522,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kihyunkimlee.github.io/2021/03/27/BOJ-10951-A+B-4/";
-    this.page.identifier = "2021/03/27/BOJ-10951-A+B-4/";
-    this.page.title = "[BOJ 10951] A+B - 4";
+    this.page.url = "https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/";
+    this.page.identifier = "2021/06/02/네트워크에서-발생하는-지연의-종류/";
+    this.page.title = "네트워크에서 발생하는 지연";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
     if (window.DISQUS) {
