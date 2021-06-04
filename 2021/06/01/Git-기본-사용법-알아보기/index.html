@@ -25,22 +25,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="네트워크에서 발생하는 지연 네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다. WHY??? 패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다. 그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)">
+<meta name="description" content="저장소 만들기저장소를 만드는 방법에는 두 가지가 있다.첫 번째 방법은 git init 명령어로 현재 디렉터리에 빈 저장소를 만드는 것이다.    123$ cd ~&#x2F;원하는&#x2F;디렉터리로&#x2F;이동$ git initInitialized empty Git repository in &#x2F;현재&#x2F;위치한&#x2F;디렉터리&#x2F;.git&#x2F; 두 번째 방법은 git clone 명령어로 기존에 있는 저">
 <meta property="og:type" content="article">
-<meta property="og:title" content="네트워크에서 발생하는 지연">
-<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/index.html">
+<meta property="og:title" content="Git 기본 사용법 알아보기">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/index.html">
 <meta property="og:site_name" content="김기현 블로그">
-<meta property="og:description" content="네트워크에서 발생하는 지연 네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다. WHY??? 패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다. 그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)">
+<meta property="og:description" content="저장소 만들기저장소를 만드는 방법에는 두 가지가 있다.첫 번째 방법은 git init 명령어로 현재 디렉터리에 빈 저장소를 만드는 것이다.    123$ cd ~&#x2F;원하는&#x2F;디렉터리로&#x2F;이동$ git initInitialized empty Git repository in &#x2F;현재&#x2F;위치한&#x2F;디렉터리&#x2F;.git&#x2F; 두 번째 방법은 git clone 명령어로 기존에 있는 저">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2021-06-02T14:44:44.000Z">
-<meta property="article:modified_time" content="2021-06-03T10:14:25.372Z">
+<meta property="article:published_time" content="2021-06-01T12:55:42.000Z">
+<meta property="article:modified_time" content="2021-06-04T14:10:21.167Z">
 <meta property="article:author" content="KiHyun Kim">
-<meta property="article:tag" content="네트워크 지연">
-<meta property="article:tag" content="네트워크">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/">
 
 
 <script class="page-configurations">
@@ -52,7 +51,7 @@
     lang   : 'ko'
   };
 </script>
-<title>네트워크에서 발생하는 지연 | 김기현 블로그</title>
+<title>Git 기본 사용법 알아보기 | 김기현 블로그</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK7LTQWSPV"></script>
     <script>
@@ -199,7 +198,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0"><span class="nav-number">1.</span> <span class="nav-text">네트워크에서 발생하는 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B2%98%EB%A6%AC-%EC%A7%80%EC%97%B0"><span class="nav-number">2.</span> <span class="nav-text">처리 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%81%90%EC%9E%89-%EC%A7%80%EC%97%B0"><span class="nav-number">3.</span> <span class="nav-text">큐잉 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%84%EC%86%A1-%EC%A7%80%EC%97%B0"><span class="nav-number">4.</span> <span class="nav-text">전송 지연</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%84%ED%8C%8C-%EC%A7%80%EC%97%B0"><span class="nav-number">5.</span> <span class="nav-text">전파 지연</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%80%EC%9E%A5%EC%86%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="nav-number">1.</span> <span class="nav-text">저장소 만들기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8C%8C%EC%9D%BC%EC%9D%98-%EB%B3%80%EA%B2%BD-%EC%82%AC%ED%95%AD-%EC%B6%94%EC%A0%81%ED%95%98%EA%B8%B0"><span class="nav-number">2.</span> <span class="nav-text">파일의 변경 사항 추적하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%88%98%EC%A0%95%EB%90%9C-%ED%8C%8C%EC%9D%BC%EC%9D%84-%EC%9E%84%EC%8B%9C-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0"><span class="nav-number">3.</span> <span class="nav-text">수정된 파일을 임시 저장소에 저장하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9E%84%EC%8B%9C-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%9E%88%EB%8A%94-%ED%8C%8C%EC%9D%BC%EB%93%A4%EC%9D%84-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0"><span class="nav-number">4.</span> <span class="nav-text">임시 저장소에 있는 파일들을 저장소에 저장하기</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -213,20 +212,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">카테고리</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -272,7 +271,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -285,7 +284,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          네트워크에서 발생하는 지연
+          Git 기본 사용법 알아보기
         </h1>
 
         <div class="post-meta-container">
@@ -296,14 +295,14 @@
       </span>
       <span class="post-meta-item-text">작성일</span>
 
-      <time title="Post created: 2021-06-02 23:44:44" itemprop="dateCreated datePublished" datetime="2021-06-02T23:44:44+09:00">2021-06-02</time>
+      <time title="Post created: 2021-06-01 21:55:42" itemprop="dateCreated datePublished" datetime="2021-06-01T21:55:42+09:00">2021-06-01</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-03 19:14:25" itemprop="dateModified" datetime="2021-06-03T19:14:25+09:00">2021-06-03</time>
+        <time title="Updated at: 2021-06-04 23:10:21" itemprop="dateModified" datetime="2021-06-04T23:10:21+09:00">2021-06-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,11 +310,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99/" itemprop="url" rel="index"><span itemprop="name">컴퓨터과학</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" itemprop="url" rel="index"><span itemprop="name">네트워크</span></a>
+          <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
@@ -335,8 +330,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/02/네트워크에서-발생하는-지연의-종류/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/01/Git-기본-사용법-알아보기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -350,64 +345,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="네트워크에서-발생하는-지연"><a href="#네트워크에서-발생하는-지연" class="headerlink" title="네트워크에서 발생하는 지연"></a>네트워크에서 발생하는 지연</h2><ul>
-<li>네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다.</li>
-<li>WHY???<ul>
-<li>패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다.</li>
-<li>그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)에서 다른 노드(호스트 또는 라우터)로 전달되는 과정의 연속이라고 할 수 있다.</li>
-<li>패킷이 전달되는 경로상의 각 노드에서 발생하는 지연 시간의 합은 패킷이 출발지에서 목적지로 전달되는 데 걸리는 시간과 거의 같을 것이다.</li>
-<li>그러므로 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있으면, 네트워크에서 발생하는 지연 시간을 분석할 수 있을 것이다.</li>
-</ul>
-</li>
-<li>한 노드에서 다른 노드로 패킷을 전송할 때 발생하는 지연에는 대표적으로 <strong>처리 지연</strong>과 <strong>큐잉 지연</strong>, <strong>전송 지연</strong>, 그리고 <strong>전파 지연</strong>이 있다.</li>
-</ul>
+        <h2 id="저장소-만들기"><a href="#저장소-만들기" class="headerlink" title="저장소 만들기"></a>저장소 만들기</h2><p>저장소를 만드는 방법에는 두 가지가 있다.<br>첫 번째 방법은 <code>git init</code> 명령어로 현재 디렉터리에 빈 저장소를 만드는 것이다.   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /현재/위치한/디렉터리/.git/</span><br></pre></td></tr></table></figure>
+<p>두 번째 방법은 <code>git clone</code> 명령어로 기존에 있는 저장소를 복제하는 것이다.<br>원격에 있는 저장소를 복제할 수 있고, 로컬에 있는 저장소도 복제할 수 있다.<br>아래는 github에 있는 원격 저장소를 현재 디렉터리에 복제하는 예시이다.   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git .</span><br><span class="line">Cloning into <span class="string">&#x27;git-playground&#x27;</span>...</span><br><span class="line">remote: Enumerating objects: 27, <span class="keyword">done</span>.</span><br><span class="line">remote: Counting objects: 100% (27/27), <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (16/16), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 27 (delta 1), reused 27 (delta 1), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (27/27), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+<p><code>git clone</code> 명령어 뒤에 원격 저장소 주소를 적고 한 칸 뛰고 <code>.</code>를 찍어주지 않으면, 원격 저장소와 같은 이름의 새로운 디렉터리가 생성된 후 그 디렉터리에 복제된다.<br>위의 예시와 같은 경우에는 원격 저장소의 이름이 git-playground이기 때문에 git-playground라는 디렉터리가 생성되고 그 디렉터리에 복제된다.   </p>
+<p>아래의 예시처럼 생성될 디렉터리명을 따로 명시해줄 수 있다.   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git my-playground</span><br></pre></td></tr></table></figure>
 <br>
 
-<h2 id="처리-지연"><a href="#처리-지연" class="headerlink" title="처리 지연"></a>처리 지연</h2><ul>
-<li>패킷 헤더를 조사해서 그 패킷을 어디로 보낼지를 결정하는 데 걸리는 시간.</li>
-<li>라우터나 스위치에서 발생한다.</li>
-<li>고속 라우터에서의 처리 지연은 일반적으로 수 마이크로초라고 한다.</li>
-</ul>
+<h2 id="파일의-변경-사항-추적하기"><a href="#파일의-변경-사항-추적하기" class="headerlink" title="파일의 변경 사항 추적하기"></a>파일의 변경 사항 추적하기</h2><p>저장소가 있는 디렉터리의 모든 파일은 크게 untracked 상태와 tracked 상태인 파일로 나눠진다.<br>untracked 상태는 말 그대로 깃에 의해서 관리되지 않는 파일을 뜻한다.<br>tracked 상태는 반대로 깃에 의해서 관리되는 파일을 뜻한다.<br>tracked 상태인 파일의 변경 사항은 깃에 의해서 추적된다.<br><code>git init</code> 명령어로 빈 저장소를 만들고 난 뒤에 디렉터리의 모든 파일은 untracked 상태이다.<br>특정 파일을 tracked 상태로 만들기 위해서는 <code>git add</code> 명령어를 사용해야 한다.   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add 변경사항을_추적할_파일명</span><br></pre></td></tr></table></figure>
+<p>디렉터리의 모든 파일을 tracked 상태로 만들 때는 <code>git add</code>  명령어 다음에 <code>.</code>를 찍어주면 된다.   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
 <br>
 
-<h2 id="큐잉-지연"><a href="#큐잉-지연" class="headerlink" title="큐잉 지연"></a>큐잉 지연</h2><ul>
-<li>패킷이 라우터에 도착하고 어떤 링크로 출력되기 전까지 출력 버퍼에서 대기하고 있는 시간.</li>
-<li>출력 버퍼???<ul>
-<li>라우터의 링크마다 존재하는 패킷 임시 저장소.</li>
-<li>도착한 패킷이 어떤 한 링크로 전송되어야 하는데 그 링크가 다른 패킷을 전송하고 있다면, 도착한 패킷은 해당 링크의 출력 버퍼에서 대기하게 된다.</li>
-<li>출력 버퍼가 가득 차게 되면 패킷 손실이 발생할 수 있다.</li>
-<li>패킷 손실???<ul>
-<li>출력 버퍼가 전송을 위해 대기 중인 다른 패킷들로 가득 차게 되면, 라우터는 그 이후에 도착한 패킷이나 기존에 출력 버퍼에 있는 패킷들을 폐기한다.</li>
-<li>이때 폐기된 패킷은 목적지 호스트에 도착하지 못하고 네트워크 중간에서 소멸되기 때문에 패킷 손실이 일어났다고 한다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>큐잉 지연은 네트워크 트래픽의 강도와 특성에 따라 달라진다.</li>
-</ul>
+<h2 id="수정된-파일을-임시-저장소에-저장하기"><a href="#수정된-파일을-임시-저장소에-저장하기" class="headerlink" title="수정된 파일을 임시 저장소에 저장하기"></a>수정된 파일을 임시 저장소에 저장하기</h2><p>수정된 파일을 버전으로 만들고 저장하기 위해서는 먼저 수정된 파일을 임시 저장소에 저장해야 한다.<br>임시 저장소란 무엇이고 왜 있는 걸까?<br>임시 저장소는 하나의 커밋 단위로 저장될 파일들의 버전을 모아두는 곳이다.<br>임시 저장소가 있기 때문에 수정된 파일들 중에서 원하는 파일만 커밋할 수 있다.   </p>
+<p>🚨 <strong>커밋???</strong><br>커밋(Commit)이란 특정 시점의 저장소의 상태이다.<br>특정 시점의 파일의 상태를 버전이라고 한다면, 특정 시점의 저장소의 상태는 커밋이라고 한다.<br>깃은 구글 드라이브나 드롭박스처럼 각 파일의 상태를 관리하지 않는다.<br>깃은 저장소의 상태를 관리한다.<br>그렇기 때문에 깃으로는 원하는 파일만 이전 상태로 되돌릴 수 없다.<br>커밋 안에 포함된 여러 파일들의 상태를 함께 되돌려야 한다.   </p>
+<p><code>git add</code> 명령어는 untracked 상태인 파일을 tracked 상태로 만들 때뿐만 아니라, 변경된 파일을 임시 저장소에 저장할 때도 사용된다.   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add 임시_저장소에_저장할_파일명</span><br></pre></td></tr></table></figure>
+<p><code>git add</code> 명령어로 untracked 상태에서 tracked 상태가 된 파일은 임시 저장소에도 저장된다.   </p>
 <br>
 
-<h2 id="전송-지연"><a href="#전송-지연" class="headerlink" title="전송 지연"></a>전송 지연</h2><ul>
-<li>패킷의 모든 비트를 출력 링크로 내보내는 데 걸리는 시간.</li>
-<li>패킷의 크기가 L 비트이고 출력 링크의 전송률이 R bps 일 때, 전송 지연 시간은 L/R 초가 된다.</li>
-<li>WHY???<ul>
-<li>인터넷은 회선(circuit) 교환 방식 네트워크가 아니라 패킷 교환 방식 네트워크이다.</li>
-<li>패킷 교환 방식 네트워크에서 패킷은 출력 링크의 최대 전송 속도와 같은 속도로 링크에 전송되어 진다.</li>
-<li>출력 링크의 전송률이 R bps라면 해당 링크는 초당 R 비트의 데이터를 전송할 수 있다는 뜻이다.</li>
-<li>그러므로 L 비트 크기의 패킷을 전송률이 R bps인 링크로 전송하는 데 걸리는 시간은 L/R 초이다.</li>
-</ul>
-</li>
-<li>(라우터의 전송률과 출력 링크의 전송률이 달라도 정상 동작할까…?)</li>
-</ul>
-<br>
-
-<h2 id="전파-지연"><a href="#전파-지연" class="headerlink" title="전파 지연"></a>전파 지연</h2><ul>
-<li>한 노드에서 전송한 비트가 링크를 통해서 다른 노드로 전달되는 데 걸리는 시간.</li>
-<li>전파 지연 시간은 링크의 전송 속도와 물리적 길이에 따라서 결정된다.</li>
-<li>전파 속도는 링크의 물리 매체에 따라 다르지만 대략 빛의 속도와 같거나 약간 작다.</li>
-<li>링크의 전파 속도가 S m/s이고 링크의 길이가 D 미터일 때, 전파 지연 시간은 D/S 초가 된다.</li>
-<li>광역 네트워크에서 전파 지연은 일반적으로 수 초에 이른다고 한다.</li>
-</ul>
+<h2 id="임시-저장소에-있는-파일들을-저장소에-저장하기"><a href="#임시-저장소에-있는-파일들을-저장소에-저장하기" class="headerlink" title="임시 저장소에 있는 파일들을 저장소에 저장하기"></a>임시 저장소에 있는 파일들을 저장소에 저장하기</h2><p>임시 저장소에 있는 파일들을 저장소에 저장하면 하나의 커밋이 만들어진다.<br>임시 저장소에 있는 파일들의 버전을 저장소에 저장할 때는 <code>git commit</code> 명령어가 사용된다.   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;Fix minor things&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>git commit</code> 명령어 뒤에 <code>-m</code> 옵션을 붙이면 간단하게 커밋 메시지를 작성할 수 있다.<br>커밋 메시지란 해당 커밋을 설명하는 짧은 설명문이다.<br>커밋을 생성할 때는 반드시 커밋 메시지를 작성해야 한다.   </p>
 
     </div>
 
@@ -417,8 +379,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A7%80%EC%97%B0/" rel="tag"># 네트워크 지연</a>
-              <a href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" rel="tag"># 네트워크</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
           </div>
 
         
@@ -430,6 +391,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0/" rel="next" title="네트워크에서 발생하는 지연">
+                  네트워크에서 발생하는 지연 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -522,9 +486,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/";
-    this.page.identifier = "2021/06/02/네트워크에서-발생하는-지연의-종류/";
-    this.page.title = "네트워크에서 발생하는 지연";
+    this.page.url = "https://kihyunkimlee.github.io/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/";
+    this.page.identifier = "2021/06/01/Git-기본-사용법-알아보기/";
+    this.page.title = "Git 기본 사용법 알아보기";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
     if (window.DISQUS) {

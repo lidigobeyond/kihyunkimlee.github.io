@@ -125,9 +125,13 @@
     <url>/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/</url>
     <content><![CDATA[<h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.<br>이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.<br>(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)   </p>
 <p>특정 칼럼의 값이 NULL일 때 다른 값으로 치환해서 출력하는 방법은 여러 가지가 있다.   </p>
+<br>
+
 <h2 id="1-IFNULL-함수를-이용한-방법"><a href="#1-IFNULL-함수를-이용한-방법" class="headerlink" title="1. IFNULL 함수를 이용한 방법"></a>1. IFNULL 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">IFNULL(expression, alt_value)   </span><br></pre></td></tr></table></figure>
 <p>IFNULL 함수는 첫 번째 매개 변수의 값이 NULL이면 두 번째 매개 변수의 값을 반환한다.<br>첫 번째 매개 변수의 값이 NULL이 아니면 첫 번째 매개 변수의 값을 반환한다.   </p>
 <h3 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, IFNULL(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<br>
+
 <h2 id="2-COALESCE-함수를-이용한-방법"><a href="#2-COALESCE-함수를-이용한-방법" class="headerlink" title="2. COALESCE 함수를 이용한 방법"></a>2. COALESCE 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">COALESCE</span>(val_1, val_2, ..., val_n)</span><br></pre></td></tr></table></figure>
 <p>COALESCE 함수는 임의의 개수의 매개 변수에서 NULL이 아닌 최초의 매개 변수의 값을 반환한다.   </p>
 <p>예를 들어 아래와 같은 SQL문을 실행시키면,</p>
@@ -135,6 +139,8 @@
 <p>NULL이 아닌 최초의 매개 변수의 값 “HELLO”가 출력된다.   </p>
 <p>반면에 모든 매개 변수의 값이 NULL이면 NULL을 반환한다.   </p>
 <h3 id="정답-코드-1"><a href="#정답-코드-1" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, <span class="built_in">COALESCE</span>(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<br>
+
 <h2 id="3-CASE를-이용한-방법"><a href="#3-CASE를-이용한-방법" class="headerlink" title="3. CASE를 이용한 방법"></a>3. CASE를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span></span><br><span class="line">  <span class="keyword">WHEN</span> condition1 <span class="keyword">THEN</span> result1</span><br><span class="line">  <span class="keyword">WHEN</span> condition2 <span class="keyword">THEN</span> result2</span><br><span class="line">  <span class="keyword">ELSE</span> <span class="keyword">result</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
 <p>CASE 문은 프로그래밍 언어의 다중 if-else 문과 비슷하다.<br>위에서부터 차례대로 조건식이 참인지 거짓인지 판별한다.<br>조건식이 거짓인 경우 그 다음 조건식이 참인지 거짓인지 판별한다.<br>조건식이 참인 경우 더이상 조건식을 판별하지 않고 THEN에 명시된 값을 반환하고 종료한다.<br>참인 조건식이 하나도 없으면 ELSE에 명시된 값을 반환하고 종료한다.   </p>
 <p>한 가지 주의해야 할 점은, ELSE를 명시하지 않았을 경우 참인 조건식이 하나도 없으면 NULL을 반환한다는 것이다.<br>그러므로 CASE문을 사용할 때는 반드시 ELSE를 명시해주는 것이 좋다.   </p>
@@ -155,6 +161,8 @@
 
 <p>이번에 아주 오래전부터 참여하고 싶었던 프로그래머스 스타트업 인턴 프로그램에 지원하게 되었다.<br>프로그래머스 스타트업 인턴 프로그램을 준비하기 위해서 4월부터 정말 바쁘게 보냈다.<br>개발하고 있었던 토이 프로젝트도 부지런히 마무리 지었고, 코딩 테스트 준비를 위해서 프로그래머스 사이트에서 알고리즘 문제도 열심히 풀었다.</p>
 <p>5월 9일, 어버이날에 코딩 테스트 시험을 치렀다.<br>작년과 똑같이 알고리즘 3문제와 SQL 1문제가 출제되었다.<br>간단하게 풀었던 시험 문제를 블로그에 리뷰해보려고 한다.</p>
+<br>
+
 <h2 id="시험-문제-리뷰"><a href="#시험-문제-리뷰" class="headerlink" title="시험 문제 리뷰"></a>시험 문제 리뷰</h2><h3 id="1번-문제-100-100"><a href="#1번-문제-100-100" class="headerlink" title="1번 문제 (100/100)"></a>1번 문제 (100/100)</h3><ul>
 <li>비교적 쉬운 문자열 처리 문제였다.</li>
 <li>하나의 문자열로 주어지는 데이터를 적절히 처리하여 필요한 데이터만 추출한 다음, 그중에서 조건에 맞는 데이터만 선별한 뒤, 문제에 조건에 맞게 데이터를 정렬해서 정답을 만들었다.</li>
@@ -194,6 +202,8 @@
 <li>SQL 문제는 가면 갈수록 어렵게 출제되는 거 같다.</li>
 <li>다양한 문제 해결 방법이 있겠지만, 나는 UNION ALL 집합 연산자를 사용해서 문제를 해결했다.</li>
 </ul>
+<br>
+
 <h2 id="시험-결과"><a href="#시험-결과" class="headerlink" title="시험 결과"></a>시험 결과</h2><img src="/2021/05/11/프로그래머스-2021-여름방학-스타트업-인턴-프로그램-코딩-테스트-후기/pass_email.png" width=650 height=450 alt="합격 이메일" title="합격 이메일" />
 
 <p>코딩 테스트는 턱걸이로 합격할 수 있지 않을까 싶었는데… 만점을 받게 되었다.<br>지금까지 노력했던 게 헛되지 않은 거 같아 기쁘다.<br>코딩 테스트에서 만점 받은 거에 만족하지 않고, 스타트업에서 인턴할 수 있는 기회까지 얻을 수 있도록 면접 준비도 열심히 해야겠다.<br>마지막까지 화이팅!</p>
@@ -207,8 +217,44 @@
       </tags>
   </entry>
   <entry>
+    <title>Git 기본 사용법 알아보기</title>
+    <url>/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
+    <content><![CDATA[<h2 id="저장소-만들기"><a href="#저장소-만들기" class="headerlink" title="저장소 만들기"></a>저장소 만들기</h2><p>저장소를 만드는 방법에는 두 가지가 있다.<br>첫 번째 방법은 <code>git init</code> 명령어로 현재 디렉터리에 빈 저장소를 만드는 것이다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /현재/위치한/디렉터리/.git/</span><br></pre></td></tr></table></figure>
+<p>두 번째 방법은 <code>git clone</code> 명령어로 기존에 있는 저장소를 복제하는 것이다.<br>원격에 있는 저장소를 복제할 수 있고, 로컬에 있는 저장소도 복제할 수 있다.<br>아래는 github에 있는 원격 저장소를 현재 디렉터리에 복제하는 예시이다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git .</span><br><span class="line">Cloning into <span class="string">&#x27;git-playground&#x27;</span>...</span><br><span class="line">remote: Enumerating objects: 27, <span class="keyword">done</span>.</span><br><span class="line">remote: Counting objects: 100% (27/27), <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (16/16), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 27 (delta 1), reused 27 (delta 1), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (27/27), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+<p><code>git clone</code> 명령어 뒤에 원격 저장소 주소를 적고 한 칸 뛰고 <code>.</code>를 찍어주지 않으면, 원격 저장소와 같은 이름의 새로운 디렉터리가 생성된 후 그 디렉터리에 복제된다.<br>위의 예시와 같은 경우에는 원격 저장소의 이름이 git-playground이기 때문에 git-playground라는 디렉터리가 생성되고 그 디렉터리에 복제된다.   </p>
+<p>아래의 예시처럼 생성될 디렉터리명을 따로 명시해줄 수 있다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git my-playground</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="파일의-변경-사항-추적하기"><a href="#파일의-변경-사항-추적하기" class="headerlink" title="파일의 변경 사항 추적하기"></a>파일의 변경 사항 추적하기</h2><p>저장소가 있는 디렉터리의 모든 파일은 크게 untracked 상태와 tracked 상태인 파일로 나눠진다.<br>untracked 상태는 말 그대로 깃에 의해서 관리되지 않는 파일을 뜻한다.<br>tracked 상태는 반대로 깃에 의해서 관리되는 파일을 뜻한다.<br>tracked 상태인 파일의 변경 사항은 깃에 의해서 추적된다.<br><code>git init</code> 명령어로 빈 저장소를 만들고 난 뒤에 디렉터리의 모든 파일은 untracked 상태이다.<br>특정 파일을 tracked 상태로 만들기 위해서는 <code>git add</code> 명령어를 사용해야 한다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add 변경사항을_추적할_파일명</span><br></pre></td></tr></table></figure>
+<p>디렉터리의 모든 파일을 tracked 상태로 만들 때는 <code>git add</code>  명령어 다음에 <code>.</code>를 찍어주면 된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="수정된-파일을-임시-저장소에-저장하기"><a href="#수정된-파일을-임시-저장소에-저장하기" class="headerlink" title="수정된 파일을 임시 저장소에 저장하기"></a>수정된 파일을 임시 저장소에 저장하기</h2><p>수정된 파일을 버전으로 만들고 저장하기 위해서는 먼저 수정된 파일을 임시 저장소에 저장해야 한다.<br>임시 저장소란 무엇이고 왜 있는 걸까?<br>임시 저장소는 하나의 커밋 단위로 저장될 파일들의 버전을 모아두는 곳이다.<br>임시 저장소가 있기 때문에 수정된 파일들 중에서 원하는 파일만 커밋할 수 있다.   </p>
+<p>🚨 <strong>커밋???</strong><br>커밋(Commit)이란 특정 시점의 저장소의 상태이다.<br>특정 시점의 파일의 상태를 버전이라고 한다면, 특정 시점의 저장소의 상태는 커밋이라고 한다.<br>깃은 구글 드라이브나 드롭박스처럼 각 파일의 상태를 관리하지 않는다.<br>깃은 저장소의 상태를 관리한다.<br>그렇기 때문에 깃으로는 원하는 파일만 이전 상태로 되돌릴 수 없다.<br>커밋 안에 포함된 여러 파일들의 상태를 함께 되돌려야 한다.   </p>
+<p><code>git add</code> 명령어는 untracked 상태인 파일을 tracked 상태로 만들 때뿐만 아니라, 변경된 파일을 임시 저장소에 저장할 때도 사용된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add 임시_저장소에_저장할_파일명</span><br></pre></td></tr></table></figure>
+<p><code>git add</code> 명령어로 untracked 상태에서 tracked 상태가 된 파일은 임시 저장소에도 저장된다.   </p>
+<br>
+
+<h2 id="임시-저장소에-있는-파일들을-저장소에-저장하기"><a href="#임시-저장소에-있는-파일들을-저장소에-저장하기" class="headerlink" title="임시 저장소에 있는 파일들을 저장소에 저장하기"></a>임시 저장소에 있는 파일들을 저장소에 저장하기</h2><p>임시 저장소에 있는 파일들을 저장소에 저장하면 하나의 커밋이 만들어진다.<br>임시 저장소에 있는 파일들의 버전을 저장소에 저장할 때는 <code>git commit</code> 명령어가 사용된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;Fix minor things&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>git commit</code> 명령어 뒤에 <code>-m</code> 옵션을 붙이면 간단하게 커밋 메시지를 작성할 수 있다.<br>커밋 메시지란 해당 커밋을 설명하는 짧은 설명문이다.<br>커밋을 생성할 때는 반드시 커밋 메시지를 작성해야 한다.   </p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>네트워크에서 발생하는 지연</title>
-    <url>/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0%EC%9D%98-%EC%A2%85%EB%A5%98/</url>
+    <url>/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0/</url>
     <content><![CDATA[<h2 id="네트워크에서-발생하는-지연"><a href="#네트워크에서-발생하는-지연" class="headerlink" title="네트워크에서 발생하는 지연"></a>네트워크에서 발생하는 지연</h2><ul>
 <li>네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다.</li>
 <li>WHY???<ul>
@@ -262,7 +308,7 @@
 
 <h2 id="전파-지연"><a href="#전파-지연" class="headerlink" title="전파 지연"></a>전파 지연</h2><ul>
 <li>한 노드에서 전송한 비트가 링크를 통해서 다른 노드로 전달되는 데 걸리는 시간.</li>
-<li>전파 지연 시간은 링크의 전송 속도와 물리적 길이에 따라서 결정된다.</li>
+<li>전파 지연 시간은 링크의 전파 속도와 물리적 길이에 따라서 결정된다.</li>
 <li>전파 속도는 링크의 물리 매체에 따라 다르지만 대략 빛의 속도와 같거나 약간 작다.</li>
 <li>링크의 전파 속도가 S m/s이고 링크의 길이가 D 미터일 때, 전파 지연 시간은 D/S 초가 된다.</li>
 <li>광역 네트워크에서 전파 지연은 일반적으로 수 초에 이른다고 한다.</li>
