@@ -251,6 +251,8 @@
 <p><code>git add</code> 명령어는 untracked 상태인 파일을 tracked 상태로 만들 때뿐만 아니라, 변경된 파일을 임시 저장소에 저장할 때도 사용된다.   </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add 임시_저장소에_저장할_파일명</span><br></pre></td></tr></table></figure>
 <p><code>git add</code> 명령어로 untracked 상태에서 tracked 상태가 된 파일은 임시 저장소에도 저장된다.   </p>
+<p>임시 저장소에 있는 파일을 제거할 때는 <code>git reset</code> 명령어를 사용하면 된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git reset -- 임시_저장소에서_삭제할_파일명</span><br></pre></td></tr></table></figure>
 <br>
 
 <h2 id="임시-저장소에-있는-파일들을-저장소에-저장하기"><a href="#임시-저장소에-있는-파일들을-저장소에-저장하기" class="headerlink" title="임시 저장소에 있는 파일들을 저장소에 저장하기"></a>임시 저장소에 있는 파일들을 저장소에 저장하기</h2><p>임시 저장소에 있는 파일들을 저장소에 저장하면 하나의 커밋이 만들어진다.<br>임시 저장소에 있는 파일들을 저장소에 저장할 때는 <code>git commit</code> 명령어가 사용된다.   </p>
