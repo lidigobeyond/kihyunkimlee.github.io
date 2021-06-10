@@ -346,7 +346,7 @@
   </entry>
   <entry>
     <title>.gitignore 작성법 알아보기</title>
-    <url>/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/</url>
+    <url>/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
     <content><![CDATA[<h1 id="gitignore-파일"><a href="#gitignore-파일" class="headerlink" title=".gitignore 파일"></a>.gitignore 파일</h1><h2 id="WHAT"><a href="#WHAT" class="headerlink" title="WHAT"></a>WHAT</h2><p>.gitignore 파일이란 무엇일까?<br>.gitignore 파일은 버전을 관리하지 않을 파일이나 디렉터리의 정보를 명시해 놓는 파일이다.<br>.gitignore에 명시된 파일은 깃에게 완전히 존재하지 않는 파일 취급을 받는다.</p>
 <h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><p>왜 그리고 언제 .gitignore 파일을 만들어서 사용해야 할까?<br>프로젝트 폴더에는 외부에 절대로 노출되어서 안 되는 파일이 들어 있을 수 있다.<br>예를 들면, 프로젝트 폴더에 클라우드 서비스 인증키나 데이터베이스 접속 정보 등이 들어 있는 파일이 있을 수 있다.<br>프로젝트의 규모가 커지고 버전을 관리해야 하는 파일의 개수가 증가하게 되면, 그런 노출되어서 안 되는 파일이 실수로 커밋에 포함되어서 github 같은 공개된 원격 저장소에 올라갈 수 있다.<br>이러한 실수를 사전에 방지하기 위해서, 반드시 .gitignore 파일을 만들어야 한다.</p>
 <h2 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h2><p>어떻게 .gitignore 파일을 작성해야 하는 걸까?<br><code>glob 패턴</code> 문법에 따라 .gitignore 파일을 작성해주면 된다.</p>

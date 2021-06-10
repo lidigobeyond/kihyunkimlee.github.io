@@ -9,13 +9,13 @@
     <atom:link href="https://kihyunkimlee.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 10 Jun 2021 03:09:36 GMT</pubDate>
+    <pubDate>Thu, 10 Jun 2021 03:12:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>.gitignore 작성법 알아보기</title>
-      <link>https://kihyunkimlee.github.io/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/</link>
-      <guid>https://kihyunkimlee.github.io/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/</guid>
+      <link>https://kihyunkimlee.github.io/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</link>
+      <guid>https://kihyunkimlee.github.io/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</guid>
       <pubDate>Mon, 07 Jun 2021 03:03:15 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;gitignore-파일&quot;&gt;&lt;a href=&quot;#gitignore-파일&quot; class=&quot;headerlink&quot; title=&quot;.gitignore 파일&quot;&gt;&lt;/a&gt;.gitignore 파일&lt;/h1&gt;&lt;h2 id=&quot;WHAT&quot;&gt;&lt;a href=&quot;#WHAT&quot; class=&quot;headerlink&quot; title=&quot;WHAT&quot;&gt;&lt;/a&gt;WHAT&lt;/h2&gt;&lt;p&gt;.gitignore 파일이란 무엇일까?&lt;br&gt;.gitignore 파일은 버전을 관리하지 않을 파일이나 디렉터리의 정보를 명시해 놓는 파일이다.&lt;br&gt;.gitignore에 명시된 파일은 깃에게 완전히 존재하지 않는 파일 취급을 받는다.&lt;/p&gt;
@@ -40,7 +40,7 @@
       <category domain="https://kihyunkimlee.github.io/tags/gitignore/">.gitignore</category>
       
       
-      <comments>https://kihyunkimlee.github.io/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/#disqus_thread</comments>
+      <comments>https://kihyunkimlee.github.io/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread</comments>
       
     </item>
     
