@@ -206,7 +206,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -219,7 +219,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -255,6 +255,114 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KiHyun Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="김기현 블로그">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/" class="post-title-link" itemprop="url">.gitignore 작성법 알아보기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2021-06-07 12:03:15" itemprop="dateCreated datePublished" datetime="2021-06-07T12:03:15+09:00">2021-06-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-06-10 12:09:36" itemprop="dateModified" datetime="2021-06-10T12:09:36+09:00">2021-06-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/07/gitignore-작성법-정리하기/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="gitignore-파일"><a href="#gitignore-파일" class="headerlink" title=".gitignore 파일"></a>.gitignore 파일</h1><h2 id="WHAT"><a href="#WHAT" class="headerlink" title="WHAT"></a>WHAT</h2><p>.gitignore 파일이란 무엇일까?<br>.gitignore 파일은 버전을 관리하지 않을 파일이나 디렉터리의 정보를 명시해 놓는 파일이다.<br>.gitignore에 명시된 파일은 깃에게 완전히 존재하지 않는 파일 취급을 받는다.</p>
+<h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><p>왜 그리고 언제 .gitignore 파일을 만들어서 사용해야 할까?<br>프로젝트 폴더에는 외부에 절대로 노출되어서 안 되는 파일이 들어 있을 수 있다.<br>예를 들면, 프로젝트 폴더에 클라우드 서비스 인증키나 데이터베이스 접속 정보 등이 들어 있는 파일이 있을 수 있다.<br>프로젝트의 규모가 커지고 버전을 관리해야 하는 파일의 개수가 증가하게 되면, 그런 노출되어서 안 되는 파일이 실수로 커밋에 포함되어서 github 같은 공개된 원격 저장소에 올라갈 수 있다.<br>이러한 실수를 사전에 방지하기 위해서, 반드시 .gitignore 파일을 만들어야 한다.</p>
+<h2 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h2><p>어떻게 .gitignore 파일을 작성해야 하는 걸까?<br><code>glob 패턴</code> 문법에 따라 .gitignore 파일을 작성해주면 된다.</p>
+<p>🚨 <strong>glob 패턴</strong>???</p>
+<blockquote>
+<p>glob 패턴이란 와일드 카드 문자를 이용해서 일정한 패턴을 가진 파일의 이름들을 지정하기 위한 문자열 패턴이다.<br><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AazcxMjA3OTIvR2xvYi0lRUQlOEMlQTglRUQlODQlQjQlRUElQjMlQkMtJUVDJUEwJTk1JUVBJUI3JTlDJUVEJTkxJTlDJUVEJTk4JTg0JUVDJThCJTlE">출처 : Hugo.log<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<p><code>glob 패턴</code>은 정규 표현식과 비슷하지만 훨씬 간단하고 사용하기 쉽다.<br><code>glob 패턴</code>에 대해서는 아래의 블로그에 자세히 설명되어 있다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/07/gitignore-%EC%9E%91%EC%84%B1%EB%B2%95-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
