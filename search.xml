@@ -345,8 +345,8 @@
       </tags>
   </entry>
   <entry>
-    <title>.gitignore 작성법 알아보기</title>
-    <url>/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
+    <title>.gitignore 파일 작성법 알아보기</title>
+    <url>/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
     <content><![CDATA[<h1 id="gitignore-파일"><a href="#gitignore-파일" class="headerlink" title=".gitignore 파일"></a>.gitignore 파일</h1><h2 id="WHAT"><a href="#WHAT" class="headerlink" title="WHAT"></a>WHAT</h2><p>.gitignore 파일이란 무엇일까?<br>.gitignore 파일은 버전을 관리하지 않을 파일이나 디렉터리의 정보를 명시해 놓는 파일이다.<br>.gitignore에 명시된 파일은 깃에게 완전히 존재하지 않는 파일 취급을 받는다.</p>
 <h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><p>왜 그리고 언제 .gitignore 파일을 만들어서 사용해야 할까?<br>프로젝트 폴더에는 외부에 절대로 노출되어서 안 되는 파일이 들어 있을 수 있다.<br>예를 들면, 프로젝트 폴더에 클라우드 서비스 인증키나 데이터베이스 접속 정보 등이 들어 있는 파일이 있을 수 있다.<br>프로젝트의 규모가 커지고 버전을 관리해야 하는 파일의 개수가 증가하게 되면, 그런 노출되어서 안 되는 파일이 실수로 커밋에 포함되어서 github 같은 공개된 원격 저장소에 올라갈 수 있다.<br>이러한 실수를 사전에 방지하기 위해서, 반드시 .gitignore 파일을 만들어야 한다.</p>
 <h2 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h2><p>어떻게 .gitignore 파일을 작성해야 하는 걸까?<br><code>glob 패턴</code> 문법에 따라 .gitignore 파일을 작성해주면 된다.</p>
@@ -364,6 +364,26 @@
       <tags>
         <tag>Git</tag>
         <tag>.gitignore</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ts-node Error: Cannot find module &#39;@types/node/package.json&#39;</title>
+    <url>/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/</url>
+    <content><![CDATA[<h2 id="에러-발생"><a href="#에러-발생" class="headerlink" title="에러 발생"></a>에러 발생</h2><p>typescript를 설치하고 ts-node를 설치한 뒤에 ts-node를 실행시켜보니 아래와 같은 에러가 발생했다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ts-node hello.ts</span><br><span class="line">Error: Cannot find module <span class="string">&#x27;@types/node/package.json&#x27;</span></span><br><span class="line">    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:582:15)</span><br><span class="line">    at Function.resolve (internal/modules/cjs/helpers.js:30:19)</span><br><span class="line">    at typeDirectiveNames.map (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:746:52)</span><br><span class="line">    at Array.map (&lt;anonymous&gt;)</span><br><span class="line">    at Object.resolveTypeReferenceDirectives (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:734:33)</span><br><span class="line">    at actualResolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109509:143)</span><br><span class="line">    at resolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109768:26)</span><br><span class="line">    at Object.createProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109607:35)</span><br><span class="line">    at synchronizeHostData (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153740:26)</span><br><span class="line">    at Object.getProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153872:13)</span><br></pre></td></tr></table></figure>
+<h2 id="발생-원인"><a href="#발생-원인" class="headerlink" title="발생 원인"></a>발생 원인</h2><p>ts-node를 실행시키기 위해서는 <code>@types/node</code>라는 패키지가 필요한 거 같다.<br><code>@types/node</code> 패키지를 설치해줬다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm i -g @types/node</span><br><span class="line">+ @types/node@15.12.2</span><br><span class="line">added 1 package from 41 contributors <span class="keyword">in</span> 0.67s</span><br></pre></td></tr></table></figure>
+<h2 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h2><p><code>@types/node</code> 패키지를 설치하니 ts-node가 정상적으로 동작한다.</p>
+<p><img src="/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/back-to-normal.png" alt="정상 작동 모습"></p>
+<p>근데 왜 패키지가 아니라 ‘package.json’ 파일이 없다고 나오는지 잘 모르겠다…</p>
+]]></content>
+      <categories>
+        <category>Do it! typescript 프로그래밍</category>
+      </categories>
+      <tags>
+        <tag>typescript</tag>
+        <tag>ts-node</tag>
+        <tag>Do it! typescript 프로그래밍</tag>
       </tags>
   </entry>
 </search>

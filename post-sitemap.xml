@@ -9,8 +9,16 @@
 
 
     <url>
-        <loc>https://kihyunkimlee.github.io/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</loc>
-        <lastmod>2021-06-10T03:12:33.606Z</lastmod>
+        <loc>https://kihyunkimlee.github.io/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/</loc>
+        <lastmod>2021-06-11T12:33:00.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://kihyunkimlee.github.io/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</loc>
+        <lastmod>2021-06-10T03:25:55.744Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

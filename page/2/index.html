@@ -27,26 +27,26 @@
   </script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="김기현 블로그">
-<meta property="og:url" content="https://kihyunkimlee.github.io/archives/2021/04/index.html">
+<meta property="og:url" content="https://kihyunkimlee.github.io/page/2/index.html">
 <meta property="og:site_name" content="김기현 블로그">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="KiHyun Kim">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/archives/2021/04/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/page/2/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'ko'
   };
 </script>
-<title>아카이브 | 김기현 블로그</title>
+<title>김기현 블로그</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK7LTQWSPV"></script>
     <script>
@@ -254,69 +254,114 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner index posts-expand">
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KiHyun Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="김기현 블로그">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/" class="post-title-link" itemprop="url">C++ 간단하게 정수 자릿수 바꾸기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2021-03-03 21:58:01" itemprop="dateCreated datePublished" datetime="2021-03-03T21:58:01+09:00">2021-03-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-04-02 07:18:11" itemprop="dateModified" datetime="2021-04-02T07:18:11+09:00">2021-04-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
 
   
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/03/c++-easy-way-to-change-the-digits-of-integers/" itemprop="commentCount"></span>
+    </a>
+  </span>
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">음..! 총 11개의 포스트. 포스트를 계속 작성하세요.</span>
-      </div>
+  
+</div>
 
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>BOJ <code>알고리즘 온라인 강의</code>를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.<br>정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.<br>산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.   </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> index, <span class="keyword">int</span> digit)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">    s[index] = digit + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> stoi(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">0</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1999</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9199</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">2</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9919</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">3</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9991</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-04-24T14:45:30+09:00"
-              content="2021-04-24">
-          04-24
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/" itemprop="url">
-            <span itemprop="name">[프로그래머스] 동굴 탐험</span>
-          </a>
-      </div>
-
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
-    </header>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-04-06T18:58:25+09:00"
-              content="2021-04-06">
-          04-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/06/BOJ-16987-%EA%B3%84%EB%9E%80%EC%9C%BC%EB%A1%9C-%EA%B3%84%EB%9E%80%EC%B9%98%EA%B8%B0/" itemprop="url">
-            <span itemprop="name">[BOJ 16987] 계란으로 계란치기</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 <script>

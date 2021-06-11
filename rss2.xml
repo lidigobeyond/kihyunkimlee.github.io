@@ -9,13 +9,46 @@
     <atom:link href="https://kihyunkimlee.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 10 Jun 2021 03:12:33 GMT</pubDate>
+    <pubDate>Fri, 11 Jun 2021 12:33:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>.gitignore 작성법 알아보기</title>
-      <link>https://kihyunkimlee.github.io/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</link>
-      <guid>https://kihyunkimlee.github.io/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</guid>
+      <title>ts-node Error: Cannot find module &#39;@types/node/package.json&#39;</title>
+      <link>https://kihyunkimlee.github.io/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/</link>
+      <guid>https://kihyunkimlee.github.io/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/</guid>
+      <pubDate>Thu, 10 Jun 2021 12:40:36 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;에러-발생&quot;&gt;&lt;a href=&quot;#에러-발생&quot; class=&quot;headerlink&quot; title=&quot;에러 발생&quot;&gt;&lt;/a&gt;에러 발생&lt;/h2&gt;&lt;p&gt;typescript를 설치하고 ts-node를 설치한 뒤에 ts-node를 실행시켜보니 아래와 같은 에러가 발생했다.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ts-node hello.ts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Error: Cannot find module &lt;span class=&quot;string&quot;&gt;&amp;#x27;@types/node/package.json&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:582:15)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at Function.resolve (internal/modules/cjs/helpers.js:30:19)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at typeDirectiveNames.map (/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/lib/node_modules/ts-node/src/index.ts:746:52)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at Array.map (&amp;lt;anonymous&amp;gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at Object.resolveTypeReferenceDirectives (/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/lib/node_modules/ts-node/src/index.ts:734:33)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at actualResolveTypeReferenceDirectiveNamesWorker (/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/lib/node_modules/typescript/lib/typescript.js:109509:143)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at resolveTypeReferenceDirectiveNamesWorker (/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/lib/node_modules/typescript/lib/typescript.js:109768:26)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at Object.createProgram (/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/lib/node_modules/typescript/lib/typescript.js:109607:35)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at synchronizeHostData (/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/lib/node_modules/typescript/lib/typescript.js:153740:26)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at Object.getProgram (/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/lib/node_modules/typescript/lib/typescript.js:153872:13)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;발생-원인&quot;&gt;&lt;a href=&quot;#발생-원인&quot; class=&quot;headerlink&quot; title=&quot;발생 원인&quot;&gt;&lt;/a&gt;발생 원인&lt;/h2&gt;&lt;p&gt;ts-node를 실행시키기 위해서는 &lt;code&gt;@types/node&lt;/code&gt;라는 패키지가 필요한 거 같다.&lt;br&gt;&lt;code&gt;@types/node&lt;/code&gt; 패키지를 설치해줬다.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm i -g @types/node&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ @types/node@15.12.2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;added 1 package from 41 contributors &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; 0.67s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;해결&quot;&gt;&lt;a href=&quot;#해결&quot; class=&quot;headerlink&quot; title=&quot;해결&quot;&gt;&lt;/a&gt;해결&lt;/h2&gt;&lt;p&gt;&lt;code&gt;@types/node&lt;/code&gt; 패키지를 설치하니 ts-node가 정상적으로 동작한다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/back-to-normal.png&quot; alt=&quot;정상 작동 모습&quot;&gt;&lt;/p&gt;
+&lt;p&gt;근데 왜 패키지가 아니라 ‘package.json’ 파일이 없다고 나오는지 잘 모르겠다…&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="에러-발생"><a href="#에러-발생" class="headerlink" title="에러 발생"></a>에러 발생</h2><p>typescript를 설치하고 ts-node를 설치한 뒤에 ts-node를 실행시켜보니 아래와 같은 에러가 발생했다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ts-node hello.ts</span><br><span class="line">Error: Cannot find module <span class="string">&#x27;@types/node/package.json&#x27;</span></span><br><span class="line">    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:582:15)</span><br><span class="line">    at Function.resolve (internal/modules/cjs/helpers.js:30:19)</span><br><span class="line">    at typeDirectiveNames.map (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:746:52)</span><br><span class="line">    at Array.map (&lt;anonymous&gt;)</span><br><span class="line">    at Object.resolveTypeReferenceDirectives (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:734:33)</span><br><span class="line">    at actualResolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109509:143)</span><br><span class="line">    at resolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109768:26)</span><br><span class="line">    at Object.createProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109607:35)</span><br><span class="line">    at synchronizeHostData (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153740:26)</span><br><span class="line">    at Object.getProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153872:13)</span><br></pre></td></tr></table></figure><h2 id="발생-원인"><a href="#발생-원인" class="headerlink" title="발생 원인"></a>발생 원인</h2><p>ts-node를 실행시키기 위해서는 <code>@types/node</code>라는 패키지가 필요한 거 같다.<br><code>@types/node</code> 패키지를 설치해줬다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g @types/node</span><br><span class="line">+ @types/node@15.12.2</span><br><span class="line">added 1 package from 41 contributors <span class="keyword">in</span> 0.67s</span><br></pre></td></tr></table></figure><h2 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h2><p><code>@types/node</code> 패키지를 설치하니 ts-node가 정상적으로 동작한다.</p><p><img src="/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/back-to-normal.png" alt="정상 작동 모습"></p><p>근데 왜 패키지가 아니라 ‘package.json’ 파일이 없다고 나오는지 잘 모르겠다…</p>]]></content:encoded>
+      
+      
+      <category domain="https://kihyunkimlee.github.io/categories/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">Do it! typescript 프로그래밍</category>
+      
+      
+      <category domain="https://kihyunkimlee.github.io/tags/typescript/">typescript</category>
+      
+      <category domain="https://kihyunkimlee.github.io/tags/ts-node/">ts-node</category>
+      
+      <category domain="https://kihyunkimlee.github.io/tags/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">Do it! typescript 프로그래밍</category>
+      
+      
+      <comments>https://kihyunkimlee.github.io/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>.gitignore 파일 작성법 알아보기</title>
+      <link>https://kihyunkimlee.github.io/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</link>
+      <guid>https://kihyunkimlee.github.io/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</guid>
       <pubDate>Mon, 07 Jun 2021 03:03:15 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;gitignore-파일&quot;&gt;&lt;a href=&quot;#gitignore-파일&quot; class=&quot;headerlink&quot; title=&quot;.gitignore 파일&quot;&gt;&lt;/a&gt;.gitignore 파일&lt;/h1&gt;&lt;h2 id=&quot;WHAT&quot;&gt;&lt;a href=&quot;#WHAT&quot; class=&quot;headerlink&quot; title=&quot;WHAT&quot;&gt;&lt;/a&gt;WHAT&lt;/h2&gt;&lt;p&gt;.gitignore 파일이란 무엇일까?&lt;br&gt;.gitignore 파일은 버전을 관리하지 않을 파일이나 디렉터리의 정보를 명시해 놓는 파일이다.&lt;br&gt;.gitignore에 명시된 파일은 깃에게 완전히 존재하지 않는 파일 취급을 받는다.&lt;/p&gt;
@@ -40,7 +73,7 @@
       <category domain="https://kihyunkimlee.github.io/tags/gitignore/">.gitignore</category>
       
       
-      <comments>https://kihyunkimlee.github.io/2021/06/07/gitignore_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread</comments>
+      <comments>https://kihyunkimlee.github.io/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread</comments>
       
     </item>
     
