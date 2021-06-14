@@ -402,9 +402,9 @@
 </li>
 <li>thisArg(선택 항목) : 콜백 함수 내에서 this로 사용할 레퍼런스.</li>
 </ul>
-<h3 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h3><h4 id="예제1"><a href="#예제1" class="headerlink" title="예제1"></a>예제1</h4><p><code>forEach</code> 메서드를 사용해서 배열의 모든 원소 출력하기.</p>
+<h3 id="예제1"><a href="#예제1" class="headerlink" title="예제1"></a>예제1</h3><p><code>forEach</code> 메서드를 사용해서 배열의 모든 원소 출력하기.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>, <span class="string">&#x27;four&#x27;</span>, <span class="string">&#x27;five&#x27;</span>];</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function">(<span class="params">str</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(str) &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// one</span></span><br><span class="line"><span class="comment">// two</span></span><br><span class="line"><span class="comment">// three</span></span><br><span class="line"><span class="comment">// four</span></span><br><span class="line"><span class="comment">// five</span></span><br></pre></td></tr></table></figure>
-<h4 id="예제2"><a href="#예제2" class="headerlink" title="예제2"></a>예제2</h4><p><code>forEach</code> 메서드를 사용해서 배열의 모든 원소의 합 계산하기.</p>
+<h3 id="예제2"><a href="#예제2" class="headerlink" title="예제2"></a>예제2</h3><p><code>forEach</code> 메서드를 사용해서 배열의 모든 원소의 합 계산하기.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">num</span>) =&gt;</span> &#123; sum += num &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
 <br>
 
@@ -427,7 +427,7 @@
 </li>
 </ul>
 <h3 id="주의-사항-🚨"><a href="#주의-사항-🚨" class="headerlink" title="주의 사항 🚨"></a>주의 사항 🚨</h3><p>정렬은 stable sort가 아닐 수 있다!<br>stable sort란 원본 배열에서 우선 순위가 같은 원소들의 상대적 위치가 정렬된 이후에도 유지되는 성질을 가진 정렬 알고리즘을 말한다.<br>ES2019 이전까지, 자바스크립트 표준에서는 sort 메서드의 stable 속성을 강제하지 않았었다.<br>그래서 브라우져 별로 sort 메서드의 stable 속성 지원 유무가 달랐다.<br>ES2019부터 sort 메서드의 stable 속성이 강제되었고, 현재 대다수의 유명 브라우져에서 이것을 지키고 있다고 한다.<br>하지만 오래된 버전의 브라우져에는 이것이 반영되지 않았기 때문에 항상 정렬이 stable sort라고 단정지을 수 없다.<br>(<a href="https://twitter.com/mathias/status/1036626116654637057?s=19">V8 v7.0와 Chrome 70, 그리고 Node v11.0 부터 <code>sort</code> 메서드에 stable 속성이 보장된다고 한다.</a>)   </p>
-<h3 id="예제-1"><a href="#예제-1" class="headerlink" title="예제"></a>예제</h3><h4 id="예제-1"><a href="#예제-1" class="headerlink" title="예제 1"></a>예제 1</h4><p><code>sort</code> 메서드를 사용해서 정수 배열을 내림차순 정렬하기.</p>
+<h3 id="예제-1"><a href="#예제-1" class="headerlink" title="예제 1"></a>예제 1</h3><p><code>sort</code> 메서드를 사용해서 정수 배열을 내림차순 정렬하기.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">100</span>, <span class="number">54</span>, <span class="number">72</span>, <span class="number">63</span>, <span class="number">34</span>, <span class="number">94</span>];</span><br><span class="line"></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b-a);</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function">(<span class="params">num</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(num) &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 100</span></span><br><span class="line"><span class="comment">// 94</span></span><br><span class="line"><span class="comment">// 72</span></span><br><span class="line"><span class="comment">// 54</span></span><br><span class="line"><span class="comment">// 34</span></span><br></pre></td></tr></table></figure>
 <br>
 
@@ -438,7 +438,7 @@
 <ul>
 <li>매개변수 없음.</li>
 </ul>
-<h3 id="예제-2"><a href="#예제-2" class="headerlink" title="예제"></a>예제</h3><h4 id="예제-1-1"><a href="#예제-1-1" class="headerlink" title="예제 1"></a>예제 1</h4><p><code>reverse</code> 메서드를 사용해서 오름차순으로 정렬된 배열에서 내림차순으로 정렬된 배열 구하기</p>
+<h3 id="예제-1-1"><a href="#예제-1-1" class="headerlink" title="예제 1"></a>예제 1</h3><p><code>reverse</code> 메서드를 사용해서 오름차순으로 정렬된 배열에서 내림차순으로 정렬된 배열 구하기</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rArr arr.reverse();</span><br><span class="line"></span><br><span class="line">rArr.forEach(<span class="function">(<span class="params">num</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(num) &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 9</span></span><br><span class="line"><span class="comment">// 7</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <br>
 
@@ -448,6 +448,65 @@
       </categories>
       <tags>
         <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>브랜치 기본 조작 방법 알아보기</title>
+    <url>/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
+    <content><![CDATA[<h1 id="브랜치"><a href="#브랜치" class="headerlink" title="브랜치"></a>브랜치</h1><ul>
+<li>커밋 사이를 가볍게 이동할 수 있는 어떤 포인터 같은 것(?)</li>
+<li>브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.</li>
+</ul>
+<h2 id="master-브랜치"><a href="#master-브랜치" class="headerlink" title="master 브랜치"></a>master 브랜치</h2><ul>
+<li>첫 커밋을 만들면 Git이 자동으로 만드는 브랜치.</li>
+<li>커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.</li>
+</ul>
+<h2 id="HEAD-포인터"><a href="#HEAD-포인터" class="headerlink" title="HEAD 포인터"></a>HEAD 포인터</h2><ul>
+<li>현재 작업중인 브랜치를 가리키는 포인터.</li>
+<li>기본적으로 master 브랜치를 가리키고 있다.</li>
+</ul>
+<br>
+
+<h1 id="브랜치-기본-조작-방법"><a href="#브랜치-기본-조작-방법" class="headerlink" title="브랜치 기본 조작 방법"></a>브랜치 기본 조작 방법</h1><h2 id="브랜치-생성하기"><a href="#브랜치-생성하기" class="headerlink" title="브랜치 생성하기"></a>브랜치 생성하기</h2><ul>
+<li>git branch 명령으로 새로운 브랜치를 생성할 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch 생성할_브랜치명</span><br></pre></td></tr></table></figure>
+<ul>
+<li>새롭게 생성된 브랜치는 자동으로 지금 작업하고 있는 커밋을 가리킨다.</li>
+</ul>
+<h2 id="브랜치-목록-보기"><a href="#브랜치-목록-보기" class="headerlink" title="브랜치 목록 보기"></a>브랜치 목록 보기</h2><ul>
+<li>git branch 명령으로 브랜치 목록을 볼 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+<h2 id="브랜치-이동하기"><a href="#브랜치-이동하기" class="headerlink" title="브랜치 이동하기"></a>브랜치 이동하기</h2><ul>
+<li>git checkout 명령으로 다른 브랜치로 이동할 수 있다.</li>
+<li>브랜치를 이동한다는 것은 HEAD 포인터가 다른 브랜치를 가리키도록 수정한다는 것이다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout 이동할_브랜치명</span><br></pre></td></tr></table></figure>
+<ul>
+<li>브랜치를 이동하면 워킹 디렉터리의 파일이 변경된다.<ul>
+<li>브랜치를 이동하면 워킹 디렉터리의 파일은 해당 브랜치가 가리키는 커밋의 스냅샷으로 변경된다.</li>
+<li>단, 마지막 커밋 이후로 변경 사항이 존재하는 브랜치로 이동할 경우, 워킹 디렉터리의 파일은 그 브랜치에서 가장 마지막으로 했던 작업 내용으로 변경된다.</li>
+</ul>
+</li>
+<li>현재 브랜치에 아직 커밋하지 않은 파일이 이동하려는 브랜치에 있는 파일과 충돌된다면, 브랜치 이동을 할 수 없다!<ul>
+<li>이럴 때는 현재 브랜치의 워킹 디렉터리를 정리하거나  <code>git stach</code> 명령을 사용해야 한다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="브랜치-삭제하기"><a href="#브랜치-삭제하기" class="headerlink" title="브랜치 삭제하기"></a>브랜치 삭제하기</h2><ul>
+<li>git branch 명령에 -d 옵션을 주어서 브랜치를 삭제할 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -d b1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>아직 머지하지 않은 커밋을 갖고 있는 브랜치를 강제로 삭제할 때는 -D 옵션을 사용한다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -D b2</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
