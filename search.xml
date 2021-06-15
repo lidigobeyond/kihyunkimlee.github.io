@@ -448,7 +448,10 @@
   <entry>
     <title>[Do it! typescript 프로그래밍] 3. 객체와 타입</title>
     <url>/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/</url>
-    <content><![CDATA[<h1 id="var와-let-amp-const의-차이"><a href="#var와-let-amp-const의-차이" class="headerlink" title="var와 let&amp;const의 차이"></a>var와 let&amp;const의 차이</h1><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ul>
+    <content><![CDATA[<blockquote>
+<p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+</blockquote>
+<h1 id="var와-let-amp-const의-차이"><a href="#var와-let-amp-const의-차이" class="headerlink" title="var와 let&amp;const의 차이"></a>var와 let&amp;const의 차이</h1><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ul>
 <li>함수 스코프 사용.</li>
 <li>var 변수를 재정의해도 오류가 발생하지 않음.</li>
 <li>호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)</li>
