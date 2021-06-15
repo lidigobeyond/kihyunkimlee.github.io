@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="z4Nbd7c_7csfPUQYKGB9UqRV5nVKr6XJjQt3lEMMN5c">
+  <meta name="naver-site-verification" content="9dbfd6c996be209dffcca97f518fcbcce5251193" />
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="var와 let&amp;const의 차이var 함수 스코프 사용. var 변수를 재정의해도 오류가 발생하지 않음. 호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)  let과 const 블록 스코프 사용. 재정의하면 오류 발생.(const는 재할당해도 오류가 발생함) 호이스팅이 일어나지 않음.    타입주석과 타입 추론타입 주석 변수의">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Do it! typescript 프로그래밍] 3. 객체와 타입">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/index.html">
+<meta property="og:site_name" content="김기현 블로그">
+<meta property="og:description" content="var와 let&amp;const의 차이var 함수 스코프 사용. var 변수를 재정의해도 오류가 발생하지 않음. 호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)  let과 const 블록 스코프 사용. 재정의하면 오류 발생.(const는 재할당해도 오류가 발생함) 호이스팅이 일어나지 않음.    타입주석과 타입 추론타입 주석 변수의">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2021-06-15T04:35:16.000Z">
+<meta property="article:modified_time" content="2021-06-15T04:49:27.677Z">
+<meta property="article:author" content="KiHyun Kim">
+<meta property="article:tag" content="Typescript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ko'
+  };
+</script>
+<title>[Do it! typescript 프로그래밍] 3. 객체와 타입 | 김기현 블로그</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK7LTQWSPV"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MK7LTQWSPV');
+      }
+    </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="김기현 블로그" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">김기현 블로그</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#var%EC%99%80-let-amp-const%EC%9D%98-%EC%B0%A8%EC%9D%B4"><span class="nav-number">1.</span> <span class="nav-text">var와 let&amp;const의 차이</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#var"><span class="nav-number">1.1.</span> <span class="nav-text">var</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let%EA%B3%BC-const"><span class="nav-number">1.2.</span> <span class="nav-text">let과 const</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%83%80%EC%9E%85%EC%A3%BC%EC%84%9D%EA%B3%BC-%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0"><span class="nav-number">2.</span> <span class="nav-text">타입주석과 타입 추론</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%83%80%EC%9E%85-%EC%A3%BC%EC%84%9D"><span class="nav-number">2.1.</span> <span class="nav-text">타입 주석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0"><span class="nav-number">2.2.</span> <span class="nav-text">타입 추론</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%83%80%EC%9E%85"><span class="nav-number">3.</span> <span class="nav-text">타입</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85"><span class="nav-number">3.1.</span> <span class="nav-text">타입스크립트 기본 타입</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#any-%ED%83%80%EC%9E%85%EA%B3%BC-undefined-%ED%83%80%EC%9E%85"><span class="nav-number">3.2.</span> <span class="nav-text">any 타입과 undefined 타입</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#any-%ED%83%80%EC%9E%85"><span class="nav-number">3.2.1.</span> <span class="nav-text">any 타입</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined-%ED%83%80%EC%9E%85"><span class="nav-number">3.2.2.</span> <span class="nav-text">undefined 타입</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4%EC%99%80-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4"><span class="nav-number">4.</span> <span class="nav-text">객체와 인터페이스</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#object-%ED%83%80%EC%9E%85"><span class="nav-number">4.1.</span> <span class="nav-text">object 타입</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4"><span class="nav-number">4.2.</span> <span class="nav-text">인터페이스</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%84%A0%ED%83%9D-%EC%86%8D%EC%84%B1"><span class="nav-number">4.2.1.</span> <span class="nav-text">선택 속성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B5%EB%AA%85-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4"><span class="nav-number">4.2.2.</span> <span class="nav-text">익명 인터페이스</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="nav-number">5.</span> <span class="nav-text">클래스</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%84%A0%EC%96%B8%EB%AC%B8"><span class="nav-number">5.1.</span> <span class="nav-text">클래스 선언문</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%91%EA%B7%BC-%EC%A0%9C%ED%95%9C%EC%9E%90"><span class="nav-number">5.2.</span> <span class="nav-text">접근 제한자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%83%9D%EC%84%B1%EC%9E%90"><span class="nav-number">5.3.</span> <span class="nav-text">생성자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-1"><span class="nav-number">5.4.</span> <span class="nav-text">인터페이스</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B6%94%EC%83%81-%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="nav-number">5.5.</span> <span class="nav-text">추상 클래스</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B6%94%EC%83%81-%EB%A9%94%EC%84%9C%EB%93%9C"><span class="nav-number">5.6.</span> <span class="nav-text">추상 메서드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%83%81%EC%86%8D"><span class="nav-number">5.7.</span> <span class="nav-text">클래스 상속</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static-%EC%86%8D%EC%84%B1"><span class="nav-number">5.8.</span> <span class="nav-text">static 속성</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B9%84-%EA%B5%AC%EC%A1%B0%ED%99%94-%ED%95%A0%EB%8B%B9"><span class="nav-number">6.</span> <span class="nav-text">비 구조화 할당</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B9%84-%EA%B5%AC%EC%A1%B0%ED%99%94-%ED%95%A0%EB%8B%B9-1"><span class="nav-number">6.1.</span> <span class="nav-text">비 구조화 할당</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9E%94%EC%97%AC-rest-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">6.2.</span> <span class="nav-text">잔여(rest) 연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%84%EA%B0%9C-spread-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">6.3.</span> <span class="nav-text">전개(spread) 연산자</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%83%80%EC%9E%85-%EB%8B%A8%EC%96%B8"><span class="nav-number">7.</span> <span class="nav-text">타입 단언</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%83%80%EC%9E%85-%EB%8B%A8%EC%96%B8-1"><span class="nav-number">7.1.</span> <span class="nav-text">타입 단언</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KiHyun Kim</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tpaHl1bmtpbWxlZQ==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kihyunkimlee"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tpaHl1bmtpbWxlZQ==" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KiHyun Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="김기현 블로그">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Do it! typescript 프로그래밍] 3. 객체와 타입
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+      
+
+      <time title="Post created: 2021-06-15 13:35:16 / Updated at: 13:49:27" itemprop="dateCreated datePublished" datetime="2021-06-15T13:35:16+09:00">2021-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">Do it! typescript 프로그래밍</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/15/Do-it-typescript-프로그래밍-3-객체와-타입/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="var와-let-amp-const의-차이"><a href="#var와-let-amp-const의-차이" class="headerlink" title="var와 let&amp;const의 차이"></a>var와 let&amp;const의 차이</h1><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ul>
+<li>함수 스코프 사용.</li>
+<li>var 변수를 재정의해도 오류가 발생하지 않음.</li>
+<li>호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)</li>
+</ul>
+<h2 id="let과-const"><a href="#let과-const" class="headerlink" title="let과 const"></a>let과 const</h2><ul>
+<li>블록 스코프 사용.</li>
+<li>재정의하면 오류 발생.(const는 재할당해도 오류가 발생함)</li>
+<li>호이스팅이 일어나지 않음.</li>
+</ul>
+<br>
+
+<h1 id="타입주석과-타입-추론"><a href="#타입주석과-타입-추론" class="headerlink" title="타입주석과 타입 추론"></a>타입주석과 타입 추론</h1><h2 id="타입-주석"><a href="#타입-주석" class="headerlink" title="타입 주석"></a>타입 주석</h2><ul>
+<li>변수의 타입을 명시하는 것.</li>
+<li>변수의 타입이 정해지면, 변수는 정해진 타입에 해당하는 값만 가질 수 있다.</li>
+</ul>
+<h2 id="타입-추론"><a href="#타입-추론" class="headerlink" title="타입 추론"></a>타입 추론</h2><ul>
+<li>타입 주석 부분을 생략하였을 때 컴파일러가 변수에 할당되는 초깃값에 따라서 변수의 타입을 지정하는 것.</li>
+</ul>
+<br>
+
+<h1 id="타입"><a href="#타입" class="headerlink" title="타입"></a>타입</h1><h2 id="타입스크립트-기본-타입"><a href="#타입스크립트-기본-타입" class="headerlink" title="타입스크립트 기본 타입"></a>타입스크립트 기본 타입</h2><ul>
+<li>number</li>
+<li>boolean</li>
+<li>string</li>
+<li>object</li>
+</ul>
+<h2 id="any-타입과-undefined-타입"><a href="#any-타입과-undefined-타입" class="headerlink" title="any 타입과 undefined 타입"></a>any 타입과 undefined 타입</h2><h3 id="any-타입"><a href="#any-타입" class="headerlink" title="any 타입"></a>any 타입</h3><ul>
+<li>어떤 타입의 값도 저장할 수 있는 타입.</li>
+<li>자바스크립트와 호환을 위해서 제공되는 타입.</li>
+<li>타입 상속 관계(?)에서 any 타입은 최상위 타입이다.</li>
+</ul>
+<h3 id="undefined-타입"><a href="#undefined-타입" class="headerlink" title="undefined 타입"></a>undefined 타입</h3><ul>
+<li>undefined 값만 저장할 수 있는 타입.</li>
+<li>자바스크립트에서 undefined는 값이었지만, 타입스크립트에서 undefined는 값이자 타입이다.</li>
+<li>타입 상속 관계에서 undefined 타입은 최하위 타입이다.</li>
+</ul>
+<br>
+
+<h1 id="객체와-인터페이스"><a href="#객체와-인터페이스" class="headerlink" title="객체와 인터페이스"></a>객체와 인터페이스</h1><h2 id="object-타입"><a href="#object-타입" class="headerlink" title="object 타입"></a>object 타입</h2><ul>
+<li>object 타입은 마치 객체를 대상으로 하는 any 타입처럼 동작한다.</li>
+<li>object 타입 변수에 number, boolean, string 타입의 값을 저장할 수 없지만, 어떠한 형태의 객체도 저장할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj: <span class="built_in">object</span> = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">nickname</span>: <span class="string">&#x27;LIDI&#x27;</span>, <span class="attr">employee_num</span>: <span class="number">124125</span>&#125; <span class="comment">//ok!</span></span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">first</span>: <span class="number">1</span>, <span class="attr">second</span>: <span class="number">2</span>, <span class="attr">third</span>: <span class="number">3</span>&#125; <span class="comment">//ok!</span></span><br></pre></td></tr></table></figure>
+<h2 id="인터페이스"><a href="#인터페이스" class="headerlink" title="인터페이스"></a>인터페이스</h2><ul>
+<li>어떤 변수에 저장될 객체의 형태를 제한시킬 때 사용하는 문법.</li>
+<li>인터페이스 문법을 통해서 객체의 특정한 형태를 타입으로 정의할 수 있다.</li>
+<li>타입에는 해당 타입의 객체가 가져야 할 속성과 그 속성의 타입을 명시할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">nickname</span>: <span class="string">&#x27;LIDI&#x27;</span>, <span class="attr">employee_num</span>: <span class="number">124125</span>&#125; <span class="comment">//type error!</span></span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">first</span>: <span class="number">1</span>, <span class="attr">second</span>: <span class="number">2</span>&#125; <span class="comment">//type error!</span></span><br></pre></td></tr></table></figure>
+<h3 id="선택-속성"><a href="#선택-속성" class="headerlink" title="선택 속성"></a>선택 속성</h3><ul>
+<li>가지고 있어도 되고 안 가지고 있어도 되는 성질.</li>
+<li>속성 이름 뒤에 <code>?</code> 를 붙이면 해당 속성은 선택 속성이 된다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">	sex?: <span class="built_in">string</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>, <span class="attr">sex</span>: <span class="string">&#x27;MALE&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;HONG GI DONG&#x27;</span>, <span class="attr">age</span>:<span class="number">623</span>&#125; <span class="comment">//ok!</span></span><br></pre></td></tr></table></figure>
+<h3 id="익명-인터페이스"><a href="#익명-인터페이스" class="headerlink" title="익명 인터페이스"></a>익명 인터페이스</h3><ul>
+<li>이름이 없는 인터페이스.</li>
+<li><code>interface</code> 키워드를 사용하지 않는다.</li>
+<li>주로 한 번만 사용될 인터페이스를 만들 때 익명 인터페이스로 정의한다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj : &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">	sex?: <span class="built_in">string</span>,</span><br><span class="line">&#125; = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>, <span class="attr">sex</span>: <span class="string">&#x27;MALE&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h1><h2 id="클래스-선언문"><a href="#클래스-선언문" class="headerlink" title="클래스 선언문"></a>클래스 선언문</h2><ul>
+<li>타입스크립트의 클래스 선언문은 다음과 같다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 클래스명 </span>&#123;</span><br><span class="line">	[<span class="keyword">private</span> or <span class="keyword">protected</span> or <span class="keyword">public</span>] 속성명[?]: 속성_타입</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="접근-제한자"><a href="#접근-제한자" class="headerlink" title="접근 제한자"></a>접근 제한자</h2><ul>
+<li><p>접근 제한자에는 public, private, protected이 있다.</p>
+<ul>
+<li>public<ul>
+<li>자식 클래스에서 접근 가능 ⭕</li>
+<li>클래스 외부에서도 접근 가능 ⭕</li>
+</ul>
+</li>
+<li>protected<ul>
+<li>자식 클래스에서 접근 가능 ⭕</li>
+<li>클래스 외부에서는 접근 불가능 ❌</li>
+</ul>
+</li>
+<li>private<ul>
+<li>자식 클래스에서 접근 불가능 ❌</li>
+<li>클래스 외부에서도 접근 불가능 ❌</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>접근 제한자를 생략하면 모두 public 속성으로 간주한다.</p>
+</li>
+</ul>
+<h2 id="생성자"><a href="#생성자" class="headerlink" title="생성자"></a>생성자</h2><ul>
+<li><code>constructor</code>라는 이름의 특수한 메서드.</li>
+<li>객체가 생성될 때 객체를 초기화해준다.</li>
+<li>생성자의 매개변수에 접근 제어자를 붙이면 해당 매개변수의 이름을 가진 속성이 클래스에 선언된 것처럼 동작한다.</li>
+<li>그러므로 아래의 Employee1 클래스와 Employee2 클래스는 완전히 동일하게 동작한다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee2</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> name: <span class="built_in">string</span></span><br><span class="line">	<span class="keyword">public</span> age: <span class="built_in">number</span></span><br><span class="line">	<span class="keyword">public</span> sex?: <span class="built_in">string</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">name: <span class="built_in">string</span>, age: <span class="built_in">number</span>, sex?: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name</span><br><span class="line">		<span class="built_in">this</span>.age = age</span><br><span class="line">		<span class="built_in">this</span>.sex = sex</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>어떤 클래스가 다른 클래스를 상속했을 경우,  <code>super</code> 키워드를 통해서 부모 클래스의 생성자를 호출할 수 있다.</li>
+</ul>
+<h2 id="인터페이스-1"><a href="#인터페이스-1" class="headerlink" title="인터페이스"></a>인터페이스</h2><ul>
+<li>다른 객체 지향 언어와 마찬가지로 타입스크립트 클래스도 인터페이스를 구현할 수 있다.</li>
+<li>클래스가 인터페이스를 구현할 때는 아래와 같이 <code>implements</code> 키워드를 사용한다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 클래스명 <span class="title">implements</span> 인터페이스명 </span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a>추상 클래스</h2><ul>
+<li>완전하게 구현되어 있지 않은 메서드, 즉 추상 메서드를 가지고 있는 클래스.</li>
+<li>추상 클래스는 <code>class</code> 키워드 앞에 <code>abstract</code> 키워드를 붙여서 만든다.</li>
+</ul>
+<h2 id="추상-메서드"><a href="#추상-메서드" class="headerlink" title="추상 메서드"></a>추상 메서드</h2><ul>
+<li>부모 클래스를 상속하는 자식 클래스들이 공통으로 가져야 할 메서드이지만, 메서드의 구체적인 동작을 부모 클래스가 미리 정의하기 어려울 때 해당 메서드를 추상 메서드로 정의한다.</li>
+<li>추상 메서드는 메서드 앞에 <code>abstract</code> 키워드를 붙여서 만든다.</li>
+<li>추상 클래스를 상속하는 클래스는 추상 메서드를 반드시 구현해야 한다.</li>
+<li>(추상 속성은 뭐지…?)</li>
+</ul>
+<h2 id="클래스-상속"><a href="#클래스-상속" class="headerlink" title="클래스 상속"></a>클래스 상속</h2><ul>
+<li><code>extends</code> 키워드를 사용해서 상속 클래스를 만든다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 상속<span class="title">_</span>클래스명 <span class="keyword">extends</span> 부모<span class="title">_</span>클래스명 </span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="static-속성"><a href="#static-속성" class="headerlink" title="static 속성"></a>static 속성</h2><ul>
+<li>클래스의 모든 인스턴스가 값을 공유하는 속성.</li>
+<li>static 속성은 속성명 앞에 <code>static</code> 키워드를 붙여서 만든다.</li>
+<li>클래스의 static 속성은 ‘클래스명 . static 속성 명’ 같이 점 표기법을 사용해서 접근할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> cnt: <span class="built_in">number</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">		Employee.cnt += <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>, <span class="string">&#x27;MALE&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> = employee_num = Employee.cnt <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="비-구조화-할당"><a href="#비-구조화-할당" class="headerlink" title="비 구조화 할당"></a>비 구조화 할당</h1><h2 id="비-구조화-할당-1"><a href="#비-구조화-할당-1" class="headerlink" title="비 구조화 할당"></a>비 구조화 할당</h2><ul>
+<li>객체 안에 있는 속성을 추출해서 변수 또는 상수로 바로 선언해줄 수 있는 ES6 표현식.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;name, age&#125; = employee;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name, age) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>타입스크립트에서는 비 구조화 할당을 할 때 기본값을 설정해줄 수 없는 거 같다(?)</li>
+<li>비 구조화 할당 시 변수 또는 상수의 이름을 바꿔주는 건 가능한 거 같다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">name</span>: full_name, <span class="attr">age</span>: korean_age&#125; = employee;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(full_name, korean_age) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
+<h2 id="잔여-rest-연산자"><a href="#잔여-rest-연산자" class="headerlink" title="잔여(rest) 연산자"></a>잔여(rest) 연산자</h2><ul>
+<li>비 구조화 할당에서 특정 속성을 제외한 나머지 속성들을 별도의 변수 또는 상수에 한꺼번에 할당하고 싶을 때 사용하는 연산자.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">	sex: <span class="built_in">string</span>,</span><br><span class="line">	phone: <span class="built_in">string</span>,</span><br><span class="line">	email: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee: IEmployee = &#123;</span><br><span class="line">	name: <span class="string">&#x27;KIM KIHYUN&#x27;</span>,</span><br><span class="line">	age: <span class="number">27</span>,</span><br><span class="line">	sex: <span class="string">&#x27;MALE&#x27;</span>,</span><br><span class="line">	phone: <span class="string">&#x27;010-0000-0000&#x27;</span>,</span><br><span class="line">	email: <span class="string">&#x27;abc@gmail.com&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;name, age, sex, ...rest&#125; = employee;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(rest) <span class="comment">//&#123; phone: &#x27;010-0000-0000&#x27;, email: &#x27;abc@gmail.com&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="전개-spread-연산자"><a href="#전개-spread-연산자" class="headerlink" title="전개(spread) 연산자"></a>전개(spread) 연산자</h2><ul>
+<li>객체의 모든 속성을 새롭게 생성되는 객체의 속성으로 집어넣고 싶을 때 사용하는 연산자.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> employee: <span class="built_in">object</span> = &#123;</span><br><span class="line">	name: <span class="string">&#x27;KIM KIHYUN&#x27;</span>,</span><br><span class="line">	age: <span class="number">27</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person: <span class="built_in">object</span> = &#123;</span><br><span class="line">	...employee,</span><br><span class="line">	sex: <span class="string">&#x27;MALE&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person) <span class="comment">//&#123; name: &#x27;KIM KIHYUN&#x27;, age: 27, sex: &#x27;MALE&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="타입-단언"><a href="#타입-단언" class="headerlink" title="타입 단언"></a>타입 단언</h1><h2 id="타입-단언-1"><a href="#타입-단언-1" class="headerlink" title="타입 단언"></a>타입 단언</h2><ul>
+<li>컴파일러가 가진 변수의 타입 정보를 무시하고 프로그래머가 정해준 임의의 타입으로 해석하도록 컴파일러에 지시하는 것.</li>
+<li>또는 컴파일러가 실제 런타임에 존재할 변수의 타입과 다르게 추론하거나 너무 보수적으로 변수의 타입을 추론할 경우, 프로그래머가 컴파일러에게 변수의 타입에 대한 힌트를 주는 것.</li>
+<li>타입 단언은 아래와 같이 두 가지 형태로 만들 수 있다.<ul>
+<li>(&lt;타입명&gt;객체명)</li>
+<li>(객체명 as 타입명)</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Typescript/" rel="tag"># Typescript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/" rel="prev" title="브랜치 기본 조작 방법 알아보기">
+                  <i class="fa fa-chevron-left"></i> 브랜치 기본 조작 방법 알아보기
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KiHyun Kim</span>
+</div>
+<div class="busuanzi-count">
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://kimkihyunblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://kihyunkimlee.github.io/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/";
+    this.page.identifier = "2021/06/15/Do-it-typescript-프로그래밍-3-객체와-타입/";
+    this.page.title = "[Do it! typescript 프로그래밍] 3. 객체와 타입";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://kimkihyunblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -381,9 +381,8 @@
         <category>Do it! typescript 프로그래밍</category>
       </categories>
       <tags>
-        <tag>typescript</tag>
-        <tag>ts-node</tag>
-        <tag>Do it! typescript 프로그래밍</tag>
+        <tag>Typescript</tag>
+        <tag>TS-NODE</tag>
       </tags>
   </entry>
   <entry>
@@ -444,6 +443,172 @@
       <tags>
         <tag>Git</tag>
         <tag>Branch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Do it! typescript 프로그래밍] 3. 객체와 타입</title>
+    <url>/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/</url>
+    <content><![CDATA[<h1 id="var와-let-amp-const의-차이"><a href="#var와-let-amp-const의-차이" class="headerlink" title="var와 let&amp;const의 차이"></a>var와 let&amp;const의 차이</h1><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ul>
+<li>함수 스코프 사용.</li>
+<li>var 변수를 재정의해도 오류가 발생하지 않음.</li>
+<li>호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)</li>
+</ul>
+<h2 id="let과-const"><a href="#let과-const" class="headerlink" title="let과 const"></a>let과 const</h2><ul>
+<li>블록 스코프 사용.</li>
+<li>재정의하면 오류 발생.(const는 재할당해도 오류가 발생함)</li>
+<li>호이스팅이 일어나지 않음.</li>
+</ul>
+<br>
+
+<h1 id="타입주석과-타입-추론"><a href="#타입주석과-타입-추론" class="headerlink" title="타입주석과 타입 추론"></a>타입주석과 타입 추론</h1><h2 id="타입-주석"><a href="#타입-주석" class="headerlink" title="타입 주석"></a>타입 주석</h2><ul>
+<li>변수의 타입을 명시하는 것.</li>
+<li>변수의 타입이 정해지면, 변수는 정해진 타입에 해당하는 값만 가질 수 있다.</li>
+</ul>
+<h2 id="타입-추론"><a href="#타입-추론" class="headerlink" title="타입 추론"></a>타입 추론</h2><ul>
+<li>타입 주석 부분을 생략하였을 때 컴파일러가 변수에 할당되는 초깃값에 따라서 변수의 타입을 지정하는 것.</li>
+</ul>
+<br>
+
+<h1 id="타입"><a href="#타입" class="headerlink" title="타입"></a>타입</h1><h2 id="타입스크립트-기본-타입"><a href="#타입스크립트-기본-타입" class="headerlink" title="타입스크립트 기본 타입"></a>타입스크립트 기본 타입</h2><ul>
+<li>number</li>
+<li>boolean</li>
+<li>string</li>
+<li>object</li>
+</ul>
+<h2 id="any-타입과-undefined-타입"><a href="#any-타입과-undefined-타입" class="headerlink" title="any 타입과 undefined 타입"></a>any 타입과 undefined 타입</h2><h3 id="any-타입"><a href="#any-타입" class="headerlink" title="any 타입"></a>any 타입</h3><ul>
+<li>어떤 타입의 값도 저장할 수 있는 타입.</li>
+<li>자바스크립트와 호환을 위해서 제공되는 타입.</li>
+<li>타입 상속 관계(?)에서 any 타입은 최상위 타입이다.</li>
+</ul>
+<h3 id="undefined-타입"><a href="#undefined-타입" class="headerlink" title="undefined 타입"></a>undefined 타입</h3><ul>
+<li>undefined 값만 저장할 수 있는 타입.</li>
+<li>자바스크립트에서 undefined는 값이었지만, 타입스크립트에서 undefined는 값이자 타입이다.</li>
+<li>타입 상속 관계에서 undefined 타입은 최하위 타입이다.</li>
+</ul>
+<br>
+
+<h1 id="객체와-인터페이스"><a href="#객체와-인터페이스" class="headerlink" title="객체와 인터페이스"></a>객체와 인터페이스</h1><h2 id="object-타입"><a href="#object-타입" class="headerlink" title="object 타입"></a>object 타입</h2><ul>
+<li>object 타입은 마치 객체를 대상으로 하는 any 타입처럼 동작한다.</li>
+<li>object 타입 변수에 number, boolean, string 타입의 값을 저장할 수 없지만, 어떠한 형태의 객체도 저장할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj: <span class="built_in">object</span> = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">nickname</span>: <span class="string">&#x27;LIDI&#x27;</span>, <span class="attr">employee_num</span>: <span class="number">124125</span>&#125; <span class="comment">//ok!</span></span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">first</span>: <span class="number">1</span>, <span class="attr">second</span>: <span class="number">2</span>, <span class="attr">third</span>: <span class="number">3</span>&#125; <span class="comment">//ok!</span></span><br></pre></td></tr></table></figure>
+<h2 id="인터페이스"><a href="#인터페이스" class="headerlink" title="인터페이스"></a>인터페이스</h2><ul>
+<li>어떤 변수에 저장될 객체의 형태를 제한시킬 때 사용하는 문법.</li>
+<li>인터페이스 문법을 통해서 객체의 특정한 형태를 타입으로 정의할 수 있다.</li>
+<li>타입에는 해당 타입의 객체가 가져야 할 속성과 그 속성의 타입을 명시할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">nickname</span>: <span class="string">&#x27;LIDI&#x27;</span>, <span class="attr">employee_num</span>: <span class="number">124125</span>&#125; <span class="comment">//type error!</span></span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">first</span>: <span class="number">1</span>, <span class="attr">second</span>: <span class="number">2</span>&#125; <span class="comment">//type error!</span></span><br></pre></td></tr></table></figure>
+<h3 id="선택-속성"><a href="#선택-속성" class="headerlink" title="선택 속성"></a>선택 속성</h3><ul>
+<li>가지고 있어도 되고 안 가지고 있어도 되는 성질.</li>
+<li>속성 이름 뒤에 <code>?</code> 를 붙이면 해당 속성은 선택 속성이 된다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">	sex?: <span class="built_in">string</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>, <span class="attr">sex</span>: <span class="string">&#x27;MALE&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;HONG GI DONG&#x27;</span>, <span class="attr">age</span>:<span class="number">623</span>&#125; <span class="comment">//ok!</span></span><br></pre></td></tr></table></figure>
+<h3 id="익명-인터페이스"><a href="#익명-인터페이스" class="headerlink" title="익명 인터페이스"></a>익명 인터페이스</h3><ul>
+<li>이름이 없는 인터페이스.</li>
+<li><code>interface</code> 키워드를 사용하지 않는다.</li>
+<li>주로 한 번만 사용될 인터페이스를 만들 때 익명 인터페이스로 정의한다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj : &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">	sex?: <span class="built_in">string</span>,</span><br><span class="line">&#125; = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KI HYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>, <span class="attr">sex</span>: <span class="string">&#x27;MALE&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h1><h2 id="클래스-선언문"><a href="#클래스-선언문" class="headerlink" title="클래스 선언문"></a>클래스 선언문</h2><ul>
+<li>타입스크립트의 클래스 선언문은 다음과 같다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 클래스명 </span>&#123;</span><br><span class="line">	[<span class="keyword">private</span> or <span class="keyword">protected</span> or <span class="keyword">public</span>] 속성명[?]: 속성_타입</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="접근-제한자"><a href="#접근-제한자" class="headerlink" title="접근 제한자"></a>접근 제한자</h2><ul>
+<li><p>접근 제한자에는 public, private, protected이 있다.</p>
+<ul>
+<li>public<ul>
+<li>자식 클래스에서 접근 가능 ⭕</li>
+<li>클래스 외부에서도 접근 가능 ⭕</li>
+</ul>
+</li>
+<li>protected<ul>
+<li>자식 클래스에서 접근 가능 ⭕</li>
+<li>클래스 외부에서는 접근 불가능 ❌</li>
+</ul>
+</li>
+<li>private<ul>
+<li>자식 클래스에서 접근 불가능 ❌</li>
+<li>클래스 외부에서도 접근 불가능 ❌</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>접근 제한자를 생략하면 모두 public 속성으로 간주한다.</p>
+</li>
+</ul>
+<h2 id="생성자"><a href="#생성자" class="headerlink" title="생성자"></a>생성자</h2><ul>
+<li><code>constructor</code>라는 이름의 특수한 메서드.</li>
+<li>객체가 생성될 때 객체를 초기화해준다.</li>
+<li>생성자의 매개변수에 접근 제어자를 붙이면 해당 매개변수의 이름을 가진 속성이 클래스에 선언된 것처럼 동작한다.</li>
+<li>그러므로 아래의 Employee1 클래스와 Employee2 클래스는 완전히 동일하게 동작한다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee2</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> name: <span class="built_in">string</span></span><br><span class="line">	<span class="keyword">public</span> age: <span class="built_in">number</span></span><br><span class="line">	<span class="keyword">public</span> sex?: <span class="built_in">string</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">name: <span class="built_in">string</span>, age: <span class="built_in">number</span>, sex?: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name</span><br><span class="line">		<span class="built_in">this</span>.age = age</span><br><span class="line">		<span class="built_in">this</span>.sex = sex</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>어떤 클래스가 다른 클래스를 상속했을 경우,  <code>super</code> 키워드를 통해서 부모 클래스의 생성자를 호출할 수 있다.</li>
+</ul>
+<h2 id="인터페이스-1"><a href="#인터페이스-1" class="headerlink" title="인터페이스"></a>인터페이스</h2><ul>
+<li>다른 객체 지향 언어와 마찬가지로 타입스크립트 클래스도 인터페이스를 구현할 수 있다.</li>
+<li>클래스가 인터페이스를 구현할 때는 아래와 같이 <code>implements</code> 키워드를 사용한다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 클래스명 <span class="title">implements</span> 인터페이스명 </span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a>추상 클래스</h2><ul>
+<li>완전하게 구현되어 있지 않은 메서드, 즉 추상 메서드를 가지고 있는 클래스.</li>
+<li>추상 클래스는 <code>class</code> 키워드 앞에 <code>abstract</code> 키워드를 붙여서 만든다.</li>
+</ul>
+<h2 id="추상-메서드"><a href="#추상-메서드" class="headerlink" title="추상 메서드"></a>추상 메서드</h2><ul>
+<li>부모 클래스를 상속하는 자식 클래스들이 공통으로 가져야 할 메서드이지만, 메서드의 구체적인 동작을 부모 클래스가 미리 정의하기 어려울 때 해당 메서드를 추상 메서드로 정의한다.</li>
+<li>추상 메서드는 메서드 앞에 <code>abstract</code> 키워드를 붙여서 만든다.</li>
+<li>추상 클래스를 상속하는 클래스는 추상 메서드를 반드시 구현해야 한다.</li>
+<li>(추상 속성은 뭐지…?)</li>
+</ul>
+<h2 id="클래스-상속"><a href="#클래스-상속" class="headerlink" title="클래스 상속"></a>클래스 상속</h2><ul>
+<li><code>extends</code> 키워드를 사용해서 상속 클래스를 만든다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 상속<span class="title">_</span>클래스명 <span class="keyword">extends</span> 부모<span class="title">_</span>클래스명 </span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="static-속성"><a href="#static-속성" class="headerlink" title="static 속성"></a>static 속성</h2><ul>
+<li>클래스의 모든 인스턴스가 값을 공유하는 속성.</li>
+<li>static 속성은 속성명 앞에 <code>static</code> 키워드를 붙여서 만든다.</li>
+<li>클래스의 static 속성은 ‘클래스명 . static 속성 명’ 같이 점 표기법을 사용해서 접근할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> cnt: <span class="built_in">number</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">		Employee.cnt += <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>, <span class="string">&#x27;MALE&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> = employee_num = Employee.cnt <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="비-구조화-할당"><a href="#비-구조화-할당" class="headerlink" title="비 구조화 할당"></a>비 구조화 할당</h1><h2 id="비-구조화-할당-1"><a href="#비-구조화-할당-1" class="headerlink" title="비 구조화 할당"></a>비 구조화 할당</h2><ul>
+<li>객체 안에 있는 속성을 추출해서 변수 또는 상수로 바로 선언해줄 수 있는 ES6 표현식.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;name, age&#125; = employee;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name, age) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>타입스크립트에서는 비 구조화 할당을 할 때 기본값을 설정해줄 수 없는 거 같다(?)</li>
+<li>비 구조화 할당 시 변수 또는 상수의 이름을 바꿔주는 건 가능한 거 같다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee: IEmployee = &#123;<span class="attr">name</span>: <span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">name</span>: full_name, <span class="attr">age</span>: korean_age&#125; = employee;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(full_name, korean_age) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
+<h2 id="잔여-rest-연산자"><a href="#잔여-rest-연산자" class="headerlink" title="잔여(rest) 연산자"></a>잔여(rest) 연산자</h2><ul>
+<li>비 구조화 할당에서 특정 속성을 제외한 나머지 속성들을 별도의 변수 또는 상수에 한꺼번에 할당하고 싶을 때 사용하는 연산자.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> IEmployee &#123;</span><br><span class="line">	name: <span class="built_in">string</span>,</span><br><span class="line">	age: <span class="built_in">number</span>,</span><br><span class="line">	sex: <span class="built_in">string</span>,</span><br><span class="line">	phone: <span class="built_in">string</span>,</span><br><span class="line">	email: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee: IEmployee = &#123;</span><br><span class="line">	name: <span class="string">&#x27;KIM KIHYUN&#x27;</span>,</span><br><span class="line">	age: <span class="number">27</span>,</span><br><span class="line">	sex: <span class="string">&#x27;MALE&#x27;</span>,</span><br><span class="line">	phone: <span class="string">&#x27;010-0000-0000&#x27;</span>,</span><br><span class="line">	email: <span class="string">&#x27;abc@gmail.com&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;name, age, sex, ...rest&#125; = employee;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(rest) <span class="comment">//&#123; phone: &#x27;010-0000-0000&#x27;, email: &#x27;abc@gmail.com&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="전개-spread-연산자"><a href="#전개-spread-연산자" class="headerlink" title="전개(spread) 연산자"></a>전개(spread) 연산자</h2><ul>
+<li>객체의 모든 속성을 새롭게 생성되는 객체의 속성으로 집어넣고 싶을 때 사용하는 연산자.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> employee: <span class="built_in">object</span> = &#123;</span><br><span class="line">	name: <span class="string">&#x27;KIM KIHYUN&#x27;</span>,</span><br><span class="line">	age: <span class="number">27</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person: <span class="built_in">object</span> = &#123;</span><br><span class="line">	...employee,</span><br><span class="line">	sex: <span class="string">&#x27;MALE&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person) <span class="comment">//&#123; name: &#x27;KIM KIHYUN&#x27;, age: 27, sex: &#x27;MALE&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="타입-단언"><a href="#타입-단언" class="headerlink" title="타입 단언"></a>타입 단언</h1><h2 id="타입-단언-1"><a href="#타입-단언-1" class="headerlink" title="타입 단언"></a>타입 단언</h2><ul>
+<li>컴파일러가 가진 변수의 타입 정보를 무시하고 프로그래머가 정해준 임의의 타입으로 해석하도록 컴파일러에 지시하는 것.</li>
+<li>또는 컴파일러가 실제 런타임에 존재할 변수의 타입과 다르게 추론하거나 너무 보수적으로 변수의 타입을 추론할 경우, 프로그래머가 컴파일러에게 변수의 타입에 대한 힌트를 주는 것.</li>
+<li>타입 단언은 아래와 같이 두 가지 형태로 만들 수 있다.<ul>
+<li>(&lt;타입명&gt;객체명)</li>
+<li>(객체명 as 타입명)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Do it! typescript 프로그래밍</category>
+      </categories>
+      <tags>
+        <tag>Typescript</tag>
       </tags>
   </entry>
 </search>
