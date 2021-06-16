@@ -206,7 +206,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -264,7 +264,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -277,7 +277,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/" class="post-title-link" itemprop="url">[Do it! typescript 프로그래밍] 3. 객체와 타입</a>
+          <a href="/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/" class="post-title-link" itemprop="url">[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드</a>
         </h2>
 
         <div class="post-meta-container">
@@ -289,7 +289,7 @@
       <span class="post-meta-item-text">작성일</span>
       
 
-      <time title="Post created: 2021-06-15 13:35:16 / Updated at: 14:00:34" itemprop="dateCreated datePublished" datetime="2021-06-15T13:35:16+09:00">2021-06-15</time>
+      <time title="Post created: 2021-06-17 02:51:21 / Updated at: 03:10:37" itemprop="dateCreated datePublished" datetime="2021-06-17T02:51:21+09:00">2021-06-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,7 +297,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">Do it! typescript 프로그래밍</span></a>
+          <a href="/categories/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">Do it! 타입스크립트 프로그래밍</span></a>
         </span>
     </span>
 
@@ -310,8 +310,121 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/15/Do-it-typescript-프로그래밍-3-객체와-타입/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/17/Do-it-타입스크립트-프로그래밍-4-함수와-메서드/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+</blockquote>
+<h1 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h1><h2 id="함수를-정의하는-두-가지-방식"><a href="#함수를-정의하는-두-가지-방식" class="headerlink" title="함수를 정의하는 두 가지 방식"></a>함수를 정의하는 두 가지 방식</h2><h3 id="함수-선언문"><a href="#함수-선언문" class="headerlink" title="함수 선언문"></a>함수 선언문</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="함수-표현식"><a href="#함수-표현식" class="headerlink" title="함수 표현식"></a>함수 표현식</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="선택적-매개변수"><a href="#선택적-매개변수" class="headerlink" title="선택적 매개변수"></a>선택적 매개변수</h2><ul>
+<li>인자를 전달해주지 않아도 되는 매개변수.</li>
+<li>인터페이스의 선택 속성을 만들 때와 비슷하게 매개변수 이름 뒤에 <code>?</code> 를 붙이면 선택적 매개변수를 만들 수 있다.</li>
+<li>인자를 전달해주지 않으면 매개변수의 값은 undefined가 된다.</li>
+<li>함수의 매개변수 순서상, 선택적 매개변수 다음에 필수 매개변수가 올 수 없다.</li>
+<li>선택적 매개변수 다음에 필수 매개변수가 오면, 인자가 어떤 매개변수의 값인지 구분할 수 없기 때문이다.</li>
+</ul>
+<h2 id="매개변수-기본값-지정하기"><a href="#매개변수-기본값-지정하기" class="headerlink" title="매개변수 기본값 지정하기"></a>매개변수 기본값 지정하기</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KiHyun Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="김기현 블로그">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/" class="post-title-link" itemprop="url">[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2021-06-15 13:35:16" itemprop="dateCreated datePublished" datetime="2021-06-15T13:35:16+09:00">2021-06-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-06-17 03:05:17" itemprop="dateModified" datetime="2021-06-17T03:05:17+09:00">2021-06-17</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">Do it! 타입스크립트 프로그래밍</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/15/Do-it-타입스크립트-프로그래밍-3-객체와-타입/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -346,7 +459,7 @@
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/06/15/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#more" rel="contents">
+              <a class="btn" href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -525,7 +638,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-15 13:37:07" itemprop="dateModified" datetime="2021-06-15T13:37:07+09:00">2021-06-15</time>
+        <time title="Updated at: 2021-06-15 14:02:23" itemprop="dateModified" datetime="2021-06-15T14:02:23+09:00">2021-06-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -533,7 +646,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Do-it-typescript-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">Do it! typescript 프로그래밍</span></a>
+          <a href="/categories/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">Do it! 타입스크립트 프로그래밍</span></a>
         </span>
     </span>
 
@@ -1269,126 +1382,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/04/06/BOJ-16987-%EA%B3%84%EB%9E%80%EC%9C%BC%EB%A1%9C-%EA%B3%84%EB%9E%80%EC%B9%98%EA%B8%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="KiHyun Kim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="김기현 블로그">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/06/BOJ-16987-%EA%B3%84%EB%9E%80%EC%9C%BC%EB%A1%9C-%EA%B3%84%EB%9E%80%EC%B9%98%EA%B8%B0/" class="post-title-link" itemprop="url">[BOJ 16987] 계란으로 계란치기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2021-04-06 18:58:25" itemprop="dateCreated datePublished" datetime="2021-04-06T18:58:25+09:00">2021-04-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-06 18:40:23" itemprop="dateModified" datetime="2021-06-06T18:40:23+09:00">2021-06-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/" itemprop="url" rel="index"><span itemprop="name">알고리즘 문제 풀이</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/06/BOJ-16987-%EA%B3%84%EB%9E%80%EC%9C%BC%EB%A1%9C-%EA%B3%84%EB%9E%80%EC%B9%98%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/06/BOJ-16987-계란으로-계란치기/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>계란의 개수 N과 N개의 계란의 내구도와 무게 정보가 주어진다.<br>문제에 주어진 과정대로 계란을 쳤을 때 깰 수 있는 계란의 최대 개수를 구하는 문제이다. 문제에 주어진 계란을 치는 과정은 다음과 같다.   </p>
-<ol>
-<li>N개의 계란이 일렬로 놓여있다.</li>
-<li>가장 왼쪽에 있는 계란을 손에 든다.</li>
-<li>손에 들고 있는 계란으로 깨지지 않은 다른 계란 중에서 하나를 친다.<ol>
-<li>계란으로 계란을 치면 각 계란의 내구도는 상대 계란의 무게 만큼 감소하게 된다.</li>
-<li>계란의 내구도가 0이하가 되면 계란은 깨진다.</li>
-</ol>
-</li>
-<li>단, 손에 든 계란이 깨졌거나 깨지지 않은 다른 계란이 없으면 치지 않고 넘어간다.</li>
-<li>이후 손에 든 계란을 제자리에 내려놓는다.</li>
-<li>내려놓은 계란의 한 칸 오른쪽에 있는 계란을 손에 들고 3부터 다시 시작한다. 단, 제자리에 내려놓은 계란이 가장 오른쪽에 위치한 계란일 경우 계란 치는 과정을 종료한다.</li>
-</ol>
-<p>문제에 최적 부분 구조 성질이 성립하지 않기 때문에 그리디 알고리즘과 동적 계획법 알고리즘으로는 문제를 해결할 수 없다.<br>최적 부분 구조 성질이란 지금까지 어떤 경로로 이 부분 문제에 도달했건 남은 부분 문제는 항상 최적으로 풀어도 상관이 없는 성질이다.<br>앞에 있는 계란으로 어떤 계란을 쳤는지에 따라서 뒤에 있는 계란으로 어떤 계란을 칠 수 있는지가 결정되기 때문에 이 문제에는 최적 부분 구조 성질이 성립하지 않는다.<br>그렇다면 적용할 수 있는 알고리즘은 완전 탐색 알고리즘 밖에 없다.<br>완전 탐색 알고리즘으로 제한 시간 내에 문제를 해결할 수 있는지 알아보기 위해, 계란을 칠 수 있는 가능한 방법의 최대 개수를 계산해보자.   </p>
-<br>
-
-<h2 id="가능한-방법의-최대-개수"><a href="#가능한-방법의-최대-개수" class="headerlink" title="가능한 방법의 최대 개수"></a>가능한 방법의 최대 개수</h2><p>N개의 계란이 일렬로 놓여 있을 때, 가장 왼쪽에 있는 계란을 1번 계란이라 하고, 1번 계란의 한 칸 오른쪽에 있는 계란을 2번 계란, 그리고 가장 오른쪽에 있는 계란을 N번 계란이라고 하자.<br>가장 왼쪽에 있는 1번 계란을 손에 들었을 때, 나머지 N-1개의 계란은 모두 깨지지 않은 상태일 것이다.<br>왜냐하면 아직 한번도 계란으로 계란을 친적이 없기 때문이다.<br>문제에 조건에 따라 1번 계란으로 N-1개의 계란 중에 아무거나 하나를 칠 수 있다.<br>그러므로 1번 계란으로 칠 수 있는 방법의 개수는 N-1개이다.<br>1번 계란을 제자리에 놓고 2번 계란을 손에 들었을 때, 남아있을 수 있는 깨져있지 않은 계란의 최대 개수는 N-1개이다.<br>1번 계란으로 어떤 x번 계란을 쳤는데 1번 계란과 x번 계란 모두 깨지지 않은 경우에 깨져있지 않은 계란의 개수가 N-1개이기 때문이다.<br>그러므로 2번 계란으로 칠 수 있는 방법의 최대 개수는 N-1개이다.<br>3번 계란부터 N번 계란까지 각각의 계란으로 칠 수 있는 방법의 최대 개수를 구해보면 2번 계란과 같이 N-1개라는 것을 알 수 있다.<br>그러므로 가능한 방법의 최대 개수는 N-1을 N번 곱한 (N-1)^N이 된다.<br>문제에서 계란의 개수 N은 8보다 작거나 같다고 했기 때문에 가능한 방법의 최대 개수는 7^8이다.<br>가능한 모든 경우의 수가 5백만가지 정도 밖에 안되기 때문에 완전 탐색 알고리즘으로 제한 시간 내에 충분히 문제를 해결할 수 있다.   </p>
-<br>
-
-<h2 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Egg</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> s, w;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="built_in">vector</span>&lt;Egg&gt; &amp;a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)a.size();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i].s &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">            cnt += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">crash</span><span class="params">(<span class="built_in">vector</span>&lt;Egg&gt; &amp;a, <span class="keyword">int</span> from, <span class="keyword">int</span> to)</span></span>&#123;</span><br><span class="line">    a[to].s -= a[from].w;</span><br><span class="line">    a[from].s -= a[to].w;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unCrash</span><span class="params">(<span class="built_in">vector</span>&lt;Egg&gt; &amp;a, <span class="keyword">int</span> from, <span class="keyword">int</span> to)</span></span>&#123;</span><br><span class="line">    a[to].s += a[from].w;</span><br><span class="line">    a[from].s += a[to].w;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">go</span><span class="params">(<span class="built_in">vector</span>&lt;Egg&gt; &amp;a, <span class="keyword">int</span> from)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)a.size();</span><br><span class="line">    <span class="keyword">if</span> (from == n) <span class="keyword">return</span> count(a);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (a[from].s &lt;= <span class="number">0</span>) <span class="keyword">return</span> go(a, from+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> to = <span class="number">0</span>; to &lt; n; to++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (to == from) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[to].s &lt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        flag = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        crash(a, from, to);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> temp = go(a, from+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (ans &lt; temp)&#123;</span><br><span class="line">            ans = temp;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        unCrash(a, from, to);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!flag) <span class="keyword">return</span> go(a, from+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;Egg&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i].s &gt;&gt; a[i].w;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; go(a, <span class="number">0</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/06/BOJ-16987-%EA%B3%84%EB%9E%80%EC%9C%BC%EB%A1%9C-%EA%B3%84%EB%9E%80%EC%B9%98%EA%B8%B0/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
