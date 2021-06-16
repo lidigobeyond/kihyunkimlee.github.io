@@ -620,11 +620,17 @@
     <content><![CDATA[<blockquote>
 <p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
+<br>
+
 <h1 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h1><h2 id="함수를-정의하는-두-가지-방식"><a href="#함수를-정의하는-두-가지-방식" class="headerlink" title="함수를 정의하는 두 가지 방식"></a>함수를 정의하는 두 가지 방식</h2><h3 id="함수-선언문"><a href="#함수-선언문" class="headerlink" title="함수 선언문"></a>함수 선언문</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="함수-표현식"><a href="#함수-표현식" class="headerlink" title="함수 표현식"></a>함수 표현식</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="함수-선언문과-함수-표현식의-차이점"><a href="#함수-선언문과-함수-표현식의-차이점" class="headerlink" title="함수 선언문과 함수 표현식의 차이점"></a>함수 선언문과 함수 표현식의 차이점</h2><ul>
+<li>함수 선언문에서는 호이스팅 현상이 생기지만, 함수 표현식에서는 호이스팅 현상이 생기지 않는다.</li>
+<li>하지만 strict mode를 사용하면 함수가 선언되기 전에 해당 함수를 호출하면 오류가 발생하기 때문에 두 방식의 차이점은 없어지는 거 같다(?)</li>
+</ul>
 <h2 id="선택적-매개변수"><a href="#선택적-매개변수" class="headerlink" title="선택적 매개변수"></a>선택적 매개변수</h2><ul>
 <li>인자를 전달해주지 않아도 되는 매개변수.</li>
-<li>인터페이스의 선택 속성을 만들 때와 비슷하게 매개변수 이름 뒤에 <code>?</code> 를 붙이면 선택적 매개변수를 만들 수 있다.</li>
+<li>인터페이스의 선택 속성을 만들 때와 비슷하게 매개변수 이름 뒤에 <code>?</code>를 붙이면 선택적 매개변수를 만들 수 있다.</li>
 <li>인자를 전달해주지 않으면 매개변수의 값은 undefined가 된다.</li>
 <li>함수의 매개변수 순서상, 선택적 매개변수 다음에 필수 매개변수가 올 수 없다.</li>
 <li>선택적 매개변수 다음에 필수 매개변수가 오면, 인자가 어떤 매개변수의 값인지 구분할 수 없기 때문이다.</li>
