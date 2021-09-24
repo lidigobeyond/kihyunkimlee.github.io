@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://kihyunkimlee.github.io/2021/09/23/코어-자바스크립트-3장-this/cover.jpg">
 <meta property="og:image" content="https://kihyunkimlee.github.io/2021/09/23/코어-자바스크립트-3장-this/example1.png">
 <meta property="article:published_time" content="2021-09-23T14:00:09.000Z">
-<meta property="article:modified_time" content="2021-09-24T08:33:46.750Z">
+<meta property="article:modified_time" content="2021-09-24T08:41:41.499Z">
 <meta property="article:author" content="KiHyun Kim">
 <meta property="article:tag" content="Javascript">
 <meta property="article:tag" content="this">
@@ -306,7 +306,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-09-24 17:33:46" itemprop="dateModified" datetime="2021-09-24T17:33:46+09:00">2021-09-24</time>
+        <time title="Updated at: 2021-09-24 17:41:41" itemprop="dateModified" datetime="2021-09-24T17:41:41+09:00">2021-09-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -378,7 +378,7 @@
 </blockquote>
 <br>
 
-<p>함수 호출 방식에 따라 this가 가리키는 대상을 구분하는 것이 쉬울거 같지만, 가끔씩 헷갈릴 때가 있다.<br>아래의 두 예제 코드의 실행 결과는 각각 무엇일까?</p>
+<p>함수 호출 방식에 따라서 this가 가리키는 대상이 명쾌하게 결정되는거 같지만, 가끔씩 헷갈릴 때가 있다.<br>아래의 두 예제 코드의 실행 결과는 각각 무엇일까?</p>
 <h3 id="예제-1"><a href="#예제-1" class="headerlink" title="예제 1"></a>예제 1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	func1: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func2 = obj.func1;</span><br><span class="line"></span><br><span class="line">func2(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
 <h3 id="예제-2"><a href="#예제-2" class="headerlink" title="예제 2"></a>예제 2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 예제 2</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	outer: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		inner();</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.outer(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
 <br>
@@ -391,11 +391,11 @@
 <p>예제 1에서 <code>func2</code>는 일반 함수로서 호출되었기 때문에 <code>func2</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 this.a를 콘솔에 표시한 결과는 1이다.<br>예제 2에서 <code>outer</code> 함수는 메서드로서 호출되었기 때문에 <code>outer</code> 내부의 this는 <code>obj</code> 객체를 가리킨다.<br><code>inner</code> 함수는 <code>outer</code> 함수 내부에서 선언되고 호출되었기 때문에 <code>inner</code> 부의 this도 <code>obj</code> 객체를 가리킬 거 같지만… 아니다!<br><code>inner</code> 함수는 일반 함수로 호출되었고 <code>inner</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 <code>inner</code>함수 내부에서 this.a를 콘솔에 표시한 결과는 1이다.</p>
 <br>
 
-<p>함수가 일반 함수로서 호출되었는지 아니면 메서드로서 호출되었는지 쉽게 구분할 수 있는 방법이 있다.<br>함수 앞에 점(<code>.</code>)이 있는지 여부만 체크하면 된다!<br>함수 앞에 점이 없으면 일반 함수로서 호출된 것이고, 함수 앞에 점이 있으면 메서드로서 호출된 것이다.</p>
+<p>함수가 일반 함수로서 호출되었는지, 아니면 메서드로서 호출되었는지 쉽게 구분할 수 있는 방법이 있다.<br>함수 앞에 점(<code>.</code>)이 있는지 여부만 체크하면 된다!<br>함수 앞에 점이 없으면 일반 함수로서 호출된 것이고, 함수 앞에 점이 있으면 메서드로서 호출된 것이다.</p>
 <p>예제 2에서 <code>inner</code> 함수 앞에는 점이 없다.<br>그러므로 <code>inner</code> 함수는 일반 함수로서 호출된 것이라고 판단하면 된다.<br>반면에 <code>outer</code> 함수 앞에는 점이 있다.<br>그러므로 <code>outer</code> 함수는 메서드로서 호출된 것이다.<br><code>outer</code> 함수 내부의 this는 가장 마지막 점 앞에 명시된 객체, <code>obj</code>가 된다.</p>
 <br>
 
-<h2 id="콜백-함수-내부의-this"><a href="#콜백-함수-내부의-this" class="headerlink" title="콜백 함수 내부의 this"></a>콜백 함수 내부의 this</h2><p>콜백 함수 내부의 this가 가리키는 대상은 고정되어 있지 않다.</p>
+<h2 id="콜백-함수-내부의-this"><a href="#콜백-함수-내부의-this" class="headerlink" title="콜백 함수 내부의 this"></a>콜백 함수 내부의 this</h2><p>그렇다면 콜백 함수 내부의 this가 가리키는 대상은 무엇일까?<br>콜백 함수 내부의 this가 가리키는 대상은 고정되어 있지 않다.</p>
 <blockquote>
 <p>💡 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수의 내부 로직에 따라서 결정된다.</p>
 </blockquote>
@@ -409,7 +409,7 @@
 <br>
 
 <p>콜백 함수 내부의 this를 출력해본 결과, 클릭 이벤트가 발생한 HTML Element가 출력되었다.</p>
-<p>그러므로 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수마다 다 다르다고 할 수 있다.<br>하지만 <code>addEventListener</code>메서드처럼 API 문서에 특별히 명시되어 있지 않은 경우, 콜백 함수 내부의 this는 전역 객체라고 생각해도 될 것이다.</p>
+<p>그러므로 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수마다 <code>다르다고 할 수 있다. 하지만 </code>addEventListener`메서드처럼 API 문서에 특별히 명시되어 있지 않은 경우, 콜백 함수 내부의 this는 전역 객체라고 생각해도 될 것이다.</p>
 <br>
 
 <h3 id="참고-자료"><a href="#참고-자료" class="headerlink" title="참고 자료"></a>참고 자료</h3><p><span class="exturl" data-url="aHR0cDovL3RjcHNjaG9vbC5jb20vamF2YXNjcmlwdC9qc19zdGFuZGFyZF9vYmplY3Q=">http://tcpschool.com/javascript/js_standard_object<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AdXJzcjA3MDYvJUVDJTlEJUI0JUVCJUIyJUE0JUVEJThBJUI4LSVFRCU5NSVCOCVFQiU5MyVBNCVFQiU5RiVBQy0lRUIlODIlQjQlRUIlQjYlODAlRUMlOUQlOTgtdGhpcy0yZ3l1anFtMg==">https://velog.io/@ursr0706/이벤트-핸들러-내부의-this-2gyujqm2<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcva28vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXIjJUVEJTk1JUI4JUVCJTkzJUE0JUVCJTlGJUFDXyVFQiU4MiVCNCVFQiVCNiU4MCVFQyU5RCU5OF90aGlzXyVFQSVCMCU5Mg==">https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener#핸들러_내부의_this_값<i class="fa fa-external-link-alt"></i></span></p>
