@@ -25,22 +25,22 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="브랜치 커밋 사이를 가볍게 이동할 수 있는 어떤 포인터 같은 것(?) 브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.  master 브랜치 첫 커밋을 만들면 Git이 자동으로 만드는 브랜치. 커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.  HEAD 포인터 현재 작업중인 브랜치를 가리키는 포인터. 기본적으로">
+<meta name="description" content="브랜치 커밋을 가리키는 포인터. 브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.  master 브랜치 첫 번째 커밋을 만들면 Git이 자동으로 생성하는 브랜치. 커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.  HEAD 포인터 현재 작업중인 브랜치를 가리키는 포인터. 기본적으로 master 브랜치를 가리키고">
 <meta property="og:type" content="article">
 <meta property="og:title" content="브랜치 기본 조작 방법 알아보기">
-<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/index.html">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/index.html">
 <meta property="og:site_name" content="김기현 블로그">
-<meta property="og:description" content="브랜치 커밋 사이를 가볍게 이동할 수 있는 어떤 포인터 같은 것(?) 브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.  master 브랜치 첫 커밋을 만들면 Git이 자동으로 만드는 브랜치. 커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.  HEAD 포인터 현재 작업중인 브랜치를 가리키는 포인터. 기본적으로">
+<meta property="og:description" content="브랜치 커밋을 가리키는 포인터. 브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.  master 브랜치 첫 번째 커밋을 만들면 Git이 자동으로 생성하는 브랜치. 커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.  HEAD 포인터 현재 작업중인 브랜치를 가리키는 포인터. 기본적으로 master 브랜치를 가리키고">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2021-06-14T14:58:09.000Z">
-<meta property="article:modified_time" content="2021-06-15T00:10:46.143Z">
+<meta property="article:modified_time" content="2021-09-24T08:33:55.626Z">
 <meta property="article:author" content="KiHyun Kim">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="Branch">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/">
 
 
 <script class="page-configurations">
@@ -199,7 +199,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98"><span class="nav-number">1.</span> <span class="nav-text">브랜치</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#master-%EB%B8%8C%EB%9E%9C%EC%B9%98"><span class="nav-number">1.1.</span> <span class="nav-text">master 브랜치</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEAD-%ED%8F%AC%EC%9D%B8%ED%84%B0"><span class="nav-number">1.2.</span> <span class="nav-text">HEAD 포인터</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95"><span class="nav-number">2.</span> <span class="nav-text">브랜치 기본 조작 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="nav-number">2.1.</span> <span class="nav-text">브랜치 생성하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%AA%A9%EB%A1%9D-%EB%B3%B4%EA%B8%B0"><span class="nav-number">2.2.</span> <span class="nav-text">브랜치 목록 보기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0"><span class="nav-number">2.3.</span> <span class="nav-text">브랜치 이동하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0"><span class="nav-number">2.4.</span> <span class="nav-text">브랜치 삭제하기</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98"><span class="nav-number">1.</span> <span class="nav-text">브랜치</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#master-%EB%B8%8C%EB%9E%9C%EC%B9%98"><span class="nav-number">1.1.</span> <span class="nav-text">master 브랜치</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEAD-%ED%8F%AC%EC%9D%B8%ED%84%B0"><span class="nav-number">1.2.</span> <span class="nav-text">HEAD 포인터</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95"><span class="nav-number">2.</span> <span class="nav-text">브랜치 기본 조작 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%AA%A9%EB%A1%9D-%EB%B3%B4%EA%B8%B0"><span class="nav-number">2.1.</span> <span class="nav-text">브랜치 목록 보기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="nav-number">2.2.</span> <span class="nav-text">브랜치 생성하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0"><span class="nav-number">2.3.</span> <span class="nav-text">브랜치 이동하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0"><span class="nav-number">2.4.</span> <span class="nav-text">브랜치 삭제하기</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -213,20 +213,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">카테고리</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -272,7 +272,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -303,7 +303,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-15 09:10:46" itemprop="dateModified" datetime="2021-06-15T09:10:46+09:00">2021-06-15</time>
+        <time title="Updated at: 2021-09-24 17:33:55" itemprop="dateModified" datetime="2021-09-24T17:33:55+09:00">2021-09-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -331,8 +331,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/14/브랜치-기본-조작-방법-알아보기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/14/브랜치-기본-조작-방법-알아보기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -347,11 +347,11 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="브랜치"><a href="#브랜치" class="headerlink" title="브랜치"></a>브랜치</h1><ul>
-<li>커밋 사이를 가볍게 이동할 수 있는 어떤 포인터 같은 것(?)</li>
+<li>커밋을 가리키는 포인터.</li>
 <li>브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.</li>
 </ul>
 <h2 id="master-브랜치"><a href="#master-브랜치" class="headerlink" title="master 브랜치"></a>master 브랜치</h2><ul>
-<li>첫 커밋을 만들면 Git이 자동으로 만드는 브랜치.</li>
+<li>첫 번째 커밋을 만들면 Git이 자동으로 생성하는 브랜치.</li>
 <li>커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.</li>
 </ul>
 <h2 id="HEAD-포인터"><a href="#HEAD-포인터" class="headerlink" title="HEAD 포인터"></a>HEAD 포인터</h2><ul>
@@ -360,33 +360,24 @@
 </ul>
 <br>
 
-<h1 id="브랜치-기본-조작-방법"><a href="#브랜치-기본-조작-방법" class="headerlink" title="브랜치 기본 조작 방법"></a>브랜치 기본 조작 방법</h1><h2 id="브랜치-생성하기"><a href="#브랜치-생성하기" class="headerlink" title="브랜치 생성하기"></a>브랜치 생성하기</h2><ul>
-<li><code>git branch</code> 명령으로 새로운 브랜치를 생성할 수 있다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch 생성할_브랜치명</span><br></pre></td></tr></table></figure>
-<ul>
-<li>새롭게 생성된 브랜치는 자동으로 지금 작업하고 있는 커밋을 가리킨다.</li>
-</ul>
-<h2 id="브랜치-목록-보기"><a href="#브랜치-목록-보기" class="headerlink" title="브랜치 목록 보기"></a>브랜치 목록 보기</h2><ul>
-<li><code>git branch</code> 명령으로 브랜치 목록을 볼 수 있다.</li>
-</ul>
+<h1 id="브랜치-기본-조작-방법"><a href="#브랜치-기본-조작-방법" class="headerlink" title="브랜치 기본 조작 방법"></a>브랜치 기본 조작 방법</h1><h2 id="브랜치-목록-보기"><a href="#브랜치-목록-보기" class="headerlink" title="브랜치 목록 보기"></a>브랜치 목록 보기</h2><p><code>git branch</code> 명령으로 로컬에 있는 브랜치 목록을 볼 수 있다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+<p>로컬뿐만 아니라 리모트 서버에 있는 브랜치 목록까지 보려면 -a 옵션을 사용하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -a</span><br></pre></td></tr></table></figure>
+<p>원격 서버를 등록한 직후에는 <code>git branch -a</code> 명령을 사용해도 리모트 서버에 있는 브랜치 목록이 안보인다.<br> <code>git fetch</code> 명령으로 원격 서버의 정보를 받아온 다음에 <code>git branch -a</code> 명령을 다시 실행시켜보자.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch</span><br><span class="line">$ git branch -a</span><br></pre></td></tr></table></figure>
+<h2 id="브랜치-생성하기"><a href="#브랜치-생성하기" class="headerlink" title="브랜치 생성하기"></a>브랜치 생성하기</h2><p><code>git branch</code> 명령으로 새로운 브랜치를 생성할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch 생성할_브랜치명</span><br></pre></td></tr></table></figure>
+<p>새롭게 생성된 브랜치는 자동으로 현재 HEAD가 가리키고 있는 브랜치의 커밋을 가리킨다.</p>
+<p>특정 커밋을 가리키는 브랜치를 생성하고 싶을 때에는 -f 옵션과 생성할 브랜치 명, 그리고 커밋의 체크섬 값을 넘기면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -f 생성할_브랜치_명  특정_커밋의_체크섬_값</span><br></pre></td></tr></table></figure>
 <h2 id="브랜치-이동하기"><a href="#브랜치-이동하기" class="headerlink" title="브랜치 이동하기"></a>브랜치 이동하기</h2><ul>
 <li><code>git checkout</code> 명령으로 다른 브랜치로 이동할 수 있다.</li>
 <li>브랜치를 이동한다는 것은 HEAD 포인터가 다른 브랜치를 가리키도록 수정한다는 것이다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout 이동할_브랜치명</span><br></pre></td></tr></table></figure>
-<ul>
-<li>브랜치를 이동하면 워킹 디렉터리의 파일이 변경된다.<ul>
-<li>브랜치를 이동하면 워킹 디렉터리의 파일이 해당 브랜치가 가리키는 커밋의 스냅샷으로 변경된다.</li>
-<li>단, 마지막 커밋 이후로 변경 사항이 존재하는 브랜치로 이동할 경우, 워킹 디렉터리의 파일은 그 브랜치에서 가장 마지막으로 했던 작업 내용으로 변경된다.</li>
-</ul>
-</li>
-<li>현재 브랜치에 아직 커밋하지 않은 파일이 이동하려는 브랜치에 있는 파일과 충돌된다면, 브랜치 이동을 할 수 없다!<ul>
-<li>이럴 때는 현재 브랜치의 워킹 디렉터리를 정리하거나  <code>git stach</code> 명령을 사용해야 한다.</li>
-</ul>
-</li>
-</ul>
+<p>새로운 브랜치를 생성함과 동시에 새로운 브랜치로 이동하고 싶다면 <code>git checkout</code> 명령에 -b 옵션을 사용하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b 생성할_브랜치명</span><br></pre></td></tr></table></figure>
 <h2 id="브랜치-삭제하기"><a href="#브랜치-삭제하기" class="headerlink" title="브랜치 삭제하기"></a>브랜치 삭제하기</h2><ul>
 <li><code>git branch</code> 명령에 -d 옵션을 주어서 브랜치를 삭제할 수 있다.</li>
 </ul>
@@ -416,7 +407,7 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/" rel="next" title="[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입">
+                <a href="/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/" rel="next" title="[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입">
                   [Do it! 타입스크립트 프로그래밍] 3. 객체와 타입 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -511,8 +502,8 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kihyunkimlee.github.io/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/";
-    this.page.identifier = "2021/06/14/브랜치-기본-조작-방법-알아보기/";
+    this.page.url = "https://kihyunkimlee.github.io/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/";
+    this.page.identifier = "2021/06/14/브랜치-기본-조작-방법-알아보기/";
     this.page.title = "브랜치 기본 조작 방법 알아보기";
     };
   NexT.utils.loadComments('#disqus_thread', () => {

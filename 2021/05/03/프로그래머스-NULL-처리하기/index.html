@@ -28,12 +28,12 @@
 <meta name="description" content="문제 설명동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)    특정 칼럼의 값">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[프로그래머스] NULL 처리하기">
-<meta property="og:url" content="https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/index.html">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/index.html">
 <meta property="og:site_name" content="김기현 블로그">
 <meta property="og:description" content="문제 설명동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)    특정 칼럼의 값">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2021-05-03T00:41:44.000Z">
-<meta property="article:modified_time" content="2021-06-03T14:14:38.205Z">
+<meta property="article:modified_time" content="2021-06-03T14:14:38.000Z">
 <meta property="article:author" content="KiHyun Kim">
 <meta property="article:tag" content="프로그래머스">
 <meta property="article:tag" content="SQL 문제">
@@ -41,7 +41,7 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/">
 
 
 <script class="page-configurations">
@@ -214,20 +214,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">카테고리</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -273,7 +273,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -332,8 +332,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/03/프로그래머스-NULL-처리하기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/03/프로그래머스-NULL-처리하기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -386,12 +386,12 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/" rel="prev" title="[프로그래머스] 동굴 탐험">
+                <a href="/2021/04/24/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%AE%E1%86%AF-%E1%84%90%E1%85%A1%E1%86%B7%E1%84%92%E1%85%A5%E1%86%B7/" rel="prev" title="[프로그래머스] 동굴 탐험">
                   <i class="fa fa-chevron-left"></i> [프로그래머스] 동굴 탐험
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2021-%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%9D%B8%ED%84%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/" rel="next" title="프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기">
+                <a href="/2021/05/11/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-2021-%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8-%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%86%AB-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7-%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC-%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%92%E1%85%AE%E1%84%80%E1%85%B5/" rel="next" title="프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기">
                   프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -486,8 +486,8 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/";
-    this.page.identifier = "2021/05/03/프로그래머스-NULL-처리하기/";
+    this.page.url = "https://kihyunkimlee.github.io/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/";
+    this.page.identifier = "2021/05/03/프로그래머스-NULL-처리하기/";
     this.page.title = "[프로그래머스] NULL 처리하기";
     };
   NexT.utils.loadComments('#disqus_thread', () => {

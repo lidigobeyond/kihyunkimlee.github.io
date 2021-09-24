@@ -19,8 +19,37 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ 간단하게 정수 자릿수 바꾸기</title>
+    <url>/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/</url>
+    <content><![CDATA[<p>BOJ <code>알고리즘 온라인 강의</code>를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.<br>정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.<br>산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.   </p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> index, <span class="keyword">int</span> digit)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">    s[index] = digit + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> stoi(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">0</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1999</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9199</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">2</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9919</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">3</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9991</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ts-node Error: Cannot find module &#39;@types/node/package.json&#39;</title>
+    <url>/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/</url>
+    <content><![CDATA[<h2 id="에러-발생"><a href="#에러-발생" class="headerlink" title="에러 발생"></a>에러 발생</h2><p>typescript를 설치하고 ts-node를 설치한 뒤에 ts-node를 실행시켜보니 아래와 같은 에러가 발생했다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ts-node hello.ts</span><br><span class="line">Error: Cannot find module <span class="string">&#x27;@types/node/package.json&#x27;</span></span><br><span class="line">    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:582:15)</span><br><span class="line">    at Function.resolve (internal/modules/cjs/helpers.js:30:19)</span><br><span class="line">    at typeDirectiveNames.map (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:746:52)</span><br><span class="line">    at Array.map (&lt;anonymous&gt;)</span><br><span class="line">    at Object.resolveTypeReferenceDirectives (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:734:33)</span><br><span class="line">    at actualResolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109509:143)</span><br><span class="line">    at resolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109768:26)</span><br><span class="line">    at Object.createProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109607:35)</span><br><span class="line">    at synchronizeHostData (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153740:26)</span><br><span class="line">    at Object.getProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153872:13)</span><br></pre></td></tr></table></figure>
+<h2 id="발생-원인"><a href="#발생-원인" class="headerlink" title="발생 원인"></a>발생 원인</h2><p>ts-node를 실행시키기 위해서는 <code>@types/node</code>라는 패키지가 필요한 거 같다.<br><code>@types/node</code> 패키지를 설치해줬다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm i -g @types/node</span><br><span class="line">+ @types/node@15.12.2</span><br><span class="line">added 1 package from 41 contributors <span class="keyword">in</span> 0.67s</span><br></pre></td></tr></table></figure>
+<h2 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h2><p><code>@types/node</code> 패키지를 설치하니 ts-node가 정상적으로 동작한다.</p>
+<p><img src="/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/back-to-normal.png" alt="정상 작동 모습"></p>
+<p>(근데 왜 패키지가 아니라 ‘package.json’ 파일이 없다고 나오는지 잘 모르겠다…)</p>
+]]></content>
+      <categories>
+        <category>Do it! 타입스크립트 프로그래밍</category>
+      </categories>
+      <tags>
+        <tag>Typescript</tag>
+        <tag>TS-NODE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ 11719] 그대로 출력하기2</title>
-    <url>/2021/03/27/BOJ-11719-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B02/</url>
+    <url>/2021/03/27/BOJ-11719-%E1%84%80%E1%85%B3%E1%84%83%E1%85%A2%E1%84%85%E1%85%A9-%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%85%E1%85%A7%E1%86%A8%E1%84%92%E1%85%A1%E1%84%80%E1%85%B52/</url>
     <content><![CDATA[<p>입력을 받은 대로 출력하는 문제이다.<br>입력은 최대 100줄로 이루어져 있고, 알파벳 소문자, 대문자, 공백, 숫자로만 이루어져 있다.<br>각 줄은 100글자를 넘지 않으며, 빈 줄이 주어질 수도 있고, 각 줄의 앞 뒤에 공백이 있을 수도 있다.   </p>
 <p><code>cin &gt;&gt; s;</code> 와 같은 방법으로는 공백이 포함된 한 줄의 문자열을 입력받을 수 없다.<br><code>cin &gt;&gt; s;</code> 은 화이트 스페이스(공백, 탭, 줄 바꿈 문자 등)를 만나기 전까지만 문자열을 입력받기 때문이다.   </p>
 <p>C++에서는 <code>getline</code> 함수를 사용하여 문제를 해결할 수 있다.<br><code>string</code> 라이브러리 안에 들어있는 <code>getline</code> 함수는 줄 바꿈 문자나 EOF를 만날 때까지 문자열을 입력받는다.<br>그리고 두 번째 인자로 전달된 string 객체에 입력받은 문자열을 저장한다.<br>(세 번째 인자로 경계 문자를 전달하여 경계 문자 이전까지만 문자열을 입력받을 수 있다. 이때 경계 문자는 입력에 포함되지 않고 버려진다.)   </p>
@@ -37,7 +66,7 @@
   </entry>
   <entry>
     <title>[BOJ 16987] 계란으로 계란치기</title>
-    <url>/2021/04/06/BOJ-16987-%EA%B3%84%EB%9E%80%EC%9C%BC%EB%A1%9C-%EA%B3%84%EB%9E%80%EC%B9%98%EA%B8%B0/</url>
+    <url>/2021/04/06/BOJ-16987-%E1%84%80%E1%85%A8%E1%84%85%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9-%E1%84%80%E1%85%A8%E1%84%85%E1%85%A1%E1%86%AB%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/</url>
     <content><![CDATA[<h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>계란의 개수 N과 N개의 계란의 내구도와 무게 정보가 주어진다.<br>문제에 주어진 과정대로 계란을 쳤을 때 깰 수 있는 계란의 최대 개수를 구하는 문제이다. 문제에 주어진 계란을 치는 과정은 다음과 같다.   </p>
 <ol>
 <li>N개의 계란이 일렬로 놓여있다.</li>
@@ -73,384 +102,96 @@
       </tags>
   </entry>
   <entry>
-    <title>C++ 간단하게 정수 자릿수 바꾸기</title>
-    <url>/2021/03/03/c++-easy-way-to-change-the-digits-of-integers/</url>
-    <content><![CDATA[<p>BOJ <code>알고리즘 온라인 강의</code>를 수강하면서 간단하게 정수의 자릿수를 바꾸는 방법을 알게 되었다.<br>정수를 문자열로 바꾼 다음에 인덱스를 통해 특정 자릿수를 원하는 숫자로 바꾸고, 다시 문자열을 정수로 바꿔주는 것이다.<br>산술 연산을 통해 정수 자릿수를 바꾸는 방법보다 오버헤드가 발생하지만, 구현하기 쉽고 간단해서 실수할 걱정이 없는게 좋은거 같다.   </p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> index, <span class="keyword">int</span> digit)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">    s[index] = digit + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> stoi(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">0</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1999</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9199</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">2</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9919</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; change(num, <span class="number">3</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 9991</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>[프로그래머스] 동굴 탐험</title>
-    <url>/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/</url>
-    <content><![CDATA[<h2 id="문제를-읽고-나서-알아차려야-했던-것들-3가지"><a href="#문제를-읽고-나서-알아차려야-했던-것들-3가지" class="headerlink" title="문제를 읽고 나서 알아차려야 했던 것들 3가지"></a>문제를 읽고 나서 알아차려야 했던 것들 3가지</h2><p>문제 해결을 위해서 문제를 읽고 나서 알아차려야 했던 것들이 있다.   </p>
-<h3 id="1-동굴은-트리-모양으로-되어있다"><a href="#1-동굴은-트리-모양으로-되어있다" class="headerlink" title="1. 동굴은 트리 모양으로 되어있다."></a>1. 동굴은 트리 모양으로 되어있다.</h3><p>문제에는 동굴이 트리 모양이라고 직접적으로 명시되어있지 않다.<br>하지만 문제를 읽어보면 다음과 같은 조건을 찾을 수 있다.   </p>
-<ul>
-<li>방의 개수가 n개일 때 방과 방 사이를 연결하는 통로의 개수는 n-1개이다(문제의 제한사항에 나와 있다).</li>
-<li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있으며, 두 방 사이에 이동이 불가능한 경우는 없다.</li>
-</ul>
-<p>방의 개수가 n개이고 방과 방 사이를 연결하는 통로의 개수가 n-1개이므로 동굴이 트리 모양이라고 확신할 수 있을까…?<br>정답은 <u><strong>확신할 수 없다</strong></u>이다.<br>트리의 정의가 정점의 개수가 n개이고 간선의 개수가 n-1개인, 사이클이 존재하지 않는 그래프인 건 맞다.<br>하지만 정점의 개수가 n개이고 간선의 개수가 n-1개인 그래프가 항상 트리인 것은 아니다.<br>왜냐하면 아래와 같은 반례가 존재하기 때문이다.   </p>
-<img src="/2021/04/24/프로그래머스-동굴-탐험/counterexample.png" width=300 height=250 alt="반례 예시" title="반례 예시" />   
-
-<p><span class="exturl" data-url="aHR0cHM6Ly9sZGdlYW85OS50aXN0b3J5LmNvbS80MDE=">그림 출처 : LAB OF DAEGON<i class="fa fa-external-link-alt"></i></span></p>
-<p>위의 그림은 분명 정점의 개수가 n개이고 간선의 개수가 n-1개이지만 트리가 아니다.<br>정점의 개수가 n개이고 간선의 개수가 n-1개이면서 모든 정점이 연결되어 있다는 조건이 있을 때 해당 그래프를 트리라고 말할 수 있다.<br>임의의 서로 다른 두 방 사이에 이동이 불가능한 경우가 없다는 말은 모든 방이 연결되어 있다는 말과 같다.<br>그러므로 동굴은 트리 모양으로 되어있다.   </p>
-<h3 id="2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다"><a href="#2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다" class="headerlink" title="2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다."></a>2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.</h3><p>문제 설명에 다음과 같은 조건이 있긴 하다.   </p>
-<ul>
-<li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있다.</li>
-</ul>
-<p>근데 경로가 아니라 최단 경로라고 나와 있어서 뭔가 애매하다.<br>최단 경로가 아니라 경로가 딱 한 가지만 있다는 것을 정확히 확인하고 넘어가자.<br>앞에서 동굴이 트리 모양으로 되어있다는 것을 밝혔다.<br>트리는 사이클이 존재하지 않는 그래프이기 때문에 임의의 두 노드 사이를 연결하는 경로는 유일하다(여기서 경로란 반복되는 정점과 간선이 없는 길을 말한다).<br>그러므로 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.   </p>
-<h3 id="3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다"><a href="#3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다" class="headerlink" title="3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다."></a>3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.</h3><p>동굴의 입구에서부터 어떤 방까지의 경로 안에 포함된 방들을 먼저 방문하지 않고서는 해당 방을 방문할 수 없다.<br>왜 그런 걸까?<br>결론부터 말하자면, <u><strong>동굴에는 사이클이 발생할 수 없기 때문이다</strong></u>.<br>아래의 그림과 같은 동굴이 존재한다고 가정해보자.   </p>
-<img src="/2021/04/24/프로그래머스-동굴-탐험/cave.png" width=350 height=350 alt="동굴 사진" title="동굴 사진" />
-
-<p>5번 방을 방문하기 위해서는 반드시 0번 방과 7번 방을 먼저 방문해야 한다.<br>왜냐하면 0번 방과 7번 방은 동굴에서부터 5번 방까지의 경로 안에 포함된 방들이기 때문이다.<br>하지만 이와 모순되게, 0번 방과 7번 방을 먼저 방문하지 않고도 5번 방을 방문할 수 있는 방법이 존재한다고 가정해보자.<br>예를 들어 아래의 그림처럼 8번 방에서부터 8번 방과 연결된 다른 방들을 통해서 5번 방으로 갈 수 있는 경로가 존재한다고 가정해보자.   </p>
-<img src="/2021/04/24/프로그래머스-동굴-탐험/cave2.jpg" width=350 height=350 alt="사이클이 발생한 동굴 사진" title="사이클이 발생한 동굴 사진" />
-
-<p>그러면 동굴에는 다음과 같이 0번 방에서 시작해서 0번 방으로 끝나는 사이클이 발생한다.   </p>
-<p><code>0번</code> → 1번 → 8번 → x번 → … → y번 → 5번 → 7번 → <code>0번</code></p>
-<p>동굴은 트리 모양으로 되어 있기 때문에 동굴에는 사이클이 발생할 수 없다.<br>그러므로 0번 방과 7번 방을 먼저 방문하지 않고도 5번 방을 방문할 수 있는 방법은 존재할 수 없다.<br>그러므로 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.    </p>
-<br>
-
-<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><p>이 문제의 해결 방법은 카카오 기술 블로그에 자세히 나와 있다.   </p>
-<p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoLmtha2FvLmNvbS8yMDIwLzA3LzAxLzIwMjAtaW50ZXJuc2hpcC10ZXN0Lw==">2020 카카오 인턴쉽 for Tech developers 문제 해설<i class="fa fa-external-link-alt"></i></span></p>
-<p>문제 해설에는 안 나와 있지만, 그래프의 사이클 존재 여부를 확인하기 전에 먼저 처리해주면 좋은 예외 케이스가 있다.<br>그건 바로 0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 하는 케이스이다.<br>동굴에 들어갈 수 있는 유일한 입구가 0번 방과 연결되어 있기 때문에 다른 모든 방을 방문하기 위해서는 반드시 0번 방을 먼저 방문해야 한다.<br>0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 된다면 당연히 문제의 규칙에 맞게 모든 방을 탐험할 수 없을 것이다.<br>그러므로 이 경우에는 그래프의 사이클이 존재하는지 확인할 필요 없이 false를 리턴해주면 된다.      </p>
-<br>
-
-<h2 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> answer = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;before, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;discover, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; &amp;finish, <span class="keyword">int</span> here)</span></span>&#123;</span><br><span class="line">    discover[here] = counter++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> there: before[here])&#123;</span><br><span class="line">        <span class="keyword">if</span> (discover[there] == <span class="number">-1</span>)&#123;</span><br><span class="line">            dfs(before, discover, finish, there);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (discover[there] &gt; discover[here])&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (discover[there] &lt; discover[here])&#123;</span><br><span class="line">            <span class="keyword">if</span> (!finish[there])&#123;</span><br><span class="line">                answer = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    finish[here] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; path, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; order)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; cave(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = path[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> b = path[i][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        cave[a].push_back(b);</span><br><span class="line">        cave[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; before(n);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">visited</span><span class="params">(n, <span class="literal">false</span>)</span></span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    visited[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    q.push(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> here = q.front(); q.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> there: cave[here])&#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[there]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            before[there].push_back(here);</span><br><span class="line"></span><br><span class="line">            visited[there] = <span class="literal">true</span>;</span><br><span class="line">            q.push(there);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; order.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = order[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> b = order[i][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        before[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (before[<span class="number">0</span>].size() != <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">discover</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">finish</span><span class="params">(n, <span class="literal">false</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!answer) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (finish[i]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        dfs(before, discover, finish, i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="정답-코드-해설"><a href="#정답-코드-해설" class="headerlink" title="정답 코드 해설"></a>정답 코드 해설</h2><p>34~42 - path 배열에 들어 있는 통로의 위치 정보를 통해서 동굴 그래프를 초기화해준다. 그래프의 간선 개수가 정점 개수의 제곱보다 훨씬 작기 때문에 동굴 그래프는 연결 리스트 표현 방식으로 표현했다.<br>44~62 - BFS로 그래프 탐색을 진행하며 어떤 방을 방문하기 전에 반드시 먼저 방문해야 하는 방을 표시한 before 그래프를 초기화해준다.<br>64~69 - order 배열에 들어 있는 반드시 지켜야 하는 방문 순서들을 before 그래프에 추가한다.<br>71 - 0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 하는 경우를 예외 케이스로 처리해준다.<br>73~81 - DFS로 before 그래프에 사이클이 존재하는지 확인한다.<br>84 - before 그래프에 사이클이 존재하는지 여부를 문제의 정답으로 반환한다.   </p>
-]]></content>
-      <categories>
-        <category>알고리즘 문제 풀이</category>
-      </categories>
-      <tags>
-        <tag>프로그래머스</tag>
-        <tag>알고리즘 문제</tag>
-        <tag>BFS</tag>
-        <tag>DFS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[프로그래머스] NULL 처리하기</title>
-    <url>/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/</url>
-    <content><![CDATA[<h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.<br>이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.<br>(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)   </p>
-<p>특정 칼럼의 값이 NULL일 때 다른 값으로 치환해서 출력하는 방법은 여러 가지가 있다.   </p>
-<br>
-
-<h2 id="1-IFNULL-함수를-이용한-방법"><a href="#1-IFNULL-함수를-이용한-방법" class="headerlink" title="1. IFNULL 함수를 이용한 방법"></a>1. IFNULL 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">IFNULL(expression, alt_value)   </span><br></pre></td></tr></table></figure>
-<p>IFNULL 함수는 첫 번째 매개 변수의 값이 NULL이면 두 번째 매개 변수의 값을 반환한다.<br>첫 번째 매개 변수의 값이 NULL이 아니면 첫 번째 매개 변수의 값을 반환한다.   </p>
-<h3 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, IFNULL(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="2-COALESCE-함수를-이용한-방법"><a href="#2-COALESCE-함수를-이용한-방법" class="headerlink" title="2. COALESCE 함수를 이용한 방법"></a>2. COALESCE 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">COALESCE</span>(val_1, val_2, ..., val_n)</span><br></pre></td></tr></table></figure>
-<p>COALESCE 함수는 임의의 개수의 매개 변수에서 NULL이 아닌 최초의 매개 변수의 값을 반환한다.   </p>
-<p>예를 들어 아래와 같은 SQL문을 실행시키면,</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="keyword">NULL</span>, &quot;HELLO&quot;, <span class="keyword">NULL</span>, &quot;WORLD&quot;);</span><br></pre></td></tr></table></figure>
-<p>NULL이 아닌 최초의 매개 변수의 값 “HELLO”가 출력된다.   </p>
-<p>반면에 모든 매개 변수의 값이 NULL이면 NULL을 반환한다.   </p>
-<h3 id="정답-코드-1"><a href="#정답-코드-1" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, <span class="built_in">COALESCE</span>(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="3-CASE를-이용한-방법"><a href="#3-CASE를-이용한-방법" class="headerlink" title="3. CASE를 이용한 방법"></a>3. CASE를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span></span><br><span class="line">  <span class="keyword">WHEN</span> condition1 <span class="keyword">THEN</span> result1</span><br><span class="line">  <span class="keyword">WHEN</span> condition2 <span class="keyword">THEN</span> result2</span><br><span class="line">  <span class="keyword">ELSE</span> <span class="keyword">result</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
-<p>CASE 문은 프로그래밍 언어의 다중 if-else 문과 비슷하다.<br>위에서부터 차례대로 조건식이 참인지 거짓인지 판별한다.<br>조건식이 거짓인 경우 그 다음 조건식이 참인지 거짓인지 판별한다.<br>조건식이 참인 경우 더이상 조건식을 판별하지 않고 THEN에 명시된 값을 반환하고 종료한다.<br>참인 조건식이 하나도 없으면 ELSE에 명시된 값을 반환하고 종료한다.   </p>
-<p>한 가지 주의해야 할 점은, ELSE를 명시하지 않았을 경우 참인 조건식이 하나도 없으면 NULL을 반환한다는 것이다.<br>그러므로 CASE문을 사용할 때는 반드시 ELSE를 명시해주는 것이 좋다.   </p>
-<h3 id="정답-코드-2"><a href="#정답-코드-2" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE,</span><br><span class="line">  <span class="keyword">CASE</span></span><br><span class="line">    <span class="keyword">WHEN</span> NAME <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">THEN</span> NAME</span><br><span class="line">    <span class="keyword">ELSE</span> &quot;No name&quot;</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">AS</span> NAME</span><br><span class="line">  , SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>SQL 문제 풀이</category>
-      </categories>
-      <tags>
-        <tag>프로그래머스</tag>
-        <tag>SQL 문제</tag>
-        <tag>MYSQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기</title>
-    <url>/2021/05/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2021-%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%9D%B8%ED%84%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/</url>
-    <content><![CDATA[<img src="/2021/05/11/프로그래머스-2021-여름방학-스타트업-인턴-프로그램-코딩-테스트-후기/2021-summer_coding__prgm__img-banner.jpg" width=700 height=350 alt="프로그래머스 2021 여름방학 스타트업 인턴 프로그램 배너 사진" title="프로그래머스 2021 여름방학 스타트업 인턴 프로그램 배너 사진" />
-
-<p>이번에 아주 오래전부터 참여하고 싶었던 프로그래머스 스타트업 인턴 프로그램에 지원하게 되었다.<br>프로그래머스 스타트업 인턴 프로그램을 준비하기 위해서 4월부터 정말 바쁘게 보냈다.<br>개발하고 있었던 토이 프로젝트도 부지런히 마무리 지었고, 코딩 테스트 준비를 위해서 프로그래머스 사이트에서 알고리즘 문제도 열심히 풀었다.</p>
-<p>5월 9일, 어버이날에 코딩 테스트 시험을 치렀다.<br>작년과 똑같이 알고리즘 3문제와 SQL 1문제가 출제되었다.<br>간단하게 풀었던 시험 문제를 블로그에 리뷰해보려고 한다.</p>
-<br>
-
-<h2 id="시험-문제-리뷰"><a href="#시험-문제-리뷰" class="headerlink" title="시험 문제 리뷰"></a>시험 문제 리뷰</h2><h3 id="1번-문제-100-100"><a href="#1번-문제-100-100" class="headerlink" title="1번 문제 (100/100)"></a>1번 문제 (100/100)</h3><ul>
-<li>비교적 쉬운 문자열 처리 문제였다.</li>
-<li>하나의 문자열로 주어지는 데이터를 적절히 처리하여 필요한 데이터만 추출한 다음, 그중에서 조건에 맞는 데이터만 선별한 뒤, 문제에 조건에 맞게 데이터를 정렬해서 정답을 만들었다.</li>
-<li>첫 문제라 너무 긴장이 돼서 코드를 간결하게 작성하지 못했는데, 그게 좀 아쉽다.</li>
-</ul>
-<h3 id="2번-문제-100-100"><a href="#2번-문제-100-100" class="headerlink" title="2번 문제 (100/100)"></a>2번 문제 (100/100)</h3><ul>
-<li>그리디 알고리즘 문제였다.</li>
-<li>우선순위 큐를 사용해서 그때 그때마다 우선순위가 가장 높은 값을 뽑아내서 정답을 만들어나갔다.</li>
-<li>문제를 꼼꼼히 읽지 않아서 두 번째 문제를 풀 때 실수를 많이 했다.</li>
-<li>앞으로 문제를 꼼꼼히 읽는 습관을 들여야겠다.</li>
-</ul>
-<h3 id="3번-문제-100-100"><a href="#3번-문제-100-100" class="headerlink" title="3번 문제 (100/100)"></a>3번 문제 (100/100)</h3><ul>
-<li>그래프 탐색 문제였다.</li>
-<li>3번 문제를 풀 수 있는 시간이 채 20분도 남지 않았어서, 진짜 알고리즘 구상과 동시에 바로 코드로 옮겨 적은 거 같다.</li>
-<li>다행히도 내가 구상했던 문제 해결 방법이 예외 케이스 없이 모두 맞아서 100점을 받았다.</li>
-<li>문제 해결 방법은 다음과 같다.</li>
-<li>공격 시작점이 (y, x)라면, 시작점에서 인접한 4개의 칸 (y-1, x-1), (y-1, x), (y, x-1), (y, x)를 시작 지점으로 해서 BFS 알고리즘으로 나머지 인접한 칸을 탐색해나갔다.<ul>
-<li>시작 지점에서부터 어떤 지점까지의 최단 경로 길이가 (r/2)-1 미만인 경우<ul>
-<li>해당 지점은 100%의 데미지를 받는 지점이다.</li>
-<li>체력이 p보다 작은 칸의 개수를 정답으로 세준다.</li>
-</ul>
-</li>
-<li>시작 지점에서부터 어떤 지점까지의 최단 경로 길이가 (r/2)-1인 경우<ul>
-<li>해당 지점은 50%의 데미지를 받는 지점이다.</li>
-<li>체력이 p/2보다 작은 칸의 개수를 정답으로 세준다.</li>
-</ul>
-</li>
-<li>시작 지점에서부터 어떤 지점까지의 최단 경로 길이가 (r/2)-1보다 큰 경우<ul>
-<li>해당 지점은 데미지를 받지 않는 지점이므로 더 이상 탐색을 진행하지 않는다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="4번-문제-100-100"><a href="#4번-문제-100-100" class="headerlink" title="4번 문제 (100/100)"></a>4번 문제 (100/100)</h3><ul>
-<li>SQL 문제였다.</li>
-<li>SQL 문제는 가면 갈수록 어렵게 출제되는 거 같다.</li>
-<li>다양한 문제 해결 방법이 있겠지만, 나는 UNION ALL 집합 연산자를 사용해서 문제를 해결했다.</li>
-</ul>
-<br>
-
-<h2 id="시험-결과"><a href="#시험-결과" class="headerlink" title="시험 결과"></a>시험 결과</h2><img src="/2021/05/11/프로그래머스-2021-여름방학-스타트업-인턴-프로그램-코딩-테스트-후기/pass_email.png" width=650 height=450 alt="합격 이메일" title="합격 이메일" />
-
-<p>코딩 테스트는 턱걸이로 합격할 수 있지 않을까 싶었는데… 만점을 받게 되었다.<br>지금까지 노력했던 게 헛되지 않은 거 같아 기쁘다.<br>코딩 테스트에서 만점 받은 거에 만족하지 않고, 스타트업에서 인턴할 수 있는 기회까지 얻을 수 있도록 면접 준비도 열심히 해야겠다.<br>마지막까지 화이팅!</p>
-]]></content>
-      <categories>
-        <category>시험 후기</category>
-      </categories>
-      <tags>
-        <tag>프로그래머스</tag>
-        <tag>코딩 테스트</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git 기본 사용법 알아보기</title>
-    <url>/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
-    <content><![CDATA[<h2 id="저장소-만들기"><a href="#저장소-만들기" class="headerlink" title="저장소 만들기"></a>저장소 만들기</h2><p>저장소를 만드는 방법에는 두 가지가 있다.<br>첫 번째 방법은 <code>git init</code> 명령어로 현재 디렉터리에 빈 저장소를 만드는 것이다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /현재/위치한/디렉터리/.git/</span><br></pre></td></tr></table></figure>
-<p>두 번째 방법은 <code>git clone</code> 명령어로 기존에 있는 저장소를 복제하는 것이다.<br>원격에 있는 저장소를 복제할 수 있고, 로컬에 있는 저장소도 복제할 수 있다.<br>아래는 github에 있는 원격 저장소를 현재 디렉터리에 복제하는 예시이다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git .</span><br><span class="line">Cloning into <span class="string">&#x27;git-playground&#x27;</span>...</span><br><span class="line">remote: Enumerating objects: 27, <span class="keyword">done</span>.</span><br><span class="line">remote: Counting objects: 100% (27/27), <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (16/16), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 27 (delta 1), reused 27 (delta 1), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (27/27), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
-<p><code>git clone</code> 명령어 뒤에 원격 저장소 주소를 적고 한 칸 뛰고 <code>.</code>를 찍어주지 않으면, 원격 저장소와 같은 이름의 새로운 디렉터리가 생성된 후 그 디렉터리에 복제된다.<br>위의 예시와 같은 경우에는 원격 저장소의 이름이 git-playground이기 때문에 git-playground라는 디렉터리가 생성되고 그 디렉터리에 복제된다.   </p>
-<p>아래의 예시처럼 생성될 디렉터리명을 따로 명시해줄 수 있다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git my-playground</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="파일의-변경-사항-추적하기"><a href="#파일의-변경-사항-추적하기" class="headerlink" title="파일의 변경 사항 추적하기"></a>파일의 변경 사항 추적하기</h2><p>저장소가 있는 디렉터리의 모든 파일은 크게 untracked 상태와 tracked 상태인 파일로 나눠진다.<br>untracked 상태는 말 그대로 깃에 의해서 관리되지 않는 파일을 뜻한다.<br>tracked 상태는 반대로 깃에 의해서 관리되는 파일을 뜻한다.<br>tracked 상태인 파일의 변경 사항은 깃에 의해서 추적된다.<br><code>git init</code> 명령어로 빈 저장소를 만들고 난 뒤에 디렉터리의 모든 파일은 untracked 상태이다.<br>특정 파일을 tracked 상태로 만들기 위해서는 <code>git add</code> 명령어를 사용해야 한다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add 변경사항을_추적할_파일명</span><br></pre></td></tr></table></figure>
-<p>디렉터리의 모든 파일을 tracked 상태로 만들 때는 <code>git add</code>  명령어 다음에 <code>.</code>를 찍어주면 된다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="수정된-파일을-임시-저장소에-저장하기"><a href="#수정된-파일을-임시-저장소에-저장하기" class="headerlink" title="수정된 파일을 임시 저장소에 저장하기"></a>수정된 파일을 임시 저장소에 저장하기</h2><p>수정된 파일을 버전으로 만들고 저장하기 위해서는 먼저 수정된 파일을 임시 저장소에 저장해야 한다.<br>임시 저장소란 무엇이고 왜 있는 걸까?<br>임시 저장소는 하나의 커밋으로 저장될 파일들의 버전을 모아두는 곳이다.<br>임시 저장소가 있기 때문에 수정된 파일들 중에서 원하는 파일만 커밋할 수 있다.   </p>
-<p>🚨 <strong>커밋???</strong><br>커밋(Commit)이란 특정 시점의 저장소의 상태이다.<br>특정 시점의 파일의 상태를 버전이라고 한다면, 특정 시점의 저장소의 상태는 커밋이라고 한다.<br>깃은 구글 드라이브나 드롭박스처럼 각 파일의 상태를 관리하지 않는다.<br>깃은 저장소의 상태를 관리한다.<br>그렇기 때문에 깃으로는 원하는 파일만 이전 상태로 되돌릴 수 없다.<br>커밋 안에 포함된 여러 파일들의 상태를 함꺼번에 되돌려야 한다.   </p>
-<p><code>git add</code> 명령어는 untracked 상태인 파일을 tracked 상태로 만들 때뿐만 아니라, 변경된 파일을 임시 저장소에 저장할 때도 사용된다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add 임시_저장소에_저장할_파일명</span><br></pre></td></tr></table></figure>
-<p><code>git add</code> 명령어로 untracked 상태에서 tracked 상태가 된 파일은 임시 저장소에도 저장된다.   </p>
-<p>임시 저장소에 있는 파일을 제거할 때는 <code>git reset</code> 명령어를 사용하면 된다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git reset -- 임시_저장소에서_삭제할_파일명</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="임시-저장소에-있는-파일들을-저장소에-저장하기"><a href="#임시-저장소에-있는-파일들을-저장소에-저장하기" class="headerlink" title="임시 저장소에 있는 파일들을 저장소에 저장하기"></a>임시 저장소에 있는 파일들을 저장소에 저장하기</h2><p>임시 저장소에 있는 파일들을 저장소에 저장하면 하나의 커밋이 만들어진다.<br>임시 저장소에 있는 파일들을 저장소에 저장할 때는 <code>git commit</code> 명령어가 사용된다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;Fix minor things&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>git commit</code> 명령어 뒤에 <code>-m</code> 옵션을 붙이면 간단하게 커밋 메시지를 작성할 수 있다.<br>커밋 메시지란 해당 커밋을 설명하는 짧은 설명문이다.<br>커밋을 생성할 때는 반드시 커밋 메시지를 작성해야 한다.   </p>
-<br>
-
-<h2 id="다른-커밋으로-시간-여행하기"><a href="#다른-커밋으로-시간-여행하기" class="headerlink" title="다른 커밋으로 시간 여행하기"></a>다른 커밋으로 시간 여행하기</h2><p><code>git log</code> 명령어를 통해서 지금까지 만든 커밋 목록을 확인할 수 있다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br><span class="line">commit eaad918b867a415cf5c67753838deb1721a304e7 (HEAD -&gt; master, origin/master)</span><br><span class="line">Author: kihyunkimlee &lt;khkh4631@gmail.com&gt;</span><br><span class="line">Date:   Thu May 6 11:04:20 2021 +0900</span><br><span class="line"></span><br><span class="line">    Rename folder</span><br><span class="line"></span><br><span class="line">commit 8110c8e5d19a760b789adae295deb4b282fcf71c (old_git_playground/master)</span><br><span class="line">Author: kihyunkimlee &lt;khkh4631@gmail.com&gt;</span><br><span class="line">Date:   Thu May 6 10:59:17 2021 +0900</span><br><span class="line"></span><br><span class="line">    Add test.json</span><br><span class="line"></span><br><span class="line">&lt;이하 생략&gt;</span><br></pre></td></tr></table></figure>
-<p>만약에 2021년 5월 6일 10시 59분 17초에 만들었던 커밋(커밋 아이디 앞 7자리가 8110c8e인 커밋)으로 잠깐 되돌아가고 싶다면 <code>git checkout</code>명령어를 사용하면 된다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout 8110c8e</span><br></pre></td></tr></table></figure>
-<p>다시 원래대로 되돌리고 싶으면 아래와 같은 명령어를 실행하면 된다.   </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>네트워크에서 발생하는 지연</title>
-    <url>/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0/</url>
-    <content><![CDATA[<h2 id="네트워크에서-발생하는-지연"><a href="#네트워크에서-발생하는-지연" class="headerlink" title="네트워크에서 발생하는 지연"></a>네트워크에서 발생하는 지연</h2><ul>
-<li>네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다.</li>
-<li>WHY???<ul>
-<li>패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다.</li>
-<li>그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)에서 다른 노드(호스트 또는 라우터)로 전달되는 과정의 연속이라고 할 수 있다.</li>
-<li>패킷이 전달되는 경로상의 각 노드에서 발생하는 지연 시간의 합은 패킷이 출발지에서 목적지로 전달되는 데 걸리는 시간과 거의 같을 것이다.</li>
-<li>그러므로 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있으면, 네트워크에서 발생하는 지연 시간을 분석할 수 있을 것이다.</li>
-</ul>
-</li>
-<li>한 노드에서 다른 노드로 패킷을 전송할 때 발생하는 지연에는 대표적으로 <strong>처리 지연</strong>과 <strong>큐잉 지연</strong>, <strong>전송 지연</strong>, 그리고 <strong>전파 지연</strong>이 있다.</li>
-</ul>
-<br>
-
-<h2 id="처리-지연"><a href="#처리-지연" class="headerlink" title="처리 지연"></a>처리 지연</h2><ul>
-<li>패킷 헤더를 조사해서 그 패킷을 어디로 보낼지를 결정하는 데 걸리는 시간.</li>
-<li>라우터나 스위치에서 발생한다.</li>
-<li>고속 라우터에서의 처리 지연은 일반적으로 수 마이크로초라고 한다.</li>
-</ul>
-<br>
-
-<h2 id="큐잉-지연"><a href="#큐잉-지연" class="headerlink" title="큐잉 지연"></a>큐잉 지연</h2><ul>
-<li>패킷이 라우터에 도착하고 어떤 링크로 출력되기 전까지 출력 버퍼에서 대기하고 있는 시간.</li>
-<li>출력 버퍼???<ul>
-<li>라우터의 링크마다 존재하는 패킷 임시 저장소.</li>
-<li>도착한 패킷이 어떤 한 링크로 전송되어야 하는데 그 링크가 다른 패킷을 전송하고 있다면, 도착한 패킷은 해당 링크의 출력 버퍼에서 대기하게 된다.</li>
-<li>출력 버퍼가 가득 차게 되면 패킷 손실이 발생할 수 있다.</li>
-<li>패킷 손실???<ul>
-<li>출력 버퍼가 전송을 위해 대기 중인 다른 패킷들로 가득 차게 되면, 라우터는 그 이후에 도착한 패킷이나 기존에 출력 버퍼에 있는 패킷들을 폐기한다.</li>
-<li>이때 폐기된 패킷은 목적지 호스트에 도착하지 못하고 네트워크 중간에서 소멸되기 때문에 패킷 손실이 일어났다고 한다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>큐잉 지연은 네트워크 트래픽의 강도와 특성에 따라 달라진다.</li>
-</ul>
-<br>
-
-<h2 id="전송-지연"><a href="#전송-지연" class="headerlink" title="전송 지연"></a>전송 지연</h2><ul>
-<li>패킷의 모든 비트를 출력 링크로 내보내는 데 걸리는 시간.</li>
-<li>패킷의 크기가 L 비트이고 출력 링크의 전송률이 R bps 일 때, 전송 지연 시간은 L/R 초가 된다.</li>
-<li>WHY???<ul>
-<li>인터넷은 회선(circuit) 교환 방식 네트워크가 아니라 패킷 교환 방식 네트워크이다.</li>
-<li>패킷 교환 방식 네트워크에서 패킷은 출력 링크의 최대 전송 속도와 같은 속도로 링크에 전송되어 진다.</li>
-<li>출력 링크의 전송률이 R bps라면 해당 링크는 초당 R 비트의 데이터를 전송할 수 있다는 뜻이다.</li>
-<li>그러므로 L 비트 크기의 패킷을 전송률이 R bps인 링크로 전송하는 데 걸리는 시간은 L/R 초이다.</li>
-</ul>
-</li>
-<li>(라우터의 전송률과 출력 링크의 전송률이 달라도 정상 동작할까…?)</li>
-</ul>
-<br>
-
-<h2 id="전파-지연"><a href="#전파-지연" class="headerlink" title="전파 지연"></a>전파 지연</h2><ul>
-<li>한 노드에서 전송한 비트가 링크를 통해서 다른 노드로 전달되는 데 걸리는 시간.</li>
-<li>전파 지연 시간은 링크의 전파 속도와 물리적 길이에 따라서 결정된다.</li>
-<li>전파 속도는 링크의 물리 매체에 따라 다르지만 대략 빛의 속도와 같거나 약간 작다.</li>
-<li>링크의 전파 속도가 S m/s이고 링크의 길이가 D 미터일 때, 전파 지연 시간은 D/S 초가 된다.</li>
-<li>광역 네트워크에서 전파 지연은 일반적으로 수 초에 이른다고 한다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>컴퓨터과학</category>
-        <category>네트워크</category>
-      </categories>
-      <tags>
-        <tag>네트워크 지연</tag>
-        <tag>네트워크</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.gitignore 파일 작성법 알아보기</title>
-    <url>/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
-    <content><![CDATA[<h1 id="gitignore-파일"><a href="#gitignore-파일" class="headerlink" title=".gitignore 파일"></a>.gitignore 파일</h1><h2 id="WHAT"><a href="#WHAT" class="headerlink" title="WHAT"></a>WHAT</h2><p>.gitignore 파일이란 무엇일까?<br>.gitignore 파일은 버전을 관리하지 않을 파일이나 디렉터리의 정보를 명시해 놓는 파일이다.<br>.gitignore에 명시된 파일은 깃에게 완전히 존재하지 않는 파일 취급을 받는다.</p>
-<h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><p>왜 그리고 언제 .gitignore 파일을 만들어서 사용해야 할까?<br>프로젝트 폴더에는 외부에 절대로 노출되어서 안 되는 파일이 들어 있을 수 있다.<br>예를 들면, 프로젝트 폴더에 클라우드 서비스 인증키나 데이터베이스 접속 정보 등이 들어 있는 파일이 있을 수 있다.<br>프로젝트의 규모가 커지고 버전을 관리해야 하는 파일의 개수가 증가하게 되면, 그런 노출되어서 안 되는 파일이 실수로 커밋에 포함되어서 github 같은 공개된 원격 저장소에 올라갈 수 있다.<br>이러한 실수를 사전에 방지하기 위해서, 반드시 .gitignore 파일을 만들어야 한다.</p>
-<h2 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h2><p>어떻게 .gitignore 파일을 작성해야 하는 걸까?<br><code>glob 패턴</code> 문법에 따라 .gitignore 파일을 작성해주면 된다.</p>
-<p>🚨 <strong>glob 패턴</strong>???</p>
-<blockquote>
-<p>glob 패턴이란 와일드 카드 문자를 이용해서 일정한 패턴을 가진 파일의 이름들을 지정하기 위한 문자열 패턴이다.<br><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AazcxMjA3OTIvR2xvYi0lRUQlOEMlQTglRUQlODQlQjQlRUElQjMlQkMtJUVDJUEwJTk1JUVBJUI3JTlDJUVEJTkxJTlDJUVEJTk4JTg0JUVDJThCJTlE">출처 : Hugo.log<i class="fa fa-external-link-alt"></i></span></p>
+    <title>[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드</title>
+    <url>/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/</url>
+    <content><![CDATA[<blockquote>
+<p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
-<p><code>glob 패턴</code>은 정규 표현식과 비슷하지만 훨씬 간단하고 사용하기 쉽다.<br><code>glob 패턴</code>에 대해서는 아래의 블로그에 자세히 설명되어 있다.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWFsaWticm93bmUuY29tL2Jsb2cvYS1iZWdpbm5lcnMtZ3VpZGUtZ2xvYi1wYXR0ZXJucw==">A Beginner’s Guide: Glob Patterns<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="자주-사용되는-패턴"><a href="#자주-사용되는-패턴" class="headerlink" title="자주 사용되는 패턴"></a>자주 사용되는 패턴</h3><p>.gitignore 파일을 작성할 때 자주 사용되는 패턴은 아래와 같다.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"># 현재 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line">/test.js</span><br><span class="line"></span><br><span class="line"># 현재 디렉터리와 현재 디렉터리의 모든 하위 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line">test.js</span><br><span class="line"></span><br><span class="line"># <span class="string">&quot;folder1&quot;</span> 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line">/folder1/test.js</span><br><span class="line"></span><br><span class="line"># <span class="string">&quot;folder1&quot;</span> 디렉터리와 <span class="string">&quot;folder1&quot;</span> 디렉터리의 모든 하위 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line"></span><br><span class="line">/folder1<span class="comment">/**/</span>test.js</span><br><span class="line"></span><br><span class="line"># <span class="string">&quot;node_modules&quot;</span> 디렉터리에 있는 모든 파일을 제외하기</span><br><span class="line">node_modules/</span><br><span class="line"></span><br><span class="line"># 파일 확장자가 <span class="string">&quot;.jpg&quot;</span>인 파일 모두 제외하기</span><br><span class="line">*.jpg</span><br><span class="line"></span><br><span class="line"># 파일명이 <span class="string">&quot;abc&quot;</span>로 시작하는 모든 파일 제외하기</span><br><span class="line">abc*</span><br><span class="line"></span><br><span class="line"># 앞에서 제외시켰던 <span class="string">&quot;test.js&quot;</span> 파일을 다시 포함하기</span><br><span class="line">!test.js</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>.gitignore</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ts-node Error: Cannot find module &#39;@types/node/package.json&#39;</title>
-    <url>/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/</url>
-    <content><![CDATA[<h2 id="에러-발생"><a href="#에러-발생" class="headerlink" title="에러 발생"></a>에러 발생</h2><p>typescript를 설치하고 ts-node를 설치한 뒤에 ts-node를 실행시켜보니 아래와 같은 에러가 발생했다.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ts-node hello.ts</span><br><span class="line">Error: Cannot find module <span class="string">&#x27;@types/node/package.json&#x27;</span></span><br><span class="line">    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:582:15)</span><br><span class="line">    at Function.resolve (internal/modules/cjs/helpers.js:30:19)</span><br><span class="line">    at typeDirectiveNames.map (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:746:52)</span><br><span class="line">    at Array.map (&lt;anonymous&gt;)</span><br><span class="line">    at Object.resolveTypeReferenceDirectives (/usr/<span class="built_in">local</span>/lib/node_modules/ts-node/src/index.ts:734:33)</span><br><span class="line">    at actualResolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109509:143)</span><br><span class="line">    at resolveTypeReferenceDirectiveNamesWorker (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109768:26)</span><br><span class="line">    at Object.createProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:109607:35)</span><br><span class="line">    at synchronizeHostData (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153740:26)</span><br><span class="line">    at Object.getProgram (/usr/<span class="built_in">local</span>/lib/node_modules/typescript/lib/typescript.js:153872:13)</span><br></pre></td></tr></table></figure>
-<h2 id="발생-원인"><a href="#발생-원인" class="headerlink" title="발생 원인"></a>발생 원인</h2><p>ts-node를 실행시키기 위해서는 <code>@types/node</code>라는 패키지가 필요한 거 같다.<br><code>@types/node</code> 패키지를 설치해줬다.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm i -g @types/node</span><br><span class="line">+ @types/node@15.12.2</span><br><span class="line">added 1 package from 41 contributors <span class="keyword">in</span> 0.67s</span><br></pre></td></tr></table></figure>
-<h2 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h2><p><code>@types/node</code> 패키지를 설치하니 ts-node가 정상적으로 동작한다.</p>
-<p><img src="/2021/06/10/ts-node-Error-Cannot-find-module-types-node-package-json/back-to-normal.png" alt="정상 작동 모습"></p>
-<p>(근데 왜 패키지가 아니라 ‘package.json’ 파일이 없다고 나오는지 잘 모르겠다…)</p>
+<br>
+
+<h1 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h1><h2 id="함수를-정의하는-두-가지-방식"><a href="#함수를-정의하는-두-가지-방식" class="headerlink" title="함수를 정의하는 두 가지 방식"></a>함수를 정의하는 두 가지 방식</h2><h3 id="함수-선언문"><a href="#함수-선언문" class="headerlink" title="함수 선언문"></a>함수 선언문</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="함수-표현식"><a href="#함수-표현식" class="headerlink" title="함수 표현식"></a>함수 표현식</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="함수-선언문과-함수-표현식의-차이점"><a href="#함수-선언문과-함수-표현식의-차이점" class="headerlink" title="함수 선언문과 함수 표현식의 차이점"></a>함수 선언문과 함수 표현식의 차이점</h2><ul>
+<li>함수 선언문에서는 호이스팅 현상이 생기지만, 함수 표현식에서는 호이스팅 현상이 생기지 않는다.</li>
+<li>하지만 strict mode를 사용하면 함수가 선언되기 전에 해당 함수를 호출하면 오류가 발생하기 때문에 두 방식의 차이점은 없어지는 거 같다(?)</li>
+</ul>
+<h2 id="선택적-매개변수"><a href="#선택적-매개변수" class="headerlink" title="선택적 매개변수"></a>선택적 매개변수</h2><ul>
+<li>인자를 전달해주지 않아도 되는 매개변수.</li>
+<li>인터페이스의 선택 속성을 만들 때와 비슷하게 매개변수 이름 뒤에 <code>?</code>를 붙이면 선택적 매개변수를 만들 수 있다.</li>
+<li>인자를 전달해주지 않으면 매개변수의 값은 undefined가 된다.</li>
+<li>함수의 매개변수 순서상, 선택적 매개변수 다음에 필수 매개변수가 올 수 없다.</li>
+<li>선택적 매개변수 다음에 필수 매개변수가 오면, 인자가 어떤 매개변수의 값인지 구분할 수 없기 때문이다.</li>
+</ul>
+<h2 id="매개변수-기본값-지정하기"><a href="#매개변수-기본값-지정하기" class="headerlink" title="매개변수 기본값 지정하기"></a>매개변수 기본값 지정하기</h2><ul>
+<li>인자가 전달되지 않았을 때 매개변수에 대신 전달될 기본값을 지정할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">(매개변수명: 타입명 = 매개변수_기본값 [, ...])</span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="함수-시그니처"><a href="#함수-시그니처" class="headerlink" title="함수 시그니처"></a>함수 시그니처</h1><ul>
+<li>함수의 형태를 타입으로 지정하는 것.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> printEmployee: <span class="function">(<span class="params"><span class="built_in">string</span>, <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">void</span> = <span class="function"><span class="keyword">function</span> (<span class="params">name: <span class="built_in">string</span>, age: <span class="built_in">number</span></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(name, age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printEmployee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>type</code> 키워드로 함수 시그니처에 이름을 붙일 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> stringNumberFunc = <span class="function">(<span class="params"><span class="built_in">string</span>, <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> printEmployee: stringNumberFunc = <span class="function"><span class="keyword">function</span> (<span class="params">name: <span class="built_in">string</span>, age: <span class="built_in">number</span></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(name, age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printEmployee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="실행문과-표현식의-차이"><a href="#실행문과-표현식의-차이" class="headerlink" title="실행문과 표현식의 차이"></a>실행문과 표현식의 차이</h1><h2 id="실행문-statement"><a href="#실행문-statement" class="headerlink" title="실행문(statement)"></a>실행문(statement)</h2><ul>
+<li>어떤 동작을 실행하는 코드 조각.</li>
+<li>실행문의 종류는 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvU3RhdGVtZW50cw==">여기<i class="fa fa-external-link-alt"></i></span>에서 확인 가능.</li>
+<li>🌟 기본적으로 값을 반환하지 않는다 🌟</li>
+<li>함수의 몸통에는 <code>return</code> 문을 사용해서 값을 반환하게 할 수 있다.</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AX3VjaGFubGVlLyVFQiVBQyVCOFN0YXRlbWVudCVFQSVCMyVCQy0lRUQlOTElOUMlRUQlOTglODQlRUMlOEIlOURFeHByZXNzaW9u">(자바스크립트에서 모든 실행문은 결과 값을 가진다고 한다…)<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h2 id="표현식-expression"><a href="#표현식-expression" class="headerlink" title="표현식(expression)"></a>표현식(expression)</h2><ul>
+<li>값으로 결정(또는 계산)될 수 있는 유효한 코드 조각.</li>
+<li>보통 표현식은 리터럴, 연산자, 변수, 함수 호출 등이 복합적으로 구성되어 있다.</li>
+<li>표현식의 종류는 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9HdWlkZS9FeHByZXNzaW9uc19hbmRfT3BlcmF0b3Jz">여기<i class="fa fa-external-link-alt"></i></span>에서 확인 가능.</li>
+<li>🌟 값을 반환한다 🌟</li>
+<li>(비교 연산자라면 boolean 값, 산술 연산자라면 number 값을 반환함)</li>
+<li>값이 위치할 것이라고 예상되는 곳에 표현식을 대신 넣을 수 있다.</li>
+<li>(예를 들면, 함수의 인자나 대입 연산자의 오른쪽 부분 등)</li>
+</ul>
+<h2 id="표현식-문-expression-statement"><a href="#표현식-문-expression-statement" class="headerlink" title="표현식 문(expression statement)"></a>표현식 문(expression statement)</h2><ul>
+<li>실행문이 위치할 것이라고 예상되는 곳에 표현식을 넣는 것.</li>
+<li>표현식이 값을 반환하는 실행문이 됨.</li>
+<li>예를 들면 아래와 같은 화살표 함수의 몸통을 표현식으로 대신할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> isLower = (a: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span>): <span class="function"><span class="params">boolean</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a &lt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isLower = (a: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span>): <span class="function"><span class="params">boolean</span> =&gt;</span> a &lt; b</span><br></pre></td></tr></table></figure>
+<h2 id="어렵다"><a href="#어렵다" class="headerlink" title="어렵다!!!!!!!!!!!!"></a>어렵다!!!!!!!!!!!!</h2><br>
+
+<h1 id="클래스-메서드"><a href="#클래스-메서드" class="headerlink" title="클래스 메서드"></a>클래스 메서드</h1><h2 id="메서드"><a href="#메서드" class="headerlink" title="메서드"></a>메서드</h2><ul>
+<li>함수 객체를 담고 있는 속성.</li>
+<li>메서드 안에서 <code>this</code> 키워드를 통해 해당 메서드를 호출한 인스턴스에 접근할 수 있다.</li>
+<li>다음과 같이 단축해서 메서드를 정의할 수 있다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span> &#123;&#125;</span><br><span class="line">	</span><br><span class="line">	printInfo(): <span class="built_in">void</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="built_in">this</span>.name, <span class="built_in">this</span>.age, <span class="built_in">this</span>.sex != <span class="literal">undefined</span> ? <span class="built_in">this</span>.sex : <span class="string">&#x27;NOT BOTH&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee = <span class="keyword">new</span> Employee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>);</span><br><span class="line"></span><br><span class="line">employee.printInfo(); <span class="comment">//KIM KIHYUN 27 NOT BOTH</span></span><br></pre></td></tr></table></figure>
+<h2 id="static-메서드"><a href="#static-메서드" class="headerlink" title="static 메서드"></a>static 메서드</h2><ul>
+<li>인스턴트를 생성하지 않고도 사용할 있는 클래스의 메서드.</li>
+<li>만드는 방법이나 접근하는 방법은 static 속성과 같다.</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> cnt: <span class="built_in">number</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">		Employee.cnt += <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> getCnt(): <span class="built_in">number</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> cnt</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>, <span class="string">&#x27;MALE&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Employee.getCnt()) <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<h2 id="메서드-체인"><a href="#메서드-체인" class="headerlink" title="메서드 체인"></a>메서드 체인</h2><ul>
+<li>메서드가 항상 <code>this</code>를 반환하게 만들면 메서드 체인을 구현할 수 있다.</li>
+</ul>
 ]]></content>
       <categories>
         <category>Do it! 타입스크립트 프로그래밍</category>
       </categories>
       <tags>
         <tag>Typescript</tag>
-        <tag>TS-NODE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>브랜치 기본 조작 방법 알아보기</title>
-    <url>/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/</url>
-    <content><![CDATA[<h1 id="브랜치"><a href="#브랜치" class="headerlink" title="브랜치"></a>브랜치</h1><ul>
-<li>커밋 사이를 가볍게 이동할 수 있는 어떤 포인터 같은 것(?)</li>
-<li>브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.</li>
-</ul>
-<h2 id="master-브랜치"><a href="#master-브랜치" class="headerlink" title="master 브랜치"></a>master 브랜치</h2><ul>
-<li>첫 커밋을 만들면 Git이 자동으로 만드는 브랜치.</li>
-<li>커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.</li>
-</ul>
-<h2 id="HEAD-포인터"><a href="#HEAD-포인터" class="headerlink" title="HEAD 포인터"></a>HEAD 포인터</h2><ul>
-<li>현재 작업중인 브랜치를 가리키는 포인터.</li>
-<li>기본적으로 master 브랜치를 가리키고 있다.</li>
-</ul>
-<br>
-
-<h1 id="브랜치-기본-조작-방법"><a href="#브랜치-기본-조작-방법" class="headerlink" title="브랜치 기본 조작 방법"></a>브랜치 기본 조작 방법</h1><h2 id="브랜치-생성하기"><a href="#브랜치-생성하기" class="headerlink" title="브랜치 생성하기"></a>브랜치 생성하기</h2><ul>
-<li><code>git branch</code> 명령으로 새로운 브랜치를 생성할 수 있다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch 생성할_브랜치명</span><br></pre></td></tr></table></figure>
-<ul>
-<li>새롭게 생성된 브랜치는 자동으로 지금 작업하고 있는 커밋을 가리킨다.</li>
-</ul>
-<h2 id="브랜치-목록-보기"><a href="#브랜치-목록-보기" class="headerlink" title="브랜치 목록 보기"></a>브랜치 목록 보기</h2><ul>
-<li><code>git branch</code> 명령으로 브랜치 목록을 볼 수 있다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
-<h2 id="브랜치-이동하기"><a href="#브랜치-이동하기" class="headerlink" title="브랜치 이동하기"></a>브랜치 이동하기</h2><ul>
-<li><code>git checkout</code> 명령으로 다른 브랜치로 이동할 수 있다.</li>
-<li>브랜치를 이동한다는 것은 HEAD 포인터가 다른 브랜치를 가리키도록 수정한다는 것이다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout 이동할_브랜치명</span><br></pre></td></tr></table></figure>
-<ul>
-<li>브랜치를 이동하면 워킹 디렉터리의 파일이 변경된다.<ul>
-<li>브랜치를 이동하면 워킹 디렉터리의 파일이 해당 브랜치가 가리키는 커밋의 스냅샷으로 변경된다.</li>
-<li>단, 마지막 커밋 이후로 변경 사항이 존재하는 브랜치로 이동할 경우, 워킹 디렉터리의 파일은 그 브랜치에서 가장 마지막으로 했던 작업 내용으로 변경된다.</li>
-</ul>
-</li>
-<li>현재 브랜치에 아직 커밋하지 않은 파일이 이동하려는 브랜치에 있는 파일과 충돌된다면, 브랜치 이동을 할 수 없다!<ul>
-<li>이럴 때는 현재 브랜치의 워킹 디렉터리를 정리하거나  <code>git stach</code> 명령을 사용해야 한다.</li>
-</ul>
-</li>
-</ul>
-<h2 id="브랜치-삭제하기"><a href="#브랜치-삭제하기" class="headerlink" title="브랜치 삭제하기"></a>브랜치 삭제하기</h2><ul>
-<li><code>git branch</code> 명령에 -d 옵션을 주어서 브랜치를 삭제할 수 있다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -d b1</span><br></pre></td></tr></table></figure>
-<ul>
-<li>아직 머지하지 않은 커밋을 갖고 있는 브랜치를 강제로 삭제할 때는 -D 옵션을 사용한다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -D b2</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Branch</tag>
       </tags>
   </entry>
   <entry>
     <title>[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입</title>
-    <url>/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/</url>
+    <url>/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/</url>
     <content><![CDATA[<blockquote>
 <p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
+<br>
+
 <h1 id="var와-let-amp-const의-차이"><a href="#var와-let-amp-const의-차이" class="headerlink" title="var와 let&amp;const의 차이"></a>var와 let&amp;const의 차이</h1><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ul>
 <li>함수 스코프 사용.</li>
 <li>var 변수를 재정의해도 오류가 발생하지 않음.</li>
@@ -615,86 +356,414 @@
       </tags>
   </entry>
   <entry>
-    <title>[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드</title>
-    <url>/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/</url>
-    <content><![CDATA[<blockquote>
-<p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+    <title>Git 기본 사용법 알아보기</title>
+    <url>/2021/06/01/Git-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/</url>
+    <content><![CDATA[<h2 id="저장소-만들기"><a href="#저장소-만들기" class="headerlink" title="저장소 만들기"></a>저장소 만들기</h2><p>저장소를 만드는 방법에는 두 가지가 있다.<br>첫 번째 방법은 <code>git init</code> 명령어로 현재 디렉터리에 빈 저장소를 만드는 것이다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /현재/위치한/디렉터리/.git/</span><br></pre></td></tr></table></figure>
+<p>두 번째 방법은 <code>git clone</code> 명령어로 기존에 있는 저장소를 복제하는 것이다.<br>원격에 있는 저장소를 복제할 수 있고, 로컬에 있는 저장소도 복제할 수 있다.<br>아래는 github에 있는 원격 저장소를 현재 디렉터리에 복제하는 예시이다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/원하는/디렉터리로/이동</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git .</span><br><span class="line">Cloning into <span class="string">&#x27;git-playground&#x27;</span>...</span><br><span class="line">remote: Enumerating objects: 27, <span class="keyword">done</span>.</span><br><span class="line">remote: Counting objects: 100% (27/27), <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (16/16), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 27 (delta 1), reused 27 (delta 1), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (27/27), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+<p><code>git clone</code> 명령어 뒤에 원격 저장소 주소를 적고 한 칸 뛰고 <code>.</code>를 찍어주지 않으면, 원격 저장소와 같은 이름의 새로운 디렉터리가 생성된 후 그 디렉터리에 복제된다.<br>위의 예시와 같은 경우에는 원격 저장소의 이름이 git-playground이기 때문에 git-playground라는 디렉터리가 생성되고 그 디렉터리에 복제된다.   </p>
+<p>아래의 예시처럼 생성될 디렉터리명을 따로 명시해줄 수 있다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/kihyunkimlee/git-playground.git my-playground</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="파일의-변경-사항-추적하기"><a href="#파일의-변경-사항-추적하기" class="headerlink" title="파일의 변경 사항 추적하기"></a>파일의 변경 사항 추적하기</h2><p>저장소가 있는 디렉터리의 모든 파일은 크게 untracked 상태와 tracked 상태인 파일로 나눠진다.<br>untracked 상태는 말 그대로 깃에 의해서 관리되지 않는 파일을 뜻한다.<br>tracked 상태는 반대로 깃에 의해서 관리되는 파일을 뜻한다.<br>tracked 상태인 파일의 변경 사항은 깃에 의해서 추적된다.<br><code>git init</code> 명령어로 빈 저장소를 만들고 난 뒤에 디렉터리의 모든 파일은 untracked 상태이다.<br>특정 파일을 tracked 상태로 만들기 위해서는 <code>git add</code> 명령어를 사용해야 한다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add 변경사항을_추적할_파일명</span><br></pre></td></tr></table></figure>
+<p>디렉터리의 모든 파일을 tracked 상태로 만들 때는 <code>git add</code>  명령어 다음에 <code>.</code>를 찍어주면 된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="수정된-파일을-임시-저장소에-저장하기"><a href="#수정된-파일을-임시-저장소에-저장하기" class="headerlink" title="수정된 파일을 임시 저장소에 저장하기"></a>수정된 파일을 임시 저장소에 저장하기</h2><p>수정된 파일을 버전으로 만들고 저장하기 위해서는 먼저 수정된 파일을 임시 저장소에 저장해야 한다.<br>임시 저장소란 무엇이고 왜 있는 걸까?<br>임시 저장소는 하나의 커밋으로 저장될 파일들의 버전을 모아두는 곳이다.<br>임시 저장소가 있기 때문에 수정된 파일들 중에서 원하는 파일만 커밋할 수 있다.   </p>
+<p>🚨 <strong>커밋???</strong><br>커밋(Commit)이란 특정 시점의 저장소의 상태이다.<br>특정 시점의 파일의 상태를 버전이라고 한다면, 특정 시점의 저장소의 상태는 커밋이라고 한다.<br>깃은 구글 드라이브나 드롭박스처럼 각 파일의 상태를 관리하지 않는다.<br>깃은 저장소의 상태를 관리한다.<br>그렇기 때문에 깃으로는 원하는 파일만 이전 상태로 되돌릴 수 없다.<br>커밋 안에 포함된 여러 파일들의 상태를 함꺼번에 되돌려야 한다.   </p>
+<p><code>git add</code> 명령어는 untracked 상태인 파일을 tracked 상태로 만들 때뿐만 아니라, 변경된 파일을 임시 저장소에 저장할 때도 사용된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add 임시_저장소에_저장할_파일명</span><br></pre></td></tr></table></figure>
+<p><code>git add</code> 명령어로 untracked 상태에서 tracked 상태가 된 파일은 임시 저장소에도 저장된다.   </p>
+<p>임시 저장소에 있는 파일을 제거할 때는 <code>git reset</code> 명령어를 사용하면 된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git reset -- 임시_저장소에서_삭제할_파일명</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="임시-저장소에-있는-파일들을-저장소에-저장하기"><a href="#임시-저장소에-있는-파일들을-저장소에-저장하기" class="headerlink" title="임시 저장소에 있는 파일들을 저장소에 저장하기"></a>임시 저장소에 있는 파일들을 저장소에 저장하기</h2><p>임시 저장소에 있는 파일들을 저장소에 저장하면 하나의 커밋이 만들어진다.<br>임시 저장소에 있는 파일들을 저장소에 저장할 때는 <code>git commit</code> 명령어가 사용된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;Fix minor things&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>git commit</code> 명령어 뒤에 <code>-m</code> 옵션을 붙이면 간단하게 커밋 메시지를 작성할 수 있다.<br>커밋 메시지란 해당 커밋을 설명하는 짧은 설명문이다.<br>커밋을 생성할 때는 반드시 커밋 메시지를 작성해야 한다.   </p>
+<br>
+
+<h2 id="다른-커밋으로-시간-여행하기"><a href="#다른-커밋으로-시간-여행하기" class="headerlink" title="다른 커밋으로 시간 여행하기"></a>다른 커밋으로 시간 여행하기</h2><p><code>git log</code> 명령어를 통해서 지금까지 만든 커밋 목록을 확인할 수 있다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br><span class="line">commit eaad918b867a415cf5c67753838deb1721a304e7 (HEAD -&gt; master, origin/master)</span><br><span class="line">Author: kihyunkimlee &lt;khkh4631@gmail.com&gt;</span><br><span class="line">Date:   Thu May 6 11:04:20 2021 +0900</span><br><span class="line"></span><br><span class="line">    Rename folder</span><br><span class="line"></span><br><span class="line">commit 8110c8e5d19a760b789adae295deb4b282fcf71c (old_git_playground/master)</span><br><span class="line">Author: kihyunkimlee &lt;khkh4631@gmail.com&gt;</span><br><span class="line">Date:   Thu May 6 10:59:17 2021 +0900</span><br><span class="line"></span><br><span class="line">    Add test.json</span><br><span class="line"></span><br><span class="line">&lt;이하 생략&gt;</span><br></pre></td></tr></table></figure>
+<p>만약에 2021년 5월 6일 10시 59분 17초에 만들었던 커밋(커밋 아이디 앞 7자리가 8110c8e인 커밋)으로 잠깐 되돌아가고 싶다면 <code>git checkout</code>명령어를 사용하면 된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout 8110c8e</span><br></pre></td></tr></table></figure>
+<p>다시 원래대로 되돌리고 싶으면 아래와 같은 명령어를 실행하면 된다.   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.gitignore 파일 작성법 알아보기</title>
+    <url>/2021/06/07/gitignore_%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/</url>
+    <content><![CDATA[<h1 id="gitignore-파일"><a href="#gitignore-파일" class="headerlink" title=".gitignore 파일"></a>.gitignore 파일</h1><h2 id="WHAT"><a href="#WHAT" class="headerlink" title="WHAT"></a>WHAT</h2><p>.gitignore 파일이란 무엇일까?<br>.gitignore 파일은 버전을 관리하지 않을 파일이나 디렉터리의 정보를 명시해 놓는 파일이다.<br>.gitignore에 명시된 파일은 깃에게 완전히 존재하지 않는 파일 취급을 받는다.</p>
+<h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><p>왜 그리고 언제 .gitignore 파일을 만들어서 사용해야 할까?<br>프로젝트 폴더에는 외부에 절대로 노출되어서 안 되는 파일이 들어 있을 수 있다.<br>예를 들면, 프로젝트 폴더에 클라우드 서비스 인증키나 데이터베이스 접속 정보 등이 들어 있는 파일이 있을 수 있다.<br>프로젝트의 규모가 커지고 버전을 관리해야 하는 파일의 개수가 증가하게 되면, 그런 노출되어서 안 되는 파일이 실수로 커밋에 포함되어서 github 같은 공개된 원격 저장소에 올라갈 수 있다.<br>이러한 실수를 사전에 방지하기 위해서, 반드시 .gitignore 파일을 만들어야 한다.</p>
+<h2 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h2><p>어떻게 .gitignore 파일을 작성해야 하는 걸까?<br><code>glob 패턴</code> 문법에 따라 .gitignore 파일을 작성해주면 된다.</p>
+<p>🚨 <strong>glob 패턴</strong>???</p>
+<blockquote>
+<p>glob 패턴이란 와일드 카드 문자를 이용해서 일정한 패턴을 가진 파일의 이름들을 지정하기 위한 문자열 패턴이다.<br><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AazcxMjA3OTIvR2xvYi0lRUQlOEMlQTglRUQlODQlQjQlRUElQjMlQkMtJUVDJUEwJTk1JUVBJUI3JTlDJUVEJTkxJTlDJUVEJTk4JTg0JUVDJThCJTlE">출처 : Hugo.log<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
+<p><code>glob 패턴</code>은 정규 표현식과 비슷하지만 훨씬 간단하고 사용하기 쉽다.<br><code>glob 패턴</code>에 대해서는 아래의 블로그에 자세히 설명되어 있다.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWFsaWticm93bmUuY29tL2Jsb2cvYS1iZWdpbm5lcnMtZ3VpZGUtZ2xvYi1wYXR0ZXJucw==">A Beginner’s Guide: Glob Patterns<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="자주-사용되는-패턴"><a href="#자주-사용되는-패턴" class="headerlink" title="자주 사용되는 패턴"></a>자주 사용되는 패턴</h3><p>.gitignore 파일을 작성할 때 자주 사용되는 패턴은 아래와 같다.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"># 현재 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line">/test.js</span><br><span class="line"></span><br><span class="line"># 현재 디렉터리와 현재 디렉터리의 모든 하위 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line">test.js</span><br><span class="line"></span><br><span class="line"># <span class="string">&quot;folder1&quot;</span> 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line">/folder1/test.js</span><br><span class="line"></span><br><span class="line"># <span class="string">&quot;folder1&quot;</span> 디렉터리와 <span class="string">&quot;folder1&quot;</span> 디렉터리의 모든 하위 디렉터리에 있는 <span class="string">&quot;test.js&quot;</span> 파일 제외하기</span><br><span class="line"></span><br><span class="line">/folder1<span class="comment">/**/</span>test.js</span><br><span class="line"></span><br><span class="line"># <span class="string">&quot;node_modules&quot;</span> 디렉터리에 있는 모든 파일을 제외하기</span><br><span class="line">node_modules/</span><br><span class="line"></span><br><span class="line"># 파일 확장자가 <span class="string">&quot;.jpg&quot;</span>인 파일 모두 제외하기</span><br><span class="line">*.jpg</span><br><span class="line"></span><br><span class="line"># 파일명이 <span class="string">&quot;abc&quot;</span>로 시작하는 모든 파일 제외하기</span><br><span class="line">abc*</span><br><span class="line"></span><br><span class="line"># 앞에서 제외시켰던 <span class="string">&quot;test.js&quot;</span> 파일을 다시 포함하기</span><br><span class="line">!test.js</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>.gitignore</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>네트워크에서 발생하는 지연</title>
+    <url>/2021/06/02/%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5-%E1%84%87%E1%85%A1%E1%86%AF%E1%84%89%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB/</url>
+    <content><![CDATA[<h2 id="네트워크에서-발생하는-지연"><a href="#네트워크에서-발생하는-지연" class="headerlink" title="네트워크에서 발생하는 지연"></a>네트워크에서 발생하는 지연</h2><ul>
+<li>네트워크에서 발생하는 지연 시간을 분석하기 위해서는 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있어야 한다.</li>
+<li>WHY???<ul>
+<li>패킷은 출발지 호스트에서 시작해서 일련의 라우터들을 거쳐서 목적지 호스트로 전달된다.</li>
+<li>그러므로 패킷이 출발지에서 목적지로 전달되는 과정은 한 노드(호스트 또는 라우터)에서 다른 노드(호스트 또는 라우터)로 전달되는 과정의 연속이라고 할 수 있다.</li>
+<li>패킷이 전달되는 경로상의 각 노드에서 발생하는 지연 시간의 합은 패킷이 출발지에서 목적지로 전달되는 데 걸리는 시간과 거의 같을 것이다.</li>
+<li>그러므로 한 노드에서 다른 노드로 패킷을 전송할 때 발생할 수 있는 다양한 지연에 대해서 알고 있으면, 네트워크에서 발생하는 지연 시간을 분석할 수 있을 것이다.</li>
+</ul>
+</li>
+<li>한 노드에서 다른 노드로 패킷을 전송할 때 발생하는 지연에는 대표적으로 <strong>처리 지연</strong>과 <strong>큐잉 지연</strong>, <strong>전송 지연</strong>, 그리고 <strong>전파 지연</strong>이 있다.</li>
+</ul>
 <br>
 
-<h1 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h1><h2 id="함수를-정의하는-두-가지-방식"><a href="#함수를-정의하는-두-가지-방식" class="headerlink" title="함수를 정의하는 두 가지 방식"></a>함수를 정의하는 두 가지 방식</h2><h3 id="함수-선언문"><a href="#함수-선언문" class="headerlink" title="함수 선언문"></a>함수 선언문</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="함수-표현식"><a href="#함수-표현식" class="headerlink" title="함수 표현식"></a>함수 표현식</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="함수-선언문과-함수-표현식의-차이점"><a href="#함수-선언문과-함수-표현식의-차이점" class="headerlink" title="함수 선언문과 함수 표현식의 차이점"></a>함수 선언문과 함수 표현식의 차이점</h2><ul>
-<li>함수 선언문에서는 호이스팅 현상이 생기지만, 함수 표현식에서는 호이스팅 현상이 생기지 않는다.</li>
-<li>하지만 strict mode를 사용하면 함수가 선언되기 전에 해당 함수를 호출하면 오류가 발생하기 때문에 두 방식의 차이점은 없어지는 거 같다(?)</li>
+<h2 id="처리-지연"><a href="#처리-지연" class="headerlink" title="처리 지연"></a>처리 지연</h2><ul>
+<li>패킷 헤더를 조사해서 그 패킷을 어디로 보낼지를 결정하는 데 걸리는 시간.</li>
+<li>라우터나 스위치에서 발생한다.</li>
+<li>고속 라우터에서의 처리 지연은 일반적으로 수 마이크로초라고 한다.</li>
 </ul>
-<h2 id="선택적-매개변수"><a href="#선택적-매개변수" class="headerlink" title="선택적 매개변수"></a>선택적 매개변수</h2><ul>
-<li>인자를 전달해주지 않아도 되는 매개변수.</li>
-<li>인터페이스의 선택 속성을 만들 때와 비슷하게 매개변수 이름 뒤에 <code>?</code>를 붙이면 선택적 매개변수를 만들 수 있다.</li>
-<li>인자를 전달해주지 않으면 매개변수의 값은 undefined가 된다.</li>
-<li>함수의 매개변수 순서상, 선택적 매개변수 다음에 필수 매개변수가 올 수 없다.</li>
-<li>선택적 매개변수 다음에 필수 매개변수가 오면, 인자가 어떤 매개변수의 값인지 구분할 수 없기 때문이다.</li>
-</ul>
-<h2 id="매개변수-기본값-지정하기"><a href="#매개변수-기본값-지정하기" class="headerlink" title="매개변수 기본값 지정하기"></a>매개변수 기본값 지정하기</h2><ul>
-<li>인자가 전달되지 않았을 때 매개변수에 대신 전달될 기본값을 지정할 수 있다.</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">(매개변수명: 타입명 = 매개변수_기본값 [, ...])</span><br></pre></td></tr></table></figure>
 <br>
 
-<h1 id="함수-시그니처"><a href="#함수-시그니처" class="headerlink" title="함수 시그니처"></a>함수 시그니처</h1><ul>
-<li>함수의 형태를 타입으로 지정하는 것.</li>
+<h2 id="큐잉-지연"><a href="#큐잉-지연" class="headerlink" title="큐잉 지연"></a>큐잉 지연</h2><ul>
+<li>패킷이 라우터에 도착하고 어떤 링크로 출력되기 전까지 출력 버퍼에서 대기하고 있는 시간.</li>
+<li>출력 버퍼???<ul>
+<li>라우터의 링크마다 존재하는 패킷 임시 저장소.</li>
+<li>도착한 패킷이 어떤 한 링크로 전송되어야 하는데 그 링크가 다른 패킷을 전송하고 있다면, 도착한 패킷은 해당 링크의 출력 버퍼에서 대기하게 된다.</li>
+<li>출력 버퍼가 가득 차게 되면 패킷 손실이 발생할 수 있다.</li>
+<li>패킷 손실???<ul>
+<li>출력 버퍼가 전송을 위해 대기 중인 다른 패킷들로 가득 차게 되면, 라우터는 그 이후에 도착한 패킷이나 기존에 출력 버퍼에 있는 패킷들을 폐기한다.</li>
+<li>이때 폐기된 패킷은 목적지 호스트에 도착하지 못하고 네트워크 중간에서 소멸되기 때문에 패킷 손실이 일어났다고 한다.</li>
 </ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> printEmployee: <span class="function">(<span class="params"><span class="built_in">string</span>, <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">void</span> = <span class="function"><span class="keyword">function</span> (<span class="params">name: <span class="built_in">string</span>, age: <span class="built_in">number</span></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(name, age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printEmployee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>type</code> 키워드로 함수 시그니처에 이름을 붙일 수 있다.</li>
+</li>
 </ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> stringNumberFunc = <span class="function">(<span class="params"><span class="built_in">string</span>, <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> printEmployee: stringNumberFunc = <span class="function"><span class="keyword">function</span> (<span class="params">name: <span class="built_in">string</span>, age: <span class="built_in">number</span></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(name, age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printEmployee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>) <span class="comment">//KIM KIHYUN 27</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>큐잉 지연은 네트워크 트래픽의 강도와 특성에 따라 달라진다.</li>
+</ul>
 <br>
 
-<h1 id="실행문과-표현식의-차이"><a href="#실행문과-표현식의-차이" class="headerlink" title="실행문과 표현식의 차이"></a>실행문과 표현식의 차이</h1><h2 id="실행문-statement"><a href="#실행문-statement" class="headerlink" title="실행문(statement)"></a>실행문(statement)</h2><ul>
-<li>어떤 동작을 실행하는 코드 조각.</li>
-<li>실행문의 종류는 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvU3RhdGVtZW50cw==">여기<i class="fa fa-external-link-alt"></i></span>에서 확인 가능.</li>
-<li>🌟 기본적으로 값을 반환하지 않는다 🌟</li>
-<li>함수의 몸통에는 <code>return</code> 문을 사용해서 값을 반환하게 할 수 있다.</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AX3VjaGFubGVlLyVFQiVBQyVCOFN0YXRlbWVudCVFQSVCMyVCQy0lRUQlOTElOUMlRUQlOTglODQlRUMlOEIlOURFeHByZXNzaW9u">(자바스크립트에서 모든 실행문은 결과 값을 가진다고 한다…)<i class="fa fa-external-link-alt"></i></span></li>
+<h2 id="전송-지연"><a href="#전송-지연" class="headerlink" title="전송 지연"></a>전송 지연</h2><ul>
+<li>패킷의 모든 비트를 출력 링크로 내보내는 데 걸리는 시간.</li>
+<li>패킷의 크기가 L 비트이고 출력 링크의 전송률이 R bps 일 때, 전송 지연 시간은 L/R 초가 된다.</li>
+<li>WHY???<ul>
+<li>인터넷은 회선(circuit) 교환 방식 네트워크가 아니라 패킷 교환 방식 네트워크이다.</li>
+<li>패킷 교환 방식 네트워크에서 패킷은 출력 링크의 최대 전송 속도와 같은 속도로 링크에 전송되어 진다.</li>
+<li>출력 링크의 전송률이 R bps라면 해당 링크는 초당 R 비트의 데이터를 전송할 수 있다는 뜻이다.</li>
+<li>그러므로 L 비트 크기의 패킷을 전송률이 R bps인 링크로 전송하는 데 걸리는 시간은 L/R 초이다.</li>
 </ul>
-<h2 id="표현식-expression"><a href="#표현식-expression" class="headerlink" title="표현식(expression)"></a>표현식(expression)</h2><ul>
-<li>값으로 결정(또는 계산)될 수 있는 유효한 코드 조각.</li>
-<li>보통 표현식은 리터럴, 연산자, 변수, 함수 호출 등이 복합적으로 구성되어 있다.</li>
-<li>표현식의 종류는 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9HdWlkZS9FeHByZXNzaW9uc19hbmRfT3BlcmF0b3Jz">여기<i class="fa fa-external-link-alt"></i></span>에서 확인 가능.</li>
-<li>🌟 값을 반환한다 🌟</li>
-<li>(비교 연산자라면 boolean 값, 산술 연산자라면 number 값을 반환함)</li>
-<li>값이 위치할 것이라고 예상되는 곳에 표현식을 대신 넣을 수 있다.</li>
-<li>(예를 들면, 함수의 인자나 대입 연산자의 오른쪽 부분 등)</li>
+</li>
+<li>(라우터의 전송률과 출력 링크의 전송률이 달라도 정상 동작할까…?)</li>
 </ul>
-<h2 id="표현식-문-expression-statement"><a href="#표현식-문-expression-statement" class="headerlink" title="표현식 문(expression statement)"></a>표현식 문(expression statement)</h2><ul>
-<li>실행문이 위치할 것이라고 예상되는 곳에 표현식을 넣는 것.</li>
-<li>표현식이 값을 반환하는 실행문이 됨.</li>
-<li>예를 들면 아래와 같은 화살표 함수의 몸통을 표현식으로 대신할 수 있다.</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> isLower = (a: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span>): <span class="function"><span class="params">boolean</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a &lt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isLower = (a: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span>): <span class="function"><span class="params">boolean</span> =&gt;</span> a &lt; b</span><br></pre></td></tr></table></figure>
-<h2 id="어렵다"><a href="#어렵다" class="headerlink" title="어렵다!!!!!!!!!!!!"></a>어렵다!!!!!!!!!!!!</h2><br>
+<br>
 
-<h1 id="클래스-메서드"><a href="#클래스-메서드" class="headerlink" title="클래스 메서드"></a>클래스 메서드</h1><h2 id="메서드"><a href="#메서드" class="headerlink" title="메서드"></a>메서드</h2><ul>
-<li>함수 객체를 담고 있는 속성.</li>
-<li>메서드 안에서 <code>this</code> 키워드를 통해 해당 메서드를 호출한 인스턴스에 접근할 수 있다.</li>
-<li>다음과 같이 단축해서 메서드를 정의할 수 있다.</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span> &#123;&#125;</span><br><span class="line">	</span><br><span class="line">	printInfo(): <span class="built_in">void</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="built_in">this</span>.name, <span class="built_in">this</span>.age, <span class="built_in">this</span>.sex != <span class="literal">undefined</span> ? <span class="built_in">this</span>.sex : <span class="string">&#x27;NOT BOTH&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> employee = <span class="keyword">new</span> Employee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>);</span><br><span class="line"></span><br><span class="line">employee.printInfo(); <span class="comment">//KIM KIHYUN 27 NOT BOTH</span></span><br></pre></td></tr></table></figure>
-<h2 id="static-메서드"><a href="#static-메서드" class="headerlink" title="static 메서드"></a>static 메서드</h2><ul>
-<li>인스턴트를 생성하지 않고도 사용할 있는 클래스의 메서드.</li>
-<li>만드는 방법이나 접근하는 방법은 static 속성과 같다.</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> cnt: <span class="built_in">number</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> age: <span class="built_in">number</span>, <span class="keyword">public</span> sex?: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">		Employee.cnt += <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> getCnt(): <span class="built_in">number</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> cnt</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee(<span class="string">&#x27;KIM KIHYUN&#x27;</span>, <span class="number">27</span>, <span class="string">&#x27;MALE&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Employee.getCnt()) <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
-<h2 id="메서드-체인"><a href="#메서드-체인" class="headerlink" title="메서드 체인"></a>메서드 체인</h2><ul>
-<li>메서드가 항상 <code>this</code>를 반환하게 만들면 메서드 체인을 구현할 수 있다.</li>
+<h2 id="전파-지연"><a href="#전파-지연" class="headerlink" title="전파 지연"></a>전파 지연</h2><ul>
+<li>한 노드에서 전송한 비트가 링크를 통해서 다른 노드로 전달되는 데 걸리는 시간.</li>
+<li>전파 지연 시간은 링크의 전파 속도와 물리적 길이에 따라서 결정된다.</li>
+<li>전파 속도는 링크의 물리 매체에 따라 다르지만 대략 빛의 속도와 같거나 약간 작다.</li>
+<li>링크의 전파 속도가 S m/s이고 링크의 길이가 D 미터일 때, 전파 지연 시간은 D/S 초가 된다.</li>
+<li>광역 네트워크에서 전파 지연은 일반적으로 수 초에 이른다고 한다.</li>
 </ul>
 ]]></content>
       <categories>
-        <category>Do it! 타입스크립트 프로그래밍</category>
+        <category>컴퓨터과학</category>
+        <category>네트워크</category>
       </categories>
       <tags>
-        <tag>Typescript</tag>
+        <tag>네트워크 지연</tag>
+        <tag>네트워크</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>브랜치 기본 조작 방법 알아보기</title>
+    <url>/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/</url>
+    <content><![CDATA[<h1 id="브랜치"><a href="#브랜치" class="headerlink" title="브랜치"></a>브랜치</h1><ul>
+<li>커밋을 가리키는 포인터.</li>
+<li>브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.</li>
+</ul>
+<h2 id="master-브랜치"><a href="#master-브랜치" class="headerlink" title="master 브랜치"></a>master 브랜치</h2><ul>
+<li>첫 번째 커밋을 만들면 Git이 자동으로 생성하는 브랜치.</li>
+<li>커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.</li>
+</ul>
+<h2 id="HEAD-포인터"><a href="#HEAD-포인터" class="headerlink" title="HEAD 포인터"></a>HEAD 포인터</h2><ul>
+<li>현재 작업중인 브랜치를 가리키는 포인터.</li>
+<li>기본적으로 master 브랜치를 가리키고 있다.</li>
+</ul>
+<br>
+
+<h1 id="브랜치-기본-조작-방법"><a href="#브랜치-기본-조작-방법" class="headerlink" title="브랜치 기본 조작 방법"></a>브랜치 기본 조작 방법</h1><h2 id="브랜치-목록-보기"><a href="#브랜치-목록-보기" class="headerlink" title="브랜치 목록 보기"></a>브랜치 목록 보기</h2><p><code>git branch</code> 명령으로 로컬에 있는 브랜치 목록을 볼 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+<p>로컬뿐만 아니라 리모트 서버에 있는 브랜치 목록까지 보려면 -a 옵션을 사용하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -a</span><br></pre></td></tr></table></figure>
+<p>원격 서버를 등록한 직후에는 <code>git branch -a</code> 명령을 사용해도 리모트 서버에 있는 브랜치 목록이 안보인다.<br> <code>git fetch</code> 명령으로 원격 서버의 정보를 받아온 다음에 <code>git branch -a</code> 명령을 다시 실행시켜보자.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git fetch</span><br><span class="line">$ git branch -a</span><br></pre></td></tr></table></figure>
+<h2 id="브랜치-생성하기"><a href="#브랜치-생성하기" class="headerlink" title="브랜치 생성하기"></a>브랜치 생성하기</h2><p><code>git branch</code> 명령으로 새로운 브랜치를 생성할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch 생성할_브랜치명</span><br></pre></td></tr></table></figure>
+<p>새롭게 생성된 브랜치는 자동으로 현재 HEAD가 가리키고 있는 브랜치의 커밋을 가리킨다.</p>
+<p>특정 커밋을 가리키는 브랜치를 생성하고 싶을 때에는 -f 옵션과 생성할 브랜치 명, 그리고 커밋의 체크섬 값을 넘기면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -f 생성할_브랜치_명  특정_커밋의_체크섬_값</span><br></pre></td></tr></table></figure>
+<h2 id="브랜치-이동하기"><a href="#브랜치-이동하기" class="headerlink" title="브랜치 이동하기"></a>브랜치 이동하기</h2><ul>
+<li><code>git checkout</code> 명령으로 다른 브랜치로 이동할 수 있다.</li>
+<li>브랜치를 이동한다는 것은 HEAD 포인터가 다른 브랜치를 가리키도록 수정한다는 것이다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout 이동할_브랜치명</span><br></pre></td></tr></table></figure>
+<p>새로운 브랜치를 생성함과 동시에 새로운 브랜치로 이동하고 싶다면 <code>git checkout</code> 명령에 -b 옵션을 사용하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout -b 생성할_브랜치명</span><br></pre></td></tr></table></figure>
+<h2 id="브랜치-삭제하기"><a href="#브랜치-삭제하기" class="headerlink" title="브랜치 삭제하기"></a>브랜치 삭제하기</h2><ul>
+<li><code>git branch</code> 명령에 -d 옵션을 주어서 브랜치를 삭제할 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -d b1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>아직 머지하지 않은 커밋을 갖고 있는 브랜치를 강제로 삭제할 때는 -D 옵션을 사용한다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -D b2</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Branch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기</title>
+    <url>/2021/05/11/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-2021-%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8-%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%86%AB-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7-%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC-%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%92%E1%85%AE%E1%84%80%E1%85%B5/</url>
+    <content><![CDATA[<img src="/2021/05/11/프로그래머스-2021-여름방학-스타트업-인턴-프로그램-코딩-테스트-후기/2021-summer_coding__prgm__img-banner.jpg" width=700 height=350 alt="프로그래머스 2021 여름방학 스타트업 인턴 프로그램 배너 사진" title="프로그래머스 2021 여름방학 스타트업 인턴 프로그램 배너 사진" />
+
+<p>이번에 아주 오래전부터 참여하고 싶었던 프로그래머스 스타트업 인턴 프로그램에 지원하게 되었다.<br>프로그래머스 스타트업 인턴 프로그램을 준비하기 위해서 4월부터 정말 바쁘게 보냈다.<br>개발하고 있었던 토이 프로젝트도 부지런히 마무리 지었고, 코딩 테스트 준비를 위해서 프로그래머스 사이트에서 알고리즘 문제도 열심히 풀었다.</p>
+<p>5월 9일, 어버이날에 코딩 테스트 시험을 치렀다.<br>작년과 똑같이 알고리즘 3문제와 SQL 1문제가 출제되었다.<br>간단하게 풀었던 시험 문제를 블로그에 리뷰해보려고 한다.</p>
+<br>
+
+<h2 id="시험-문제-리뷰"><a href="#시험-문제-리뷰" class="headerlink" title="시험 문제 리뷰"></a>시험 문제 리뷰</h2><h3 id="1번-문제-100-100"><a href="#1번-문제-100-100" class="headerlink" title="1번 문제 (100/100)"></a>1번 문제 (100/100)</h3><ul>
+<li>비교적 쉬운 문자열 처리 문제였다.</li>
+<li>하나의 문자열로 주어지는 데이터를 적절히 처리하여 필요한 데이터만 추출한 다음, 그중에서 조건에 맞는 데이터만 선별한 뒤, 문제에 조건에 맞게 데이터를 정렬해서 정답을 만들었다.</li>
+<li>첫 문제라 너무 긴장이 돼서 코드를 간결하게 작성하지 못했는데, 그게 좀 아쉽다.</li>
+</ul>
+<h3 id="2번-문제-100-100"><a href="#2번-문제-100-100" class="headerlink" title="2번 문제 (100/100)"></a>2번 문제 (100/100)</h3><ul>
+<li>그리디 알고리즘 문제였다.</li>
+<li>우선순위 큐를 사용해서 그때 그때마다 우선순위가 가장 높은 값을 뽑아내서 정답을 만들어나갔다.</li>
+<li>문제를 꼼꼼히 읽지 않아서 두 번째 문제를 풀 때 실수를 많이 했다.</li>
+<li>앞으로 문제를 꼼꼼히 읽는 습관을 들여야겠다.</li>
+</ul>
+<h3 id="3번-문제-100-100"><a href="#3번-문제-100-100" class="headerlink" title="3번 문제 (100/100)"></a>3번 문제 (100/100)</h3><ul>
+<li>그래프 탐색 문제였다.</li>
+<li>3번 문제를 풀 수 있는 시간이 채 20분도 남지 않았어서, 진짜 알고리즘 구상과 동시에 바로 코드로 옮겨 적은 거 같다.</li>
+<li>다행히도 내가 구상했던 문제 해결 방법이 예외 케이스 없이 모두 맞아서 100점을 받았다.</li>
+<li>문제 해결 방법은 다음과 같다.</li>
+<li>공격 시작점이 (y, x)라면, 시작점에서 인접한 4개의 칸 (y-1, x-1), (y-1, x), (y, x-1), (y, x)를 시작 지점으로 해서 BFS 알고리즘으로 나머지 인접한 칸을 탐색해나갔다.<ul>
+<li>시작 지점에서부터 어떤 지점까지의 최단 경로 길이가 (r/2)-1 미만인 경우<ul>
+<li>해당 지점은 100%의 데미지를 받는 지점이다.</li>
+<li>체력이 p보다 작은 칸의 개수를 정답으로 세준다.</li>
+</ul>
+</li>
+<li>시작 지점에서부터 어떤 지점까지의 최단 경로 길이가 (r/2)-1인 경우<ul>
+<li>해당 지점은 50%의 데미지를 받는 지점이다.</li>
+<li>체력이 p/2보다 작은 칸의 개수를 정답으로 세준다.</li>
+</ul>
+</li>
+<li>시작 지점에서부터 어떤 지점까지의 최단 경로 길이가 (r/2)-1보다 큰 경우<ul>
+<li>해당 지점은 데미지를 받지 않는 지점이므로 더 이상 탐색을 진행하지 않는다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4번-문제-100-100"><a href="#4번-문제-100-100" class="headerlink" title="4번 문제 (100/100)"></a>4번 문제 (100/100)</h3><ul>
+<li>SQL 문제였다.</li>
+<li>SQL 문제는 가면 갈수록 어렵게 출제되는 거 같다.</li>
+<li>다양한 문제 해결 방법이 있겠지만, 나는 UNION ALL 집합 연산자를 사용해서 문제를 해결했다.</li>
+</ul>
+<br>
+
+<h2 id="시험-결과"><a href="#시험-결과" class="headerlink" title="시험 결과"></a>시험 결과</h2><img src="/2021/05/11/프로그래머스-2021-여름방학-스타트업-인턴-프로그램-코딩-테스트-후기/pass_email.png" width=650 height=450 alt="합격 이메일" title="합격 이메일" />
+
+<p>코딩 테스트는 턱걸이로 합격할 수 있지 않을까 싶었는데… 만점을 받게 되었다.<br>지금까지 노력했던 게 헛되지 않은 거 같아 기쁘다.<br>코딩 테스트에서 만점 받은 거에 만족하지 않고, 스타트업에서 인턴할 수 있는 기회까지 얻을 수 있도록 면접 준비도 열심히 해야겠다.<br>마지막까지 화이팅!</p>
+]]></content>
+      <categories>
+        <category>시험 후기</category>
+      </categories>
+      <tags>
+        <tag>프로그래머스</tag>
+        <tag>코딩 테스트</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[프로그래머스] NULL 처리하기</title>
+    <url>/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/</url>
+    <content><![CDATA[<h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>동물의 생물 종(ANIMAL_TYPE), 이름(NAME), 성별 및 중성화 여부(SEX_UPON_INTAKE)를 아이디(ANIMAL_ID) 순으로 조회하는 SQL문을 작성해야 하는 문제이다.<br>이때 이름이 없는 동물의 이름은 “No name”으로 표시해야 한다.<br>(이름이 없는 동물이란 이름 칼럼의 값이 NULL인 레코드를 의미한다)   </p>
+<p>특정 칼럼의 값이 NULL일 때 다른 값으로 치환해서 출력하는 방법은 여러 가지가 있다.   </p>
+<br>
+
+<h2 id="1-IFNULL-함수를-이용한-방법"><a href="#1-IFNULL-함수를-이용한-방법" class="headerlink" title="1. IFNULL 함수를 이용한 방법"></a>1. IFNULL 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">IFNULL(expression, alt_value)   </span><br></pre></td></tr></table></figure>
+<p>IFNULL 함수는 첫 번째 매개 변수의 값이 NULL이면 두 번째 매개 변수의 값을 반환한다.<br>첫 번째 매개 변수의 값이 NULL이 아니면 첫 번째 매개 변수의 값을 반환한다.   </p>
+<h3 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, IFNULL(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="2-COALESCE-함수를-이용한-방법"><a href="#2-COALESCE-함수를-이용한-방법" class="headerlink" title="2. COALESCE 함수를 이용한 방법"></a>2. COALESCE 함수를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">COALESCE</span>(val_1, val_2, ..., val_n)</span><br></pre></td></tr></table></figure>
+<p>COALESCE 함수는 임의의 개수의 매개 변수에서 NULL이 아닌 최초의 매개 변수의 값을 반환한다.   </p>
+<p>예를 들어 아래와 같은 SQL문을 실행시키면,</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="keyword">NULL</span>, &quot;HELLO&quot;, <span class="keyword">NULL</span>, &quot;WORLD&quot;);</span><br></pre></td></tr></table></figure>
+<p>NULL이 아닌 최초의 매개 변수의 값 “HELLO”가 출력된다.   </p>
+<p>반면에 모든 매개 변수의 값이 NULL이면 NULL을 반환한다.   </p>
+<h3 id="정답-코드-1"><a href="#정답-코드-1" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE, <span class="built_in">COALESCE</span>(NAME, &quot;No name&quot;) <span class="keyword">AS</span> NAME, SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="3-CASE를-이용한-방법"><a href="#3-CASE를-이용한-방법" class="headerlink" title="3. CASE를 이용한 방법"></a>3. CASE를 이용한 방법</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span></span><br><span class="line">  <span class="keyword">WHEN</span> condition1 <span class="keyword">THEN</span> result1</span><br><span class="line">  <span class="keyword">WHEN</span> condition2 <span class="keyword">THEN</span> result2</span><br><span class="line">  <span class="keyword">ELSE</span> <span class="keyword">result</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+<p>CASE 문은 프로그래밍 언어의 다중 if-else 문과 비슷하다.<br>위에서부터 차례대로 조건식이 참인지 거짓인지 판별한다.<br>조건식이 거짓인 경우 그 다음 조건식이 참인지 거짓인지 판별한다.<br>조건식이 참인 경우 더이상 조건식을 판별하지 않고 THEN에 명시된 값을 반환하고 종료한다.<br>참인 조건식이 하나도 없으면 ELSE에 명시된 값을 반환하고 종료한다.   </p>
+<p>한 가지 주의해야 할 점은, ELSE를 명시하지 않았을 경우 참인 조건식이 하나도 없으면 NULL을 반환한다는 것이다.<br>그러므로 CASE문을 사용할 때는 반드시 ELSE를 명시해주는 것이 좋다.   </p>
+<h3 id="정답-코드-2"><a href="#정답-코드-2" class="headerlink" title="정답 코드"></a>정답 코드</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ANIMAL_TYPE,</span><br><span class="line">  <span class="keyword">CASE</span></span><br><span class="line">    <span class="keyword">WHEN</span> NAME <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">THEN</span> NAME</span><br><span class="line">    <span class="keyword">ELSE</span> &quot;No name&quot;</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">AS</span> NAME</span><br><span class="line">  , SEX_UPON_INTAKE</span><br><span class="line"><span class="keyword">FROM</span> ANIMAL_INS</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ANIMAL_ID;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>SQL 문제 풀이</category>
+      </categories>
+      <tags>
+        <tag>프로그래머스</tag>
+        <tag>SQL 문제</tag>
+        <tag>MYSQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[프로그래머스] 동굴 탐험</title>
+    <url>/2021/04/24/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%AE%E1%86%AF-%E1%84%90%E1%85%A1%E1%86%B7%E1%84%92%E1%85%A5%E1%86%B7/</url>
+    <content><![CDATA[<h2 id="문제를-읽고-나서-알아차려야-했던-것들-3가지"><a href="#문제를-읽고-나서-알아차려야-했던-것들-3가지" class="headerlink" title="문제를 읽고 나서 알아차려야 했던 것들 3가지"></a>문제를 읽고 나서 알아차려야 했던 것들 3가지</h2><p>문제 해결을 위해서 문제를 읽고 나서 알아차려야 했던 것들이 있다.   </p>
+<h3 id="1-동굴은-트리-모양으로-되어있다"><a href="#1-동굴은-트리-모양으로-되어있다" class="headerlink" title="1. 동굴은 트리 모양으로 되어있다."></a>1. 동굴은 트리 모양으로 되어있다.</h3><p>문제에는 동굴이 트리 모양이라고 직접적으로 명시되어있지 않다.<br>하지만 문제를 읽어보면 다음과 같은 조건을 찾을 수 있다.   </p>
+<ul>
+<li>방의 개수가 n개일 때 방과 방 사이를 연결하는 통로의 개수는 n-1개이다(문제의 제한사항에 나와 있다).</li>
+<li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있으며, 두 방 사이에 이동이 불가능한 경우는 없다.</li>
+</ul>
+<p>방의 개수가 n개이고 방과 방 사이를 연결하는 통로의 개수가 n-1개이므로 동굴이 트리 모양이라고 확신할 수 있을까…?<br>정답은 <u><strong>확신할 수 없다</strong></u>이다.<br>트리의 정의가 정점의 개수가 n개이고 간선의 개수가 n-1개인, 사이클이 존재하지 않는 그래프인 건 맞다.<br>하지만 정점의 개수가 n개이고 간선의 개수가 n-1개인 그래프가 항상 트리인 것은 아니다.<br>왜냐하면 아래와 같은 반례가 존재하기 때문이다.   </p>
+<img src="/2021/04/24/프로그래머스-동굴-탐험/counterexample.png" width=300 height=250 alt="반례 예시" title="반례 예시" />   
+
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZGdlYW85OS50aXN0b3J5LmNvbS80MDE=">그림 출처 : LAB OF DAEGON<i class="fa fa-external-link-alt"></i></span></p>
+<p>위의 그림은 분명 정점의 개수가 n개이고 간선의 개수가 n-1개이지만 트리가 아니다.<br>정점의 개수가 n개이고 간선의 개수가 n-1개이면서 모든 정점이 연결되어 있다는 조건이 있을 때 해당 그래프를 트리라고 말할 수 있다.<br>임의의 서로 다른 두 방 사이에 이동이 불가능한 경우가 없다는 말은 모든 방이 연결되어 있다는 말과 같다.<br>그러므로 동굴은 트리 모양으로 되어있다.   </p>
+<h3 id="2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다"><a href="#2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다" class="headerlink" title="2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다."></a>2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.</h3><p>문제 설명에 다음과 같은 조건이 있긴 하다.   </p>
+<ul>
+<li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있다.</li>
+</ul>
+<p>근데 경로가 아니라 최단 경로라고 나와 있어서 뭔가 애매하다.<br>최단 경로가 아니라 경로가 딱 한 가지만 있다는 것을 정확히 확인하고 넘어가자.<br>앞에서 동굴이 트리 모양으로 되어있다는 것을 밝혔다.<br>트리는 사이클이 존재하지 않는 그래프이기 때문에 임의의 두 노드 사이를 연결하는 경로는 유일하다(여기서 경로란 반복되는 정점과 간선이 없는 길을 말한다).<br>그러므로 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.   </p>
+<h3 id="3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다"><a href="#3-어떤-방을-방문하기-전에-반드시-동굴의-입구에서부터-해당-방까지의-경로-안에-포함된-방들을-먼저-방문해야-한다" class="headerlink" title="3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다."></a>3. 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.</h3><p>동굴의 입구에서부터 어떤 방까지의 경로 안에 포함된 방들을 먼저 방문하지 않고서는 해당 방을 방문할 수 없다.<br>왜 그런 걸까?<br>결론부터 말하자면, <u><strong>동굴에는 사이클이 발생할 수 없기 때문이다</strong></u>.<br>아래의 그림과 같은 동굴이 존재한다고 가정해보자.   </p>
+<img src="/2021/04/24/프로그래머스-동굴-탐험/cave.png" width=350 height=350 alt="동굴 사진" title="동굴 사진" />
+
+<p>5번 방을 방문하기 위해서는 반드시 0번 방과 7번 방을 먼저 방문해야 한다.<br>왜냐하면 0번 방과 7번 방은 동굴에서부터 5번 방까지의 경로 안에 포함된 방들이기 때문이다.<br>하지만 이와 모순되게, 0번 방과 7번 방을 먼저 방문하지 않고도 5번 방을 방문할 수 있는 방법이 존재한다고 가정해보자.<br>예를 들어 아래의 그림처럼 8번 방에서부터 8번 방과 연결된 다른 방들을 통해서 5번 방으로 갈 수 있는 경로가 존재한다고 가정해보자.   </p>
+<img src="/2021/04/24/프로그래머스-동굴-탐험/cave2.jpg" width=350 height=350 alt="사이클이 발생한 동굴 사진" title="사이클이 발생한 동굴 사진" />
+
+<p>그러면 동굴에는 다음과 같이 0번 방에서 시작해서 0번 방으로 끝나는 사이클이 발생한다.   </p>
+<p><code>0번</code> → 1번 → 8번 → x번 → … → y번 → 5번 → 7번 → <code>0번</code></p>
+<p>동굴은 트리 모양으로 되어 있기 때문에 동굴에는 사이클이 발생할 수 없다.<br>그러므로 0번 방과 7번 방을 먼저 방문하지 않고도 5번 방을 방문할 수 있는 방법은 존재할 수 없다.<br>그러므로 어떤 방을 방문하기 전에 반드시 동굴의 입구에서부터 해당 방까지의 경로 안에 포함된 방들을 먼저 방문해야 한다.    </p>
+<br>
+
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><p>이 문제의 해결 방법은 카카오 기술 블로그에 자세히 나와 있다.   </p>
+<p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoLmtha2FvLmNvbS8yMDIwLzA3LzAxLzIwMjAtaW50ZXJuc2hpcC10ZXN0Lw==">2020 카카오 인턴쉽 for Tech developers 문제 해설<i class="fa fa-external-link-alt"></i></span></p>
+<p>문제 해설에는 안 나와 있지만, 그래프의 사이클 존재 여부를 확인하기 전에 먼저 처리해주면 좋은 예외 케이스가 있다.<br>그건 바로 0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 하는 케이스이다.<br>동굴에 들어갈 수 있는 유일한 입구가 0번 방과 연결되어 있기 때문에 다른 모든 방을 방문하기 위해서는 반드시 0번 방을 먼저 방문해야 한다.<br>0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 된다면 당연히 문제의 규칙에 맞게 모든 방을 탐험할 수 없을 것이다.<br>그러므로 이 경우에는 그래프의 사이클이 존재하는지 확인할 필요 없이 false를 리턴해주면 된다.      </p>
+<br>
+
+<h2 id="정답-코드"><a href="#정답-코드" class="headerlink" title="정답 코드"></a>정답 코드</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> answer = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;before, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;discover, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; &amp;finish, <span class="keyword">int</span> here)</span></span>&#123;</span><br><span class="line">    discover[here] = counter++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> there: before[here])&#123;</span><br><span class="line">        <span class="keyword">if</span> (discover[there] == <span class="number">-1</span>)&#123;</span><br><span class="line">            dfs(before, discover, finish, there);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (discover[there] &gt; discover[here])&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (discover[there] &lt; discover[here])&#123;</span><br><span class="line">            <span class="keyword">if</span> (!finish[there])&#123;</span><br><span class="line">                answer = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    finish[here] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; path, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; order)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; cave(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = path[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> b = path[i][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        cave[a].push_back(b);</span><br><span class="line">        cave[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; before(n);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">visited</span><span class="params">(n, <span class="literal">false</span>)</span></span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    visited[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    q.push(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> here = q.front(); q.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> there: cave[here])&#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[there]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            before[there].push_back(here);</span><br><span class="line"></span><br><span class="line">            visited[there] = <span class="literal">true</span>;</span><br><span class="line">            q.push(there);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; order.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = order[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> b = order[i][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        before[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (before[<span class="number">0</span>].size() != <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">discover</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">finish</span><span class="params">(n, <span class="literal">false</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!answer) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (finish[i]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        dfs(before, discover, finish, i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="정답-코드-해설"><a href="#정답-코드-해설" class="headerlink" title="정답 코드 해설"></a>정답 코드 해설</h2><p>34~42 - path 배열에 들어 있는 통로의 위치 정보를 통해서 동굴 그래프를 초기화해준다. 그래프의 간선 개수가 정점 개수의 제곱보다 훨씬 작기 때문에 동굴 그래프는 연결 리스트 표현 방식으로 표현했다.<br>44~62 - BFS로 그래프 탐색을 진행하며 어떤 방을 방문하기 전에 반드시 먼저 방문해야 하는 방을 표시한 before 그래프를 초기화해준다.<br>64~69 - order 배열에 들어 있는 반드시 지켜야 하는 방문 순서들을 before 그래프에 추가한다.<br>71 - 0번 방을 방문하기 전에 반드시 어떤 방을 먼저 방문해야 하는 경우를 예외 케이스로 처리해준다.<br>73~81 - DFS로 before 그래프에 사이클이 존재하는지 확인한다.<br>84 - before 그래프에 사이클이 존재하는지 여부를 문제의 정답으로 반환한다.   </p>
+]]></content>
+      <categories>
+        <category>알고리즘 문제 풀이</category>
+      </categories>
+      <tags>
+        <tag>프로그래머스</tag>
+        <tag>알고리즘 문제</tag>
+        <tag>BFS</tag>
+        <tag>DFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[코어 자바스크립트] 3장 this 👉</title>
+    <url>/2021/09/23/%EC%BD%94%EC%96%B4-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-3%EC%9E%A5-this/</url>
+    <content><![CDATA[<blockquote>
+<p>아래의 내용은 정재남님의 <span class="exturl" data-url="aHR0cHM6Ly93aWtpYm9vay5jby5rci9jb3JlanMv">&lt;코어 자바스크립트&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+</blockquote>
+<br>
+
+<img src="/2021/09/23/코어-자바스크립트-3장-this/cover.jpg" width=325 height=450 alt="코어 자바스크립트 책 표지" title="코어 자바스크립트 책 표지">
+
+<br>
+
+<h2 id="자바스크립트-this"><a href="#자바스크립트-this" class="headerlink" title="자바스크립트 this"></a>자바스크립트 this</h2><p>this는 자바스크립트에서 가장 헷갈리는 개념이다.<br>대부분의 객체지향 언어에서 this는 클래스에서만 쓰이며, 클래스로 생성한 인스턴스를 의미한다.<br>반면에 자바스크립트에서 this는 다양한 곳에서 쓰일 수 있으며, 상황에 따라서 그 의미가 제각각으로 달라진다.<br>this를 제대로 사용하기 위해서는 상황에 따라서 this의 의미가 어떻게 바뀌는지 잘 알고 있어야 한다.<br>상황에 따라서 바뀌는 this의 의미를 한번 정리해보자.</p>
+<br>
+
+<h2 id="전역-공간에서의-this"><a href="#전역-공간에서의-this" class="headerlink" title="전역 공간에서의 this"></a>전역 공간에서의 this</h2><blockquote>
+<p>💡 전역 공간에서 this는 전역 객체를 가리킨다.</p>
+</blockquote>
+<p>전역 객체는 자바스크립트 실행 전에 생성되는 특수한 객체인데, 전역 변수나 전역 함수를 담는 공간 역할을 한다.<br>전역 객체는 자바스크립트 런타임 환경에 따라서 이름이 다르다.<br>브라우저에서는 <code>window</code> 이고, Node.js에서는 <code>global</code> 이다.<br>(전역 객체에 대한 설명은 2장 실행 컨텍스트를 읽고나서 보충하겠다)</p>
+<p>내가 봤을 때 전역 공간에서 this를 사용해야 할 특별한 이유는 없는거 같다.<br>전역 공간에서 this를 사용하면 오히려 코드를 읽는 사람에게 혼란만 줄거 같다…</p>
+<br>
+
+<h2 id="함수-호출-방식에-따라-달라지는-this"><a href="#함수-호출-방식에-따라-달라지는-this" class="headerlink" title="함수 호출 방식에 따라 달라지는 this"></a>함수 호출 방식에 따라 달라지는 this</h2><p>앞에서 this의 의미가 상황에 따라서 달라진다고 말했다.<br>좀 더 정확히 말하지만, this의 의미는 함수가 어떤 방식으로 호출되는지에 따라서 달라진다.<br>자바스크립트에서 this는 기본적으로 실행 컨텍스트가 생성될 때 결정되는데, 실행 컨텍스트는 함수를 호출할 때 생성된다.<br>그러므로 this는 함수가 호출될 때 결정된다고 할 수 있다.</p>
+<p>함수를 일반 함수로서 호출할 때와 메서드로서 호출할 때 this의 의미는 다음과 같다.</p>
+<blockquote>
+<p>💡 일반 함수로서 호출할 때 함수 내부에서의 this는 전역 공간에서의 this와 마찬가지로 전역 객체를 가리킨다.</p>
+</blockquote>
+<blockquote>
+<p>💡 메서드로서 호출할 때 함수 내부에서의 this는 해당 메서드를 호출한 객체를 가리킨다.</p>
+</blockquote>
+<br>
+
+<p>함수 호출 방식에 따라 this가 가리키는 대상을 구분하는 것이 쉬울거 같지만, 가끔씩 헷갈릴 때가 있다.<br>아래의 두 예제 코드의 실행 결과는 각각 무엇일까?</p>
+<h3 id="예제-1"><a href="#예제-1" class="headerlink" title="예제 1"></a>예제 1</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	func1: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func2 = obj.func1;</span><br><span class="line"></span><br><span class="line">func2(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
+<h3 id="예제-2"><a href="#예제-2" class="headerlink" title="예제 2"></a>예제 2</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 예제 2</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	outer: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		inner();</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.outer(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>정답은 둘 다 1이다!</p>
+<p>예제 1에서 <code>func2</code>는 일반 함수로서 호출되었기 때문에 <code>func2</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 this.a를 콘솔에 표시한 결과는 1이다.<br>예제 2에서 <code>outer</code> 함수는 메서드로서 호출되었기 때문에 <code>outer</code> 내부의 this는 <code>obj</code> 객체를 가리킨다.<br><code>inner</code> 함수는 <code>outer</code> 함수 내부에서 선언되고 호출되었기 때문에 <code>inner</code> 부의 this도 <code>obj</code> 객체를 가리킬 거 같지만… 아니다!<br><code>inner</code> 함수는 일반 함수로 호출되었고 <code>inner</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 <code>inner</code>함수 내부에서 this.a를 콘솔에 표시한 결과는 1이다.</p>
+<br>
+
+<p>함수가 일반 함수로서 호출되었는지 아니면 메서드로서 호출되었는지 쉽게 구분할 수 있는 방법이 있다.<br>함수 앞에 점(<code>.</code>)이 있는지 여부만 체크하면 된다!<br>함수 앞에 점이 없으면 일반 함수로서 호출된 것이고, 함수 앞에 점이 있으면 메서드로서 호출된 것이다.</p>
+<p>예제 2에서 <code>inner</code> 함수 앞에는 점이 없다.<br>그러므로 <code>inner</code> 함수는 일반 함수로서 호출된 것이라고 판단하면 된다.<br>반면에 <code>outer</code> 함수 앞에는 점이 있다.<br>그러므로 <code>outer</code> 함수는 메서드로서 호출된 것이다.<br><code>outer</code> 함수 내부의 this는 가장 마지막 점 앞에 명시된 객체, <code>obj</code>가 된다.</p>
+<br>
+
+<h2 id="콜백-함수-내부의-this"><a href="#콜백-함수-내부의-this" class="headerlink" title="콜백 함수 내부의 this"></a>콜백 함수 내부의 this</h2><p>콜백 함수 내부의 this가 가리키는 대상은 고정되어 있지 않다.</p>
+<blockquote>
+<p>💡 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수의 내부 로직에 따라서 결정된다.</p>
+</blockquote>
+<p>콜백 함수도 함수이기 때문에 기본적으로 콜백 함수 내부의 this는 전역 객체를 가리킨다.<br>하지만 콜백 함수를 인자로 받은 함수 내부에서 콜백 함수에 별도로 this를 바인딩하는 경우가 있다.<br>예를 들면, <code>addEventListener</code> 메서드는 콜백 함수의 this에 이벤트가 발생한 요소를 바인딩시킨다.</p>
+<br>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;click&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> printThis = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="built_in">this</span>);</span></span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="comment">// id가 &#x27;btn&#x27; 인 HTML Element의 클릭 이벤트가 발생하면 printThis를 호출시킨다.</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.getElementById(<span class="string">&#x27;btn&#x27;</span>).addEventListener(<span class="string">&#x27;click&#x27;</span>, printThis);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/09/23/코어-자바스크립트-3장-this/example1.png">
+
+<p><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AdXJzcjA3MDYvJUVDJTlEJUI0JUVCJUIyJUE0JUVEJThBJUI4LSVFRCU5NSVCOCVFQiU5MyVBNCVFQiU5RiVBQy0lRUIlODIlQjQlRUIlQjYlODAlRUMlOUQlOTgtdGhpcy0yZ3l1anFtMg==">코드와 그림 출처: ursr.log<i class="fa fa-external-link-alt"></i></span></p>
+<br>
+
+<p>콜백 함수 내부의 this를 출력해본 결과, 클릭 이벤트가 발생한 HTML Element가 출력되었다.</p>
+<p>그러므로 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수마다 다 다르다고 할 수 있다.<br>하지만 <code>addEventListener</code>메서드처럼 API 문서에 특별히 명시되어 있지 않은 경우, 콜백 함수 내부의 this는 전역 객체라고 생각해도 될 것이다.</p>
+<br>
+
+<h3 id="참고-자료"><a href="#참고-자료" class="headerlink" title="참고 자료"></a>참고 자료</h3><p><span class="exturl" data-url="aHR0cDovL3RjcHNjaG9vbC5jb20vamF2YXNjcmlwdC9qc19zdGFuZGFyZF9vYmplY3Q=">http://tcpschool.com/javascript/js_standard_object<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AdXJzcjA3MDYvJUVDJTlEJUI0JUVCJUIyJUE0JUVEJThBJUI4LSVFRCU5NSVCOCVFQiU5MyVBNCVFQiU5RiVBQy0lRUIlODIlQjQlRUIlQjYlODAlRUMlOUQlOTgtdGhpcy0yZ3l1anFtMg==">https://velog.io/@ursr0706/이벤트-핸들러-내부의-this-2gyujqm2<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcva28vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXIjJUVEJTk1JUI4JUVCJTkzJUE0JUVCJTlGJUFDXyVFQiU4MiVCNCVFQiVCNiU4MCVFQyU5RCU5OF90aGlzXyVFQSVCMCU5Mg==">https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener#핸들러_내부의_this_값<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>코어 자바스크립트</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+        <tag>this</tag>
       </tags>
   </entry>
 </search>

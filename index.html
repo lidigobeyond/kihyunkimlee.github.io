@@ -206,20 +206,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">카테고리</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -264,7 +264,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/09/23/%EC%BD%94%EC%96%B4-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-3%EC%9E%A5-this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -277,7 +277,123 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/" class="post-title-link" itemprop="url">[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드</a>
+          <a href="/2021/09/23/%EC%BD%94%EC%96%B4-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-3%EC%9E%A5-this/" class="post-title-link" itemprop="url">[코어 자바스크립트] 3장 this 👉</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2021-09-23 23:00:09" itemprop="dateCreated datePublished" datetime="2021-09-23T23:00:09+09:00">2021-09-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-09-24 17:33:46" itemprop="dateModified" datetime="2021-09-24T17:33:46+09:00">2021-09-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%BD%94%EC%96%B4-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" itemprop="url" rel="index"><span itemprop="name">코어 자바스크립트</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/09/23/%EC%BD%94%EC%96%B4-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-3%EC%9E%A5-this/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/23/코어-자바스크립트-3장-this/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>아래의 내용은 정재남님의 <span class="exturl" data-url="aHR0cHM6Ly93aWtpYm9vay5jby5rci9jb3JlanMv">&lt;코어 자바스크립트&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+</blockquote>
+<br>
+
+<img src="/2021/09/23/코어-자바스크립트-3장-this/cover.jpg" width="325" height="450" alt="코어 자바스크립트 책 표지" title="코어 자바스크립트 책 표지">
+
+<br>
+
+<h2 id="자바스크립트-this"><a href="#자바스크립트-this" class="headerlink" title="자바스크립트 this"></a>자바스크립트 this</h2><p>this는 자바스크립트에서 가장 헷갈리는 개념이다.<br>대부분의 객체지향 언어에서 this는 클래스에서만 쓰이며, 클래스로 생성한 인스턴스를 의미한다.<br>반면에 자바스크립트에서 this는 다양한 곳에서 쓰일 수 있으며, 상황에 따라서 그 의미가 제각각으로 달라진다.<br>this를 제대로 사용하기 위해서는 상황에 따라서 this의 의미가 어떻게 바뀌는지 잘 알고 있어야 한다.<br>상황에 따라서 바뀌는 this의 의미를 한번 정리해보자.</p>
+<br>
+
+<h2 id="전역-공간에서의-this"><a href="#전역-공간에서의-this" class="headerlink" title="전역 공간에서의 this"></a>전역 공간에서의 this</h2><blockquote>
+<p>💡 전역 공간에서 this는 전역 객체를 가리킨다.</p>
+</blockquote>
+<p>전역 객체는 자바스크립트 실행 전에 생성되는 특수한 객체인데, 전역 변수나 전역 함수를 담는 공간 역할을 한다.<br>전역 객체는 자바스크립트 런타임 환경에 따라서 이름이 다르다.<br>브라우저에서는 <code>window</code> 이고, Node.js에서는 <code>global</code> 이다.<br>(전역 객체에 대한 설명은 2장 실행 컨텍스트를 읽고나서 보충하겠다)</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/23/%EC%BD%94%EC%96%B4-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-3%EC%9E%A5-this/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KiHyun Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="김기현 블로그">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/" class="post-title-link" itemprop="url">[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드</a>
         </h2>
 
         <div class="post-meta-container">
@@ -289,7 +405,7 @@
       <span class="post-meta-item-text">작성일</span>
       
 
-      <time title="Post created: 2021-06-17 02:51:21 / Updated at: 03:29:45" itemprop="dateCreated datePublished" datetime="2021-06-17T02:51:21+09:00">2021-06-17</time>
+      <time title="Post created: 2021-06-17 02:51:21 / Updated at: 03:29:44" itemprop="dateCreated datePublished" datetime="2021-06-17T02:51:21+09:00">2021-06-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,8 +426,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/17/Do-it-타입스크립트-프로그래밍-4-함수와-메서드/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/17/Do-it-타입스크립트-프로그래밍-4-함수와-메서드/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -338,7 +454,7 @@
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/#more" rel="contents">
+              <a class="btn" href="/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -369,7 +485,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -382,7 +498,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/" class="post-title-link" itemprop="url">[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입</a>
+          <a href="/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/" class="post-title-link" itemprop="url">[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입</a>
         </h2>
 
         <div class="post-meta-container">
@@ -400,7 +516,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-17 03:05:17" itemprop="dateModified" datetime="2021-06-17T03:05:17+09:00">2021-06-17</time>
+        <time title="Updated at: 2021-09-23 23:24:14" itemprop="dateModified" datetime="2021-09-23T23:24:14+09:00">2021-09-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -421,8 +537,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/15/Do-it-타입스크립트-프로그래밍-3-객체와-타입/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/15/Do-it-타입스크립트-프로그래밍-3-객체와-타입/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -439,6 +555,8 @@
           <blockquote>
 <p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
+<br>
+
 <h1 id="var와-let-amp-const의-차이"><a href="#var와-let-amp-const의-차이" class="headerlink" title="var와 let&amp;const의 차이"></a>var와 let&amp;const의 차이</h1><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ul>
 <li>함수 스코프 사용.</li>
 <li>var 변수를 재정의해도 오류가 발생하지 않음.</li>
@@ -451,13 +569,10 @@
 </ul>
 <br>
 
-<h1 id="타입주석과-타입-추론"><a href="#타입주석과-타입-추론" class="headerlink" title="타입주석과 타입 추론"></a>타입주석과 타입 추론</h1><h2 id="타입-주석"><a href="#타입-주석" class="headerlink" title="타입 주석"></a>타입 주석</h2><ul>
-<li>변수의 타입을 명시하는 것.</li>
-<li>변수의 타입이 정해지면, 변수는 정해진 타입에 해당하는 값만 가질 수 있다.</li>
-</ul>
+<h1 id="타입주석과-타입-추론"><a href="#타입주석과-타입-추론" class="headerlink" title="타입주석과 타입 추론"></a>타입주석과 타입 추론</h1><h2 id="타입-주석"><a href="#타입-주석" class="headerlink" title="타입 주석"></a>타입 주석</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#more" rel="contents">
+              <a class="btn" href="/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -488,7 +603,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -501,7 +616,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/" class="post-title-link" itemprop="url">브랜치 기본 조작 방법 알아보기</a>
+          <a href="/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/" class="post-title-link" itemprop="url">브랜치 기본 조작 방법 알아보기</a>
         </h2>
 
         <div class="post-meta-container">
@@ -519,7 +634,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-15 09:10:46" itemprop="dateModified" datetime="2021-06-15T09:10:46+09:00">2021-06-15</time>
+        <time title="Updated at: 2021-09-24 17:33:55" itemprop="dateModified" datetime="2021-09-24T17:33:55+09:00">2021-09-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -540,8 +655,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/14/브랜치-기본-조작-방법-알아보기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/14/브랜치-기본-조작-방법-알아보기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -556,11 +671,11 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="브랜치"><a href="#브랜치" class="headerlink" title="브랜치"></a>브랜치</h1><ul>
-<li>커밋 사이를 가볍게 이동할 수 있는 어떤 포인터 같은 것(?)</li>
+<li>커밋을 가리키는 포인터.</li>
 <li>브랜치를 사용하면 여러가지 작업을 서로 영향을 주지 않으면서 동시에 수행할 수 있다.</li>
 </ul>
 <h2 id="master-브랜치"><a href="#master-브랜치" class="headerlink" title="master 브랜치"></a>master 브랜치</h2><ul>
-<li>첫 커밋을 만들면 Git이 자동으로 만드는 브랜치.</li>
+<li>첫 번째 커밋을 만들면 Git이 자동으로 생성하는 브랜치.</li>
 <li>커밋을 만들 때마다 자동으로 가장 마지막 커밋을 가리킨다.</li>
 </ul>
 <h2 id="HEAD-포인터"><a href="#HEAD-포인터" class="headerlink" title="HEAD 포인터"></a>HEAD 포인터</h2><ul>
@@ -569,12 +684,10 @@
 </ul>
 <br>
 
-<h1 id="브랜치-기본-조작-방법"><a href="#브랜치-기본-조작-방법" class="headerlink" title="브랜치 기본 조작 방법"></a>브랜치 기본 조작 방법</h1><h2 id="브랜치-생성하기"><a href="#브랜치-생성하기" class="headerlink" title="브랜치 생성하기"></a>브랜치 생성하기</h2><ul>
-<li><code>git branch</code> 명령으로 새로운 브랜치를 생성할 수 있다.</li>
-</ul>
+<h1 id="브랜치-기본-조작-방법"><a href="#브랜치-기본-조작-방법" class="headerlink" title="브랜치 기본 조작 방법"></a>브랜치 기본 조작 방법</h1><h2 id="브랜치-목록-보기"><a href="#브랜치-목록-보기" class="headerlink" title="브랜치 목록 보기"></a>브랜치 목록 보기</h2><p><code>git branch</code> 명령으로 로컬에 있는 브랜치 목록을 볼 수 있다.</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#more" rel="contents">
+              <a class="btn" href="/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -712,7 +825,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/07/gitignore_%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -725,7 +838,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/" class="post-title-link" itemprop="url">.gitignore 파일 작성법 알아보기</a>
+          <a href="/2021/06/07/gitignore_%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/" class="post-title-link" itemprop="url">.gitignore 파일 작성법 알아보기</a>
         </h2>
 
         <div class="post-meta-container">
@@ -743,7 +856,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-10 12:25:55" itemprop="dateModified" datetime="2021-06-10T12:25:55+09:00">2021-06-10</time>
+        <time title="Updated at: 2021-06-10 12:25:54" itemprop="dateModified" datetime="2021-06-10T12:25:54+09:00">2021-06-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -764,8 +877,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/07/gitignore_파일_작성법_알아보기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/07/gitignore_%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/07/gitignore_파일_작성법_알아보기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -789,7 +902,7 @@
 <p><code>glob 패턴</code>은 정규 표현식과 비슷하지만 훨씬 간단하고 사용하기 쉽다.<br><code>glob 패턴</code>에 대해서는 아래의 블로그에 자세히 설명되어 있다.</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/06/07/gitignore_%ED%8C%8C%EC%9D%BC_%EC%9E%91%EC%84%B1%EB%B2%95_%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#more" rel="contents">
+              <a class="btn" href="/2021/06/07/gitignore_%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -820,7 +933,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/02/%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5-%E1%84%87%E1%85%A1%E1%86%AF%E1%84%89%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -833,7 +946,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0/" class="post-title-link" itemprop="url">네트워크에서 발생하는 지연</a>
+          <a href="/2021/06/02/%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5-%E1%84%87%E1%85%A1%E1%86%AF%E1%84%89%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB/" class="post-title-link" itemprop="url">네트워크에서 발생하는 지연</a>
         </h2>
 
         <div class="post-meta-container">
@@ -851,7 +964,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-04 15:18:41" itemprop="dateModified" datetime="2021-06-04T15:18:41+09:00">2021-06-04</time>
+        <time title="Updated at: 2021-06-04 15:18:40" itemprop="dateModified" datetime="2021-06-04T15:18:40+09:00">2021-06-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -876,8 +989,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/02/네트워크에서-발생하는-지연/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/02/%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5-%E1%84%87%E1%85%A1%E1%86%AF%E1%84%89%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/02/네트워크에서-발생하는-지연/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -931,7 +1044,7 @@
 <h2 id="전송-지연"><a href="#전송-지연" class="headerlink" title="전송 지연"></a>전송 지연</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/06/02/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%B0/#more" rel="contents">
+              <a class="btn" href="/2021/06/02/%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5-%E1%84%87%E1%85%A1%E1%86%AF%E1%84%89%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -962,7 +1075,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/01/Git-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -975,7 +1088,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/" class="post-title-link" itemprop="url">Git 기본 사용법 알아보기</a>
+          <a href="/2021/06/01/Git-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/" class="post-title-link" itemprop="url">Git 기본 사용법 알아보기</a>
         </h2>
 
         <div class="post-meta-container">
@@ -993,7 +1106,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-07 11:53:44" itemprop="dateModified" datetime="2021-06-07T11:53:44+09:00">2021-06-07</time>
+        <time title="Updated at: 2021-06-07 23:02:26" itemprop="dateModified" datetime="2021-06-07T23:02:26+09:00">2021-06-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1014,8 +1127,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/01/Git-기본-사용법-알아보기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/01/Git-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/01/Git-기본-사용법-알아보기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1041,7 +1154,7 @@
 <h2 id="파일의-변경-사항-추적하기"><a href="#파일의-변경-사항-추적하기" class="headerlink" title="파일의 변경 사항 추적하기"></a>파일의 변경 사항 추적하기</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/06/01/Git-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/#more" rel="contents">
+              <a class="btn" href="/2021/06/01/Git-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -1072,7 +1185,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/05/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2021-%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%9D%B8%ED%84%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/05/11/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-2021-%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8-%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%86%AB-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7-%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC-%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%92%E1%85%AE%E1%84%80%E1%85%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1085,7 +1198,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2021-%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%9D%B8%ED%84%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/" class="post-title-link" itemprop="url">프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기</a>
+          <a href="/2021/05/11/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-2021-%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8-%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%86%AB-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7-%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC-%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%92%E1%85%AE%E1%84%80%E1%85%B5/" class="post-title-link" itemprop="url">프로그래머스 2021 여름방학 스타트업 인턴 프로그램 코딩 테스트 후기</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1103,7 +1216,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-03 23:15:39" itemprop="dateModified" datetime="2021-06-03T23:15:39+09:00">2021-06-03</time>
+        <time title="Updated at: 2021-06-03 23:15:38" itemprop="dateModified" datetime="2021-06-03T23:15:38+09:00">2021-06-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1124,8 +1237,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/05/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2021-%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%9D%B8%ED%84%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/11/프로그래머스-2021-여름방학-스타트업-인턴-프로그램-코딩-테스트-후기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/05/11/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-2021-%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8-%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%86%AB-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7-%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC-%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%92%E1%85%AE%E1%84%80%E1%85%B5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/11/프로그래머스-2021-여름방학-스타트업-인턴-프로그램-코딩-테스트-후기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1159,7 +1272,7 @@
 <h3 id="3번-문제-100-100"><a href="#3번-문제-100-100" class="headerlink" title="3번 문제 (100/100)"></a>3번 문제 (100/100)</h3>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2021-%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%9D%B8%ED%84%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/#more" rel="contents">
+              <a class="btn" href="/2021/05/11/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-2021-%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8-%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%86%AB-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7-%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC-%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%92%E1%85%AE%E1%84%80%E1%85%B5/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
@@ -1190,7 +1303,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1203,7 +1316,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/" class="post-title-link" itemprop="url">[프로그래머스] NULL 처리하기</a>
+          <a href="/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/" class="post-title-link" itemprop="url">[프로그래머스] NULL 처리하기</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1242,8 +1355,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/03/프로그래머스-NULL-처리하기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/03/프로그래머스-NULL-처리하기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1267,119 +1380,7 @@
 <br>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/03/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-NULL-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="KiHyun Kim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="김기현 블로그">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/" class="post-title-link" itemprop="url">[프로그래머스] 동굴 탐험</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2021-04-24 14:45:30" itemprop="dateCreated datePublished" datetime="2021-04-24T14:45:30+09:00">2021-04-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-06 18:39:46" itemprop="dateModified" datetime="2021-06-06T18:39:46+09:00">2021-06-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/" itemprop="url" rel="index"><span itemprop="name">알고리즘 문제 풀이</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/24/프로그래머스-동굴-탐험/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="문제를-읽고-나서-알아차려야-했던-것들-3가지"><a href="#문제를-읽고-나서-알아차려야-했던-것들-3가지" class="headerlink" title="문제를 읽고 나서 알아차려야 했던 것들 3가지"></a>문제를 읽고 나서 알아차려야 했던 것들 3가지</h2><p>문제 해결을 위해서 문제를 읽고 나서 알아차려야 했던 것들이 있다.   </p>
-<h3 id="1-동굴은-트리-모양으로-되어있다"><a href="#1-동굴은-트리-모양으로-되어있다" class="headerlink" title="1. 동굴은 트리 모양으로 되어있다."></a>1. 동굴은 트리 모양으로 되어있다.</h3><p>문제에는 동굴이 트리 모양이라고 직접적으로 명시되어있지 않다.<br>하지만 문제를 읽어보면 다음과 같은 조건을 찾을 수 있다.   </p>
-<ul>
-<li>방의 개수가 n개일 때 방과 방 사이를 연결하는 통로의 개수는 n-1개이다(문제의 제한사항에 나와 있다).</li>
-<li>임의의 서로 다른 두 방을 연결하는 최단 경로는 딱 한 가지만 있으며, 두 방 사이에 이동이 불가능한 경우는 없다.</li>
-</ul>
-<p>방의 개수가 n개이고 방과 방 사이를 연결하는 통로의 개수가 n-1개이므로 동굴이 트리 모양이라고 확신할 수 있을까…?<br>정답은 <u><strong>확신할 수 없다</strong></u>이다.<br>트리의 정의가 정점의 개수가 n개이고 간선의 개수가 n-1개인, 사이클이 존재하지 않는 그래프인 건 맞다.<br>하지만 정점의 개수가 n개이고 간선의 개수가 n-1개인 그래프가 항상 트리인 것은 아니다.<br>왜냐하면 아래와 같은 반례가 존재하기 때문이다.   </p>
-<img src="/2021/04/24/프로그래머스-동굴-탐험/counterexample.png" width="300" height="250" alt="반례 예시" title="반례 예시">   
-
-<p><span class="exturl" data-url="aHR0cHM6Ly9sZGdlYW85OS50aXN0b3J5LmNvbS80MDE=">그림 출처 : LAB OF DAEGON<i class="fa fa-external-link-alt"></i></span></p>
-<p>위의 그림은 분명 정점의 개수가 n개이고 간선의 개수가 n-1개이지만 트리가 아니다.<br>정점의 개수가 n개이고 간선의 개수가 n-1개이면서 모든 정점이 연결되어 있다는 조건이 있을 때 해당 그래프를 트리라고 말할 수 있다.<br>임의의 서로 다른 두 방 사이에 이동이 불가능한 경우가 없다는 말은 모든 방이 연결되어 있다는 말과 같다.<br>그러므로 동굴은 트리 모양으로 되어있다.   </p>
-<h3 id="2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다"><a href="#2-동굴-안에-있는-임의의-서로-다른-두-방을-연결하는-경로는-딱-한-가지만-있다" class="headerlink" title="2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다."></a>2. 동굴 안에 있는 임의의 서로 다른 두 방을 연결하는 경로는 딱 한 가지만 있다.</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/24/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8F%99%EA%B5%B4-%ED%83%90%ED%97%98/#more" rel="contents">
+              <a class="btn" href="/2021/05/03/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%A5%E1%84%89%E1%85%B3-NULL-%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>

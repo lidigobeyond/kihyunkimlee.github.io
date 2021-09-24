@@ -25,21 +25,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="아래의 내용은 전예홍님의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.  var와 let&amp;const의 차이var 함수 스코프 사용. var 변수를 재정의해도 오류가 발생하지 않음. 호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)  let과 const 블록 스코프 사용. 재정의">
+<meta name="description" content="아래의 내용은 전예홍님의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.    var와 let&amp;const의 차이var 함수 스코프 사용. var 변수를 재정의해도 오류가 발생하지 않음. 호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)  let과 const 블록 스코프 사용. 재">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입">
-<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/index.html">
+<meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/index.html">
 <meta property="og:site_name" content="김기현 블로그">
-<meta property="og:description" content="아래의 내용은 전예홍님의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.  var와 let&amp;const의 차이var 함수 스코프 사용. var 변수를 재정의해도 오류가 발생하지 않음. 호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)  let과 const 블록 스코프 사용. 재정의">
+<meta property="og:description" content="아래의 내용은 전예홍님의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.    var와 let&amp;const의 차이var 함수 스코프 사용. var 변수를 재정의해도 오류가 발생하지 않음. 호이스팅이 일어남.(var 변수가 정의되기 전에도 접근하여 사용 가능)  let과 const 블록 스코프 사용. 재">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2021-06-15T04:35:16.000Z">
-<meta property="article:modified_time" content="2021-06-16T18:05:17.539Z">
+<meta property="article:modified_time" content="2021-09-23T14:24:14.540Z">
 <meta property="article:author" content="KiHyun Kim">
 <meta property="article:tag" content="Typescript">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/">
+<link rel="canonical" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/">
 
 
 <script class="page-configurations">
@@ -212,20 +212,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">카테고리</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -271,7 +271,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/">
+    <link itemprop="mainEntityOfPage" href="https://kihyunkimlee.github.io/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -302,7 +302,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2021-06-17 03:05:17" itemprop="dateModified" datetime="2021-06-17T03:05:17+09:00">2021-06-17</time>
+        <time title="Updated at: 2021-09-23 23:24:14" itemprop="dateModified" datetime="2021-09-23T23:24:14+09:00">2021-09-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -330,8 +330,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/15/Do-it-타입스크립트-프로그래밍-3-객체와-타입/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/15/Do-it-타입스크립트-프로그래밍-3-객체와-타입/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -348,6 +348,8 @@
         <blockquote>
 <p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
+<br>
+
 <h1 id="var와-let-amp-const의-차이"><a href="#var와-let-amp-const의-차이" class="headerlink" title="var와 let&amp;const의 차이"></a>var와 let&amp;const의 차이</h1><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ul>
 <li>함수 스코프 사용.</li>
 <li>var 변수를 재정의해도 오류가 발생하지 않음.</li>
@@ -519,12 +521,12 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/06/14/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EC%9E%91-%EB%B0%A9%EB%B2%95-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/" rel="prev" title="브랜치 기본 조작 방법 알아보기">
+                <a href="/2021/06/14/%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%8C%E1%85%A9%E1%84%8C%E1%85%A1%E1%86%A8-%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5/" rel="prev" title="브랜치 기본 조작 방법 알아보기">
                   <i class="fa fa-chevron-left"></i> 브랜치 기본 조작 방법 알아보기
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/06/17/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-4-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C/" rel="next" title="[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드">
+                <a href="/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/" rel="next" title="[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드">
                   [Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -619,8 +621,8 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kihyunkimlee.github.io/2021/06/15/Do-it-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-3-%EA%B0%9D%EC%B2%B4%EC%99%80-%ED%83%80%EC%9E%85/";
-    this.page.identifier = "2021/06/15/Do-it-타입스크립트-프로그래밍-3-객체와-타입/";
+    this.page.url = "https://kihyunkimlee.github.io/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/";
+    this.page.identifier = "2021/06/15/Do-it-타입스크립트-프로그래밍-3-객체와-타입/";
     this.page.title = "[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
