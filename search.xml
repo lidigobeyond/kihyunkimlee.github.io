@@ -105,7 +105,7 @@
     <title>[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드</title>
     <url>/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/</url>
     <content><![CDATA[<blockquote>
-<p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+<p>아래의 내용은 전예홍의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
 <br>
 
@@ -188,7 +188,7 @@
     <title>[Do it! 타입스크립트 프로그래밍] 3. 객체와 타입</title>
     <url>/2021/06/15/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-3-%E1%84%80%E1%85%A2%E1%86%A8%E1%84%8E%E1%85%A6%E1%84%8B%E1%85%AA-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8/</url>
     <content><![CDATA[<blockquote>
-<p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+<p>아래의 내용은 전예홍의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
 <br>
 
@@ -694,7 +694,7 @@
     <title>[코어 자바스크립트] 3장 this 👉</title>
     <url>/2021/09/23/%EC%BD%94%EC%96%B4-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-3%EC%9E%A5-this/</url>
     <content><![CDATA[<blockquote>
-<p>아래의 내용은 정재남님의 <span class="exturl" data-url="aHR0cHM6Ly93aWtpYm9vay5jby5rci9jb3JlanMv">&lt;코어 자바스크립트&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+<p>아래의 내용은 정재남의 <span class="exturl" data-url="aHR0cHM6Ly93aWtpYm9vay5jby5rci9jb3JlanMv">&lt;코어 자바스크립트&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
 <br>
 
@@ -715,16 +715,13 @@
 <h2 id="함수-호출-방식에-따라-달라지는-this"><a href="#함수-호출-방식에-따라-달라지는-this" class="headerlink" title="함수 호출 방식에 따라 달라지는 this"></a>함수 호출 방식에 따라 달라지는 this</h2><p>앞에서 this의 의미가 상황에 따라서 달라진다고 말했다.<br>좀 더 정확히 말하지만, this의 의미는 함수가 어떤 방식으로 호출되는지에 따라서 달라진다.<br>자바스크립트에서 this는 기본적으로 실행 컨텍스트가 생성될 때 결정되는데, 실행 컨텍스트는 함수를 호출할 때 생성된다.<br>그러므로 this는 함수가 호출될 때 결정된다고 할 수 있다.</p>
 <p>함수를 일반 함수로서 호출할 때와 메서드로서 호출할 때 this의 의미는 다음과 같다.</p>
 <blockquote>
-<p>💡 일반 함수로서 호출할 때 함수 내부에서의 this는 전역 공간에서의 this와 마찬가지로 전역 객체를 가리킨다.</p>
-</blockquote>
-<blockquote>
-<p>💡 메서드로서 호출할 때 함수 내부에서의 this는 해당 메서드를 호출한 객체를 가리킨다.</p>
+<p>💡 일반 함수로서 호출할 때 함수 내부에서의 this는 전역 공간에서의 this와 마찬가지로 전역 객체를 가리킨다.<br>💡 메서드로서 호출할 때 함수 내부에서의 this는 해당 메서드를 호출한 객체를 가리킨다.</p>
 </blockquote>
 <br>
 
 <p>함수 호출 방식에 따라서 this가 가리키는 대상이 명쾌하게 결정되는거 같지만, 가끔씩 헷갈릴 때가 있다.<br>아래의 두 예제 코드의 실행 결과는 각각 무엇일까?</p>
-<h3 id="예제-1"><a href="#예제-1" class="headerlink" title="예제 1"></a>예제 1</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	func1: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func2 = obj.func1;</span><br><span class="line"></span><br><span class="line">func2(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
-<h3 id="예제-2"><a href="#예제-2" class="headerlink" title="예제 2"></a>예제 2</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 예제 2</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	outer: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		inner();</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.outer(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
+<h3 id="예제-1"><a href="#예제-1" class="headerlink" title="예제 1"></a>예제 1</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">   a: <span class="number">2</span>,</span><br><span class="line">   func1: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func2 = obj.func1;</span><br><span class="line"></span><br><span class="line">func2(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
+<h3 id="예제-2"><a href="#예제-2" class="headerlink" title="예제 2"></a>예제 2</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 예제 2</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">   a: <span class="number">2</span>,</span><br><span class="line">   outer: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     inner();</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.outer(); <span class="comment">// 1 or 2 ???</span></span><br></pre></td></tr></table></figure>
 <br>
 <br>
 <br>
@@ -732,7 +729,9 @@
 <br>
 
 <p>정답은 둘 다 1이다!</p>
-<p>예제 1에서 <code>func2</code>는 일반 함수로서 호출되었기 때문에 <code>func2</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 this.a를 콘솔에 표시한 결과는 1이다.<br>예제 2에서 <code>outer</code> 함수는 메서드로서 호출되었기 때문에 <code>outer</code> 내부의 this는 <code>obj</code> 객체를 가리킨다.<br><code>inner</code> 함수는 <code>outer</code> 함수 내부에서 선언되고 호출되었기 때문에 <code>inner</code> 부의 this도 <code>obj</code> 객체를 가리킬 거 같지만… 아니다!<br><code>inner</code> 함수는 일반 함수로 호출되었고 <code>inner</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 <code>inner</code>함수 내부에서 this.a를 콘솔에 표시한 결과는 1이다.</p>
+<p>예제 1에서 <code>func2</code>는 일반 함수로서 호출되었기 때문에 <code>func2</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 this.a를 콘솔에 표시한 결과는 1이다.</p>
+<p>예제 2에서 <code>outer</code> 함수는 메서드로서 호출되었기 때문에 <code>outer</code> 내부의 this는 <code>obj</code> 객체를 가리킨다.<br><code>inner</code> 함수는 <code>outer</code> 함수 내부에서 선언되고 호출되었기 때문에 <code>inner</code> 부의 this도 <code>obj</code> 객체를 가리킬 거 같지만… 아니다!<br><code>inner</code> 함수는 일반 함수로 호출되었고 <code>inner</code> 내부의 this는 전역 객체를 가리킨다.<br>그러므로 <code>inner</code>함수 내부에서 this.a를 콘솔에 표시한 결과는 1이다.</p>
+<br>
 <br>
 
 <p>함수가 일반 함수로서 호출되었는지, 아니면 메서드로서 호출되었는지 쉽게 구분할 수 있는 방법이 있다.<br>함수 앞에 점(<code>.</code>)이 있는지 여부만 체크하면 된다!<br>함수 앞에 점이 없으면 일반 함수로서 호출된 것이고, 함수 앞에 점이 있으면 메서드로서 호출된 것이다.</p>
@@ -744,16 +743,14 @@
 <p>💡 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수의 내부 로직에 따라서 결정된다.</p>
 </blockquote>
 <p>콜백 함수도 함수이기 때문에 기본적으로 콜백 함수 내부의 this는 전역 객체를 가리킨다.<br>하지만 콜백 함수를 인자로 받은 함수 내부에서 콜백 함수에 별도로 this를 바인딩하는 경우가 있다.<br>예를 들면, <code>addEventListener</code> 메서드는 콜백 함수의 this에 이벤트가 발생한 요소를 바인딩시킨다.</p>
-<br>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;click&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> printThis = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="built_in">this</span>);</span></span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="comment">// id가 &#x27;btn&#x27; 인 HTML Element의 클릭 이벤트가 발생하면 printThis를 호출시킨다.</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.getElementById(<span class="string">&#x27;btn&#x27;</span>).addEventListener(<span class="string">&#x27;click&#x27;</span>, printThis);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;click&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> printThis = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">         <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span></span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="comment">// id가 &#x27;btn&#x27; 인 HTML Element의 클릭 이벤트가 발생하면 printThis를 호출시킨다.</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.getElementById(<span class="string">&#x27;btn&#x27;</span>).addEventListener(<span class="string">&#x27;click&#x27;</span>, printThis);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <img src="/2021/09/23/코어-자바스크립트-3장-this/example1.png">
 
 <p><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AdXJzcjA3MDYvJUVDJTlEJUI0JUVCJUIyJUE0JUVEJThBJUI4LSVFRCU5NSVCOCVFQiU5MyVBNCVFQiU5RiVBQy0lRUIlODIlQjQlRUIlQjYlODAlRUMlOUQlOTgtdGhpcy0yZ3l1anFtMg==">코드와 그림 출처: ursr.log<i class="fa fa-external-link-alt"></i></span></p>
 <br>
 
 <p>콜백 함수 내부의 this를 출력해본 결과, 클릭 이벤트가 발생한 HTML Element가 출력되었다.</p>
-<p>그러므로 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수마다 <code>다르다고 할 수 있다. 하지만 </code>addEventListener`메서드처럼 API 문서에 특별히 명시되어 있지 않은 경우, 콜백 함수 내부의 this는 전역 객체라고 생각해도 될 것이다.</p>
+<p>그러므로 콜백 함수 내부의 this는 콜백 함수를 인자로 받은 함수마다 다르다고 할 수 있다.<br>하지만 <code>addEventListener</code> 메서드처럼 API 문서에 특별히 명시되어 있지 않은 경우, 콜백 함수 내부의 this는 전역 객체라고 생각해도 된다.</p>
 <br>
 
 <h3 id="참고-자료"><a href="#참고-자료" class="headerlink" title="참고 자료"></a>참고 자료</h3><p><span class="exturl" data-url="aHR0cDovL3RjcHNjaG9vbC5jb20vamF2YXNjcmlwdC9qc19zdGFuZGFyZF9vYmplY3Q=">http://tcpschool.com/javascript/js_standard_object<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly92ZWxvZy5pby9AdXJzcjA3MDYvJUVDJTlEJUI0JUVCJUIyJUE0JUVEJThBJUI4LSVFRCU5NSVCOCVFQiU5MyVBNCVFQiU5RiVBQy0lRUIlODIlQjQlRUIlQjYlODAlRUMlOUQlOTgtdGhpcy0yZ3l1anFtMg==">https://velog.io/@ursr0706/이벤트-핸들러-내부의-this-2gyujqm2<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcva28vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXIjJUVEJTk1JUI4JUVCJTkzJUE0JUVCJTlGJUFDXyVFQiU4MiVCNCVFQiVCNiU4MCVFQyU5RCU5OF90aGlzXyVFQSVCMCU5Mg==">https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener#핸들러_내부의_this_값<i class="fa fa-external-link-alt"></i></span></p>

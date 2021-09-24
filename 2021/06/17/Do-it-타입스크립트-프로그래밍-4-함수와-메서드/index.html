@@ -25,15 +25,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"kihyunkimlee.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="아래의 내용은 전예홍님의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.    함수함수를 정의하는 두 가지 방식함수 선언문123function add(a: number, b: number): number &amp;#123;	return a+b&amp;#125; 함수 표현식123const add &#x3D; function(a: n">
+<meta name="description" content="아래의 내용은 전예홍의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.    함수함수를 정의하는 두 가지 방식함수 선언문123function add(a: number, b: number): number &amp;#123;	return a+b&amp;#125; 함수 표현식123const add &#x3D; function(a: nu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Do it! 타입스크립트 프로그래밍] 4. 함수와 메서드">
 <meta property="og:url" content="https://kihyunkimlee.github.io/2021/06/17/Do-it-%E1%84%90%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B8%E1%84%90%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC-4-%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%A6%E1%84%89%E1%85%A5%E1%84%83%E1%85%B3/index.html">
 <meta property="og:site_name" content="김기현 블로그">
-<meta property="og:description" content="아래의 내용은 전예홍님의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.    함수함수를 정의하는 두 가지 방식함수 선언문123function add(a: number, b: number): number &amp;#123;	return a+b&amp;#125; 함수 표현식123const add &#x3D; function(a: n">
+<meta property="og:description" content="아래의 내용은 전예홍의 &lt;Do it! 타입스크립트 프로그래밍&gt; 책을 공부하며 중요한 내용을 정리한 것입니다.    함수함수를 정의하는 두 가지 방식함수 선언문123function add(a: number, b: number): number &amp;#123;	return a+b&amp;#125; 함수 표현식123const add &#x3D; function(a: nu">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2021-06-16T17:51:21.000Z">
-<meta property="article:modified_time" content="2021-06-16T18:29:44.000Z">
+<meta property="article:modified_time" content="2021-09-24T09:02:21.185Z">
 <meta property="article:author" content="KiHyun Kim">
 <meta property="article:tag" content="Typescript">
 <meta name="twitter:card" content="summary">
@@ -294,10 +294,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">작성일</span>
-      
 
-      <time title="Post created: 2021-06-17 02:51:21 / Updated at: 03:29:44" itemprop="dateCreated datePublished" datetime="2021-06-17T02:51:21+09:00">2021-06-17</time>
+      <time title="Post created: 2021-06-17 02:51:21" itemprop="dateCreated datePublished" datetime="2021-06-17T02:51:21+09:00">2021-06-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-09-24 18:02:21" itemprop="dateModified" datetime="2021-09-24T18:02:21+09:00">2021-09-24</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -340,7 +346,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p>아래의 내용은 전예홍님의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
+<p>아래의 내용은 전예홍의 <span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5c3B1Yi5jby5rci8yMF9NZW51L0Jvb2tWaWV3LzM1Ni9QVUI=">&lt;Do it! 타입스크립트 프로그래밍&gt;<i class="fa fa-external-link-alt"></i></span> 책을 공부하며 중요한 내용을 정리한 것입니다.</p>
 </blockquote>
 <br>
 
